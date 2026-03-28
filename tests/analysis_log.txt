@@ -1,0 +1,111 @@
+[2026-03-25 07:44:42 UTC]
+- prices_train_shape: (1763, 205) | dates 2015-01-02 to 2021-12-31; tickers 40; mean missing close 16.11%
+- macro_train_shape: (4550, 22) | dates 2005-01-01 to 2021-12-31; series 22; mean missing 26.51%
+- prices_validation_shape: (251, 205) | dates 2022-01-03 to 2022-12-30; tickers 40; mean missing close 12.50%
+- macro_validation_shape: (266, 22) | dates 2022-01-01 to 2022-12-31; series 22; mean missing 29.92%
+- prices_test_shape: (807, 205) | dates 2023-01-03 to 2026-03-23; tickers 40; mean missing close 12.50%
+- macro_test_shape: (865, 22) | dates 2023-01-01 to 2026-03-23; series 22; mean missing 30.92%
+- distress_drawdowns_train_count: 75 | unique tickers 34
+- energy_defaults_train_count: 24 | unique tickers 23
+- distress_drawdowns_validation_count: 0 | unique tickers 0
+- energy_defaults_validation_count: 0 | unique tickers 0
+- distress_drawdowns_test_count: 1 | unique tickers 1
+- energy_defaults_test_count: 0 | unique tickers 0
+- label_coverage_distress_drawdowns_train: missing 0 | all present
+- label_coverage_energy_defaults_train: missing 22 | 3333.HK, BBEP, CHAP, CVIA, DEN, DO, DYN, ENE, HK, JCP, LINE, MDR, MHR, OAS, PCX, PVA, REXX, SDRL, SPN, TXU, WFT, WLL
+- module2_10k_extracted_files: 353 | path crisisnet-data/Module_2/10k_extracted/10-K
+- module2_filings_metadata_rows: 353 | cols 14; filing_date range unknown
+- module2_transcripts_size_gb: 3.63 | crisisnet-data/Module_2/transcripts/huggingface/train.jsonl
+- module3_edges_count: 30 | cols 4
+- module3_disclosures_count: 660 | cols 5
+- signal_test_pos_samples: 75 | neg samples 375
+- signal_vol30_auc: 0.812 | pos mean 0.7722, neg mean 0.5324, d 0.283
+- signal_maxdd30_auc: 0.910 | pos mean -0.4042, neg mean -0.1877, d -1.666
+
+[2026-03-25 08:17:43 UTC]
+- prices_train_shape: (1763, 205) | dates 2015-01-02 to 2021-12-31; tickers 40; mean missing close 16.11%
+- macro_train_shape: (4550, 22) | dates 2005-01-01 to 2021-12-31; series 22; mean missing 26.51%
+- prices_validation_shape: (251, 205) | dates 2022-01-03 to 2022-12-30; tickers 40; mean missing close 12.50%
+- macro_validation_shape: (266, 22) | dates 2022-01-01 to 2022-12-31; series 22; mean missing 29.92%
+- prices_test_shape: (807, 205) | dates 2023-01-03 to 2026-03-23; tickers 40; mean missing close 12.50%
+- macro_test_shape: (865, 22) | dates 2023-01-01 to 2026-03-23; series 22; mean missing 30.92%
+- distress_drawdowns_train_count: 75 | unique tickers 34
+- energy_defaults_train_count: 24 | unique tickers 23
+- distress_drawdowns_validation_count: 0 | unique tickers 0
+- energy_defaults_validation_count: 0 | unique tickers 0
+- distress_drawdowns_test_count: 1 | unique tickers 1
+- energy_defaults_test_count: 0 | unique tickers 0
+- label_coverage_distress_drawdowns_train: missing 0 | all present
+- label_coverage_energy_defaults_train: missing 22 | 3333.HK, BBEP, CHAP, CVIA, DEN, DO, DYN, ENE, HK, JCP, LINE, MDR, MHR, OAS, PCX, PVA, REXX, SDRL, SPN, TXU, WFT, WLL
+- module2_10k_extracted_files: 353 | path crisisnet-data/Module_2/10k_extracted/10-K
+- module2_filings_metadata_rows: 353 | cols 14; filing_date range unknown
+- module2_transcripts_size_gb: 3.63 | crisisnet-data/Module_2/transcripts/huggingface/train.jsonl
+- module3_edges_count: 30 | cols 4
+- module3_disclosures_count: 660 | cols 5
+- signal_test_pos_samples: 75 | neg samples 375
+- signal_vol30_auc: 0.812 | pos mean 0.7722, neg mean 0.5324, d 0.283
+- signal_maxdd30_auc: 0.910 | pos mean -0.4042, neg mean -0.1877, d -1.666
+- walk_forward_fold_1_auc: 0.825 | val positives 893, negatives 7675; val period 2019-01-01 to 2019-12-31
+- walk_forward_fold_2_auc: 0.840 | val positives 2490, negatives 6112; val period 2020-01-01 to 2020-12-31
+- walk_forward_fold_3_auc: 0.998 | val positives 22, negatives 8616; val period 2021-01-01 to 2021-12-31
+
+[2026-03-25 08:18:22 UTC]
+- prices_train_shape: (1763, 205) | dates 2015-01-02 to 2021-12-31; tickers 40; mean missing close 16.11%
+- macro_train_shape: (4550, 22) | dates 2005-01-01 to 2021-12-31; series 22; mean missing 26.51%
+- prices_validation_shape: (251, 205) | dates 2022-01-03 to 2022-12-30; tickers 40; mean missing close 12.50%
+- macro_validation_shape: (266, 22) | dates 2022-01-01 to 2022-12-31; series 22; mean missing 29.92%
+- prices_test_shape: (807, 205) | dates 2023-01-03 to 2026-03-23; tickers 40; mean missing close 12.50%
+- macro_test_shape: (865, 22) | dates 2023-01-01 to 2026-03-23; series 22; mean missing 30.92%
+- distress_drawdowns_train_count: 75 | unique tickers 34
+- energy_defaults_train_count: 24 | unique tickers 23
+- distress_drawdowns_validation_count: 0 | unique tickers 0
+- energy_defaults_validation_count: 0 | unique tickers 0
+- distress_drawdowns_test_count: 1 | unique tickers 1
+- energy_defaults_test_count: 0 | unique tickers 0
+- label_coverage_distress_drawdowns_train: missing 0 | all present
+- label_coverage_energy_defaults_train: missing 22 | 3333.HK, BBEP, CHAP, CVIA, DEN, DO, DYN, ENE, HK, JCP, LINE, MDR, MHR, OAS, PCX, PVA, REXX, SDRL, SPN, TXU, WFT, WLL
+- module2_10k_extracted_files: 353 | path crisisnet-data/Module_2/10k_extracted/10-K
+- module2_filings_metadata_rows: 353 | cols 14; filing_date range unknown
+- module2_transcripts_size_gb: 3.63 | crisisnet-data/Module_2/transcripts/huggingface/train.jsonl
+- module3_edges_count: 30 | cols 4
+- module3_disclosures_count: 660 | cols 5
+- signal_test_pos_samples: 75 | neg samples 375
+- signal_vol30_auc: 0.812 | pos mean 0.7722, neg mean 0.5324, d 0.283
+- signal_maxdd30_auc: 0.910 | pos mean -0.4042, neg mean -0.1877, d -1.666
+- nlp_baseline_samples: 308 | positives 53, negatives 255
+- nlp_keyword_rate_auc: 0.598 | pos mean 0.002358, neg mean 0.002067
+- nlp_neg_rate_auc: 0.409 | pos mean 0.014290, neg mean 0.015301
+- walk_forward_fold_1_auc: 0.825 | val positives 893, negatives 7675; val period 2019-01-01 to 2019-12-31
+- walk_forward_fold_2_auc: 0.840 | val positives 2490, negatives 6112; val period 2020-01-01 to 2020-12-31
+- walk_forward_fold_3_auc: 0.998 | val positives 22, negatives 8616; val period 2021-01-01 to 2021-12-31
+
+[2026-03-28 05:55:53 UTC]
+- prices_train_shape: (1763, 205) | dates 2015-01-02 to 2021-12-31; tickers 40; mean missing close 16.11%
+- macro_train_shape: (4550, 22) | dates 2005-01-01 to 2021-12-31; series 22; mean missing 26.51%
+- prices_validation_shape: (251, 205) | dates 2022-01-03 to 2022-12-30; tickers 40; mean missing close 12.50%
+- macro_validation_shape: (266, 22) | dates 2022-01-01 to 2022-12-31; series 22; mean missing 29.92%
+- prices_test_shape: (807, 205) | dates 2023-01-03 to 2026-03-23; tickers 40; mean missing close 12.50%
+- macro_test_shape: (865, 22) | dates 2023-01-01 to 2026-03-23; series 22; mean missing 30.92%
+- distress_drawdowns_train_count: 75 | unique tickers 34
+- energy_defaults_train_count: 24 | unique tickers 23
+- distress_drawdowns_validation_count: 0 | unique tickers 0
+- energy_defaults_validation_count: 0 | unique tickers 0
+- distress_drawdowns_test_count: 1 | unique tickers 1
+- energy_defaults_test_count: 0 | unique tickers 0
+- label_coverage_distress_drawdowns_train: missing 0 | all present
+- label_coverage_energy_defaults_train: missing 22 | 3333.HK, BBEP, CHAP, CVIA, DEN, DO, DYN, ENE, HK, JCP, LINE, MDR, MHR, OAS, PCX, PVA, REXX, SDRL, SPN, TXU, WFT, WLL
+- module2_10k_extracted_files: 353 | path crisisnet-data/Module_2/10k_extracted/10-K
+- module2_filings_metadata_rows: 353 | cols 14; filing_date range unknown
+- module2_transcripts_size_gb: 3.63 | crisisnet-data/Module_2/transcripts/huggingface/train.jsonl
+- module3_edges_count: 30 | cols 4
+- module3_disclosures_count: 660 | cols 5
+- signal_test_pos_samples: 75 | neg samples 375
+- signal_vol30_auc: 0.812 | pos mean 0.7722, neg mean 0.5324, d 0.283
+- signal_maxdd30_auc: 0.910 | pos mean -0.4042, neg mean -0.1877, d -1.666
+- nlp_baseline_samples: 308 | positives 53, negatives 255
+- nlp_keyword_rate_auc: 0.598 | pos mean 0.002358, neg mean 0.002067
+- nlp_neg_rate_auc: 0.409 | pos mean 0.014290, neg mean 0.015301
+- walk_forward_fold_1_auc: 0.825 | val positives 893, negatives 7675; val period 2019-01-01 to 2019-12-31
+- walk_forward_fold_2_auc: 0.840 | val positives 2490, negatives 6112; val period 2020-01-01 to 2020-12-31
+- walk_forward_fold_3_auc: 0.998 | val positives 22, negatives 8616; val period 2021-01-01 to 2021-12-31
+
