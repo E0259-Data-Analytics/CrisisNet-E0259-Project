@@ -42,7 +42,15 @@ customer_disclosures_raw.csv  →  ├─ Graph G(V,E)  →  Community Detection
 cells.append(nbf.v4.new_code_cell(
 """import os, sys, warnings, pickle
 warnings.filterwarnings("ignore")
-sys.path.insert(0, "src")
+
+# Resolve src/ regardless of whether the notebook is opened from
+# notebooks/ or Module_C/ directory
+_nb_dir = os.path.abspath('')
+if os.path.basename(_nb_dir) == 'notebooks':
+    _src = os.path.abspath(os.path.join(_nb_dir, '..', 'src'))
+else:
+    _src = os.path.abspath(os.path.join(_nb_dir, 'src'))
+sys.path.insert(0, _src)
 
 import numpy as np
 import pandas as pd
