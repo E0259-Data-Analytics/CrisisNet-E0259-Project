@@ -11,8 +11,8 @@ Status Checklist
 [x] Add eval script (`scripts/eval_nlp_features.py`)
 [x] Build sample features (lexicon sentiment) and save to `results/`
 [x] Download and save FinBERT model to `finbert_model/`
-[ ] Run full FinBERT pass over all earnings calls and save `results/X_nlp_finbert.parquet`
-[ ] Save FinBERT evaluation output to `results/eval_nlp_finbert.txt`
+[x] Run full FinBERT pass over all earnings calls and save `results/X_nlp_finbert.parquet`
+[x] Save FinBERT evaluation output to `results/eval_nlp_finbert.txt`
 
 Data Inputs (from report)
 1. 10-K filings: `crisisnet-data/Module_2/10k_extracted/10-K/` (353 JSON files, 2015–2024).
