@@ -25,6 +25,12 @@ def quarter_from_date(dt: pd.Timestamp) -> str:
     q = ((dt.month - 1) // 3) + 1
     return f"{dt.year}Q{q}"
 
+def quarter_start_date(q: str) -> pd.Timestamp:
+    year = int(q[:4])
+    quarter = int(q[-1])
+    month = 1 + (quarter - 1) * 3
+    return pd.Timestamp(year=year, month=month, day=1)
+
 
 def clean_text(text: str) -> str:
     if not isinstance(text, str):
@@ -147,6 +153,41 @@ class LexiconSentiment:
         return pos_r, neg_r, neu_r, score
 
 
+class LexiconUncertainty:
+    def __init__(self, lexicon_path: Optional[Path] = None):
+        default_terms = {
+            "uncertain", "uncertainty", "unpredictable", "indefinite", "ambiguous",
+            "contingent", "volatile", "pending", "fluctuate", "hesitant", "approximately",
+            "may", "might", "could", "possibly", "risk", "subject",
+        }
+        self.phrases = {"subject to", "going concern", "material weakness"}
+        self.terms = set(default_terms)
+        if lexicon_path and lexicon_path.exists():
+            terms = set()
+            for line in lexicon_path.read_text(encoding="utf-8").splitlines():
+                t = line.strip().lower()
+                if not t:
+                    continue
+                if " " in t:
+                    self.phrases.add(t)
+                else:
+                    terms.add(t)
+            if terms:
+                self.terms = terms
+
+    def score(self, text: str) -> float:
+        if not text:
+            return 0.0
+        text = clean_text(text)
+        words = text.split()
+        if not words:
+            return 0.0
+        count = sum(1 for w in words if w in self.terms)
+        for phrase in self.phrases:
+            count += text.count(phrase)
+        return float(count / max(1, len(words)))
+
+
 class FinBertSentiment:
     def __init__(self, model_name: str, device: int = -1):
         from transformers import pipeline
@@ -157,17 +198,47 @@ class FinBertSentiment:
             device=device,
         )
 
+    @staticmethod
+    def _sent_tokenize(text: str) -> List[str]:
+        try:
+            import nltk
+            try:
+                nltk.data.find("tokenizers/punkt")
+            except LookupError:
+                raise RuntimeError("nltk punkt not available")
+            return nltk.sent_tokenize(text)
+        except Exception:
+            text = text.replace("?", ".").replace("!", ".")
+            return [s.strip() for s in text.split(".") if s.strip()]
+
     def score(self, text: str) -> Tuple[float, float, float, float]:
         if not text:
             return 0.0, 0.0, 1.0, 0.0
-        out = self.pipe(text[:2000])[0]
-        label = out["label"].lower()
-        score = float(out["score"])
-        if "positive" in label:
-            return score, 0.0, 1.0 - score, score
-        if "negative" in label:
-            return 0.0, score, 1.0 - score, -score
-        return 0.0, 0.0, 1.0, 0.0
+        sentences = [s for s in self._sent_tokenize(text) if len(s.split()) > 8]
+        if not sentences:
+            return 0.0, 0.0, 1.0, 0.0
+
+        def to_scores(output) -> Tuple[float, float, float, float]:
+            label = output["label"].lower()
+            score = float(output["score"])
+            if "positive" in label:
+                return score, 0.0, 1.0 - score, score
+            if "negative" in label:
+                return 0.0, score, 1.0 - score, -score
+            return 0.0, 0.0, 1.0, 0.0
+
+        batch_size = 32
+        scores = []
+        for i in range(0, len(sentences), batch_size):
+            batch = sentences[i:i + batch_size]
+            outputs = self.pipe(batch, truncation=True)
+            scores.extend(to_scores(o) for o in outputs)
+
+        pos = float(np.mean([s[0] for s in scores]))
+        neg = float(np.mean([s[1] for s in scores]))
+        neu = float(np.mean([s[2] for s in scores]))
+        score = float(np.mean([s[3] for s in scores]))
+        return pos, neg, neu, score
 
 
 def build_10k_features(
@@ -210,7 +281,27 @@ def aggregate_sentiment(
         })
     df = pd.DataFrame(rows)
     if df.empty:
-        return df
+        return pd.DataFrame(columns=["ticker", "quarter", "pos", "neg", "neu", "score"])
+    agg = df.groupby(["ticker", "quarter"], as_index=False).mean()
+    return agg
+
+
+def aggregate_uncertainty(
+    records: Iterable[Tuple[str, pd.Timestamp, str]],
+    scorer: LexiconUncertainty,
+) -> pd.DataFrame:
+    rows = []
+    for ticker, dt, text in records:
+        text = clean_text(text)
+        rate = scorer.score(text)
+        rows.append({
+            "ticker": ticker,
+            "quarter": quarter_from_date(dt),
+            "uncertainty_rate": rate,
+        })
+    df = pd.DataFrame(rows)
+    if df.empty:
+        return pd.DataFrame(columns=["ticker", "quarter", "uncertainty_rate"])
     agg = df.groupby(["ticker", "quarter"], as_index=False).mean()
     return agg
 
@@ -293,32 +384,73 @@ def build_features(
     else:
         scorer = LexiconSentiment()
 
+    uncertainty_lexicon_path = DATA_ROOT / "Module_2" / "lexicons" / "lm_uncertainty.txt"
+    uncertainty_scorer = LexiconUncertainty(uncertainty_lexicon_path)
+
     risk_records = [(r.ticker, r.filing_date, r.item_1a) for r in tenk_records]
     tenk_sent = aggregate_sentiment(risk_records, scorer)
     tenk_sent = tenk_sent.add_prefix("tenk_")
     tenk_sent = tenk_sent.rename(columns={"tenk_ticker": "ticker", "tenk_quarter": "quarter"})
+    tenk_unc = aggregate_uncertainty(risk_records, uncertainty_scorer)
+    tenk_unc = tenk_unc.add_prefix("tenk_")
+    tenk_unc = tenk_unc.rename(columns={"tenk_ticker": "ticker", "tenk_quarter": "quarter"})
 
     tickers = {r.ticker for r in tenk_records}
     calls = iter_earnings_calls(transcripts_path, tickers=tickers, max_records=max_transcripts)
     calls_sent = aggregate_sentiment(calls, scorer)
     calls_sent = calls_sent.add_prefix("calls_")
     calls_sent = calls_sent.rename(columns={"calls_ticker": "ticker", "calls_quarter": "quarter"})
+    calls_unc = aggregate_uncertainty(calls, uncertainty_scorer)
+    calls_unc = calls_unc.add_prefix("calls_")
+    calls_unc = calls_unc.rename(columns={"calls_ticker": "ticker", "calls_quarter": "quarter"})
 
     df = topic_df.merge(tenk_sent, on=["ticker", "quarter"], how="left")
+    df = df.merge(tenk_unc, on=["ticker", "quarter"], how="left")
     df = df.merge(calls_sent, on=["ticker", "quarter"], how="left")
+    df = df.merge(calls_unc, on=["ticker", "quarter"], how="left")
+
+    df["quarter_start"] = df["quarter"].map(quarter_start_date)
+    df = df.sort_values(["ticker", "quarter_start"])
 
     if "tenk_score" in df.columns:
         df["tenk_score_4q_mean"] = (
-            df.sort_values("quarter")
-            .groupby("ticker")["tenk_score"]
+            df.groupby("ticker")["tenk_score"]
             .transform(lambda s: s.rolling(4, min_periods=1).mean())
         )
+        df["tenk_score_delta"] = df.groupby("ticker")["tenk_score"].diff()
     if "calls_score" in df.columns:
         df["calls_score_4q_mean"] = (
-            df.sort_values("quarter")
-            .groupby("ticker")["calls_score"]
+            df.groupby("ticker")["calls_score"]
             .transform(lambda s: s.rolling(4, min_periods=1).mean())
         )
+        df["calls_score_delta"] = df.groupby("ticker")["calls_score"].diff()
+    if "tenk_uncertainty_rate" in df.columns:
+        df["tenk_uncertainty_4q_mean"] = (
+            df.groupby("ticker")["tenk_uncertainty_rate"]
+            .transform(lambda s: s.rolling(4, min_periods=1).mean())
+        )
+    if "calls_uncertainty_rate" in df.columns:
+        df["calls_uncertainty_4q_mean"] = (
+            df.groupby("ticker")["calls_uncertainty_rate"]
+            .transform(lambda s: s.rolling(4, min_periods=1).mean())
+        )
+
+    topic_cols = [c for c in df.columns if c.startswith("topic_")]
+    if topic_cols:
+        eps = 1e-8
+        def _kl_shift(group: pd.DataFrame) -> pd.Series:
+            mat = group[topic_cols].to_numpy(dtype=float)
+            mat = mat / np.clip(mat.sum(axis=1, keepdims=True), eps, None)
+            kl = [np.nan] * len(group)
+            for i in range(1, len(mat)):
+                p = mat[i]
+                q = mat[i - 1]
+                kl[i] = float(np.sum(p * np.log((p + eps) / (q + eps))))
+            return pd.Series(kl, index=group.index)
+
+        df["topic_kl_shift"] = df.groupby("ticker", group_keys=False).apply(_kl_shift)
+
+    df = df.drop(columns=["quarter_start"])
 
     if return_artifacts:
         artifacts = {

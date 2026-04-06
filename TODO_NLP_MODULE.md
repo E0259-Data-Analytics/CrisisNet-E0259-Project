@@ -3,6 +3,26 @@ TODO — Module 2 (NLP: 10-K + Earnings Calls)
 Goal
 Produce the Module 2 feature set `X_nlp` as described in the report: topic proportions per quarter and sentiment trends over trailing 4 quarters per company, using 10-K filings and earnings call Q&A.
 
+Updated Checklist (2026-04-05)
+[x] All three Module 2 data inputs present (10-Ks, filings metadata, transcripts).
+[x] Module 2 pipeline runs end-to-end (`module2_nlp_pipeline.py`, `scripts/build_module2_features.py`).
+[x] LDA model + vectorizer trained and saved (`lda_model_module2.joblib`, `lda_vectorizer_module2.joblib`).
+[x] FinBERT model downloaded (`finbert_model/`).
+[x] Feature outputs saved (`results/X_nlp.parquet`, `results/X_nlp_finbert.parquet`).
+[x] Baseline eval run (`results/eval_nlp_finbert.txt`).
+[x] FinBERT truncation fixed (sentence-level scoring).
+[x] Sentiment deltas added (QoQ change for 10-K and calls).
+[x] Loughran-McDonald uncertainty feature added (with optional lexicon file).
+[x] Topic KL-divergence shift feature added (QoQ topic change).
+[x] Eval script can score all numeric columns and custom labels.
+[x] Chapter 11 label mapping helper added (`scripts/prepare_ch11_labels.py`).
+[x] Re-run full FinBERT pass with sentence scoring and save new `results/X_nlp_finbert.parquet`.
+[x] Evaluate all columns (`scripts/eval_nlp_features.py --all-cols`) and identify best topic/feature.
+[x] Inspect LDA topics and identify distress topic (print top words per topic).
+[x] Evaluate earnings calls signal standalone (`calls_score_4q_mean` / `calls_score_delta`).
+[x] Run eval against 2022–2025 Chapter 11 labels once available. (Deferred by user)
+[x] Decide annual-vs-quarterly alignment for 10-K features (annual eval; no 10-Q ingestion).
+
 Status Checklist
 [x] Install core NLP deps (`requirements.txt`)
 [x] Run `tests/crisisnet_checks.py` and store logs in `tests/analysis_log.*`
