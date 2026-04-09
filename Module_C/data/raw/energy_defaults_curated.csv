@@ -1,0 +1,25 @@
+company,ticker,event_date,event_type,details
+Enron Corp,ENE,2001-12-02,Chapter 11,"Accounting fraud, largest bankruptcy at the time"
+Dynegy Inc,DYN,2011-11-07,Chapter 11,"Energy trader, couldn't service debt"
+Patriot Coal,PCX,2012-07-09,Chapter 11,"Coal producer, declining demand"
+Energy Future Holdings,TXU,2014-04-29,Chapter 11,"Leveraged buyout gone wrong, $49B debt"
+Samson Resources,N/A,2015-09-16,Chapter 11,Oil price crash 2014-15
+Magnum Hunter Resources,MHR,2015-12-15,Chapter 11,"Oil price crash, liquidity crisis"
+Penn Virginia Corp,PVA,2016-05-12,Chapter 11,"Oil price crash, overleveraged"
+Breitburn Energy Partners,BBEP,2016-05-15,Chapter 11,Oil price crash
+Linn Energy,LINE,2016-05-11,Chapter 11,"Oil price crash, $6B debt"
+Halcon Resources,HK,2016-07-27,Chapter 11,"Oil price crash, high debt"
+Rex Energy,REXX,2018-10-05,Chapter 11,"Gas price pressure, debt load"
+Weatherford International,WFT,2019-07-01,Chapter 11,"Oilfield services downturn, $7.6B debt"
+McDermott International,MDR,2020-01-21,Chapter 11,"Cost overruns, heavy debt from CB&I merger"
+Whiting Petroleum,WLL,2020-04-01,Chapter 11,COVID oil crash
+Diamond Offshore,DO,2020-04-26,Chapter 11,"COVID oil crash, offshore drilling decline"
+J.C. Penney (non-energy comparison),JCP,2020-05-15,Chapter 11,COVID + retail decline
+Chesapeake Energy,CHK,2020-06-28,Chapter 11,COVID + legacy debt from gas overexpansion
+Chaparral Energy,CHAP,2020-08-16,Chapter 11,COVID oil crash
+Oasis Petroleum,OAS,2020-09-30,Chapter 11,COVID oil crash
+Denbury Resources,DEN,2020-07-29,Chapter 11,"COVID oil crash, CO2 EOR focus"
+Covia Holdings,CVIA,2020-06-29,Chapter 11,Frac sand demand collapse
+Superior Energy Services,SPN,2020-12-07,Chapter 11,Oilfield services downturn
+Seadrill Ltd,SDRL,2021-02-07,Chapter 11,"Second filing, offshore drilling overcapacity"
+Evergrande (non-energy comparison),3333.HK,2021-12-09,Default,"Real estate, cross-sector contagion example"

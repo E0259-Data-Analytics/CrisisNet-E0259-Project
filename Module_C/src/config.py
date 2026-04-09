@@ -57,7 +57,7 @@ COMPANY_UNIVERSE = {
     # Refining
     "VLO": {"name": "Valero Energy",         "subsector": "Refining",          "cik": "1035002"},
     "MPC": {"name": "Marathon Petroleum",    "subsector": "Refining",          "cik": "1510295"},
-    "PSX": {"name": "Phillips 66",           "subsector": "Refining",          "cik": "1534504"},
+    "PSX": {"name": "Phillips 66",           "subsector": "Refining",          "cik": "1534701"},
     "DK":  {"name": "Delek US Holdings",     "subsector": "Refining",          "cik": "1694426"},
     "PBF": {"name": "PBF Energy",            "subsector": "Refining",          "cik": "1534504"},
     # Midstream / Pipelines
@@ -79,6 +79,11 @@ COMPANY_UNIVERSE = {
     "HES": {"name": "Hess Corporation",      "subsector": "E&P",               "cik": "4447"},
     "MRO": {"name": "Marathon Oil",          "subsector": "E&P",               "cik": "101778"},
     "PXD": {"name": "Pioneer Natural Resources","subsector": "E&P",            "cik": "1038357"},
+    # C1: 4 missing tickers added to reach full 40-ticker universe
+    "CHRD":{"name": "Chord Energy",          "subsector": "E&P",               "cik": "0"},
+    "DTM": {"name": "DT Midstream",          "subsector": "Midstream",         "cik": "0"},
+    "MTDR":{"name": "Matador Resources",     "subsector": "E&P",               "cik": "1520358"},
+    "PR":  {"name": "Permian Resources",     "subsector": "E&P",               "cik": "0"},
 }
 
 # Reverse CIK → ticker mapping (for parsing customer_disclosures_raw)
@@ -95,7 +100,7 @@ CIK_TO_TICKER.update({
     "1389170": "TRGP",
     "1486159": "LNG",
     "1510295": "MPC",
-    "1534504": "PSX",
+    "1534701": "PSX",
     "315852":  "RRC",
     "33213":   "EQT",
     "45012":   "HAL",
@@ -162,6 +167,6 @@ LOUVAIN_RANDOM_STATE    = 42
 GN_NUM_COMMUNITIES      = 8       # target communities for Girvan-Newman
 
 ANALYSIS_START_YEAR = 2015
-ANALYSIS_END_YEAR   = 2024
+ANALYSIS_END_YEAR   = 2025
 QUARTERS = [f"{y}Q{q}" for y in range(ANALYSIS_START_YEAR, ANALYSIS_END_YEAR + 1)
             for q in range(1, 5)]
