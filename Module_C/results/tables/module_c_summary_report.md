@@ -1,8 +1,8 @@
 # CrisisNet Module C — Network Contagion & Community Detection
 ## Analysis Report
-**Generated:** 2026-04-09 23:08:53
+**Generated:** 2026-04-09 23:33:32
 **Dataset:** HuggingFace Sashank-810/crisisnet-dataset (Module_3/)
-**Universe:** 40 S&P 500 Energy companies, 2015–2024
+**Universe:** 40 S&P 500 Energy companies, 2015–2025
 
 ---
 
@@ -19,7 +19,7 @@ and simulates how a single company's bankruptcy would cascade through the networ
 |--------|-------|--------|--------|
 | Louvain Modularity Q | 0.6276 | > 0.35 | ✅ PASS |
 | Girvan-Newman Q | 0.1540 | > 0.25 | ❌ FAIL |
-| Graph nodes | 40 | 35+ | ✅ |
+| Graph nodes | 40 | 40+ | ✅ |
 | Graph edges | 55 | 30+ | ✅ |
 | Graph density | 0.0353 | N/A | — |
 | CHK contagion (stressed nodes) | 8 | N/A | — |
@@ -33,7 +33,7 @@ The supply-chain graph was built from two data sources:
 1. **edges_template.csv** — 30 manually verified, high-confidence directed edges
    representing known economic dependencies in the Energy sector
 2. **customer_disclosures_raw.csv** — 660 NLP-extracted relationships from 10-K SEC filings
-   (2014–2024), automatically parsed for company-to-company dependencies
+   (2014–2025), automatically parsed for company-to-company dependencies
 
 **Graph Statistics:**
 - Nodes: 40 companies
@@ -209,7 +209,7 @@ consistent with our simulation predictions.
 
 ## 5. Dynamic Community Tracking
 
-Running Louvain community detection on rolling 1-year windows (2015–2024)
+Running Louvain community detection on rolling 1-year windows (2015–2025)
 reveals how the supply-chain community structure evolved across the two major
 energy crises:
 
@@ -275,7 +275,7 @@ confirming community fragmentation as a statistically significant leading indica
 - **Community detection resolution:** 1.0 (default Louvain)
 - **DebtRank convergence threshold:** 0.01 (1% minimum stress increment)
 - **Edge weight normalisation:** Per-node out-degree weights normalised to sum ≤ 1.0
-- **Dynamic window:** 1 year per window, sliding annually 2015–2024
+- **Dynamic window:** 1 year per window, sliding annually 2015–2025
 
 ---
 *CrisisNet Module C | Data Analytics E0259 | Confidential*

@@ -242,7 +242,7 @@ def _write_report(
 ## Analysis Report
 **Generated:** {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 **Dataset:** HuggingFace Sashank-810/crisisnet-dataset (Module_3/)
-**Universe:** {G.number_of_nodes()} S&P 500 Energy companies, 2015–2024
+**Universe:** {G.number_of_nodes()} S&P 500 Energy companies, {ANALYSIS_START_YEAR}–{ANALYSIS_END_YEAR}
 
 ---
 
@@ -259,7 +259,7 @@ and simulates how a single company's bankruptcy would cascade through the networ
 |--------|-------|--------|--------|
 | Louvain Modularity Q | {louvain_Q:.4f} | > 0.35 | {'✅ PASS' if louvain_Q > 0.35 else '❌ FAIL'} |
 | Girvan-Newman Q | {gn_Q:.4f} | > 0.25 | {'✅ PASS' if gn_Q > 0.25 else '❌ FAIL'} |
-| Graph nodes | {G.number_of_nodes()} | 35+ | ✅ |
+| Graph nodes | {G.number_of_nodes()} | 40+ | ✅ |
 | Graph edges | {G.number_of_edges()} | 30+ | ✅ |
 | Graph density | {nx.density(G):.4f} | N/A | — |
 | CHK contagion (stressed nodes) | {sum(1 for v in chk_stress.values() if v > 0.01)} | N/A | — |
@@ -273,7 +273,7 @@ The supply-chain graph was built from two data sources:
 1. **edges_template.csv** — 30 manually verified, high-confidence directed edges
    representing known economic dependencies in the Energy sector
 2. **customer_disclosures_raw.csv** — 660 NLP-extracted relationships from 10-K SEC filings
-   (2014–2024), automatically parsed for company-to-company dependencies
+   (2014–{ANALYSIS_END_YEAR}), automatically parsed for company-to-company dependencies
 
 **Graph Statistics:**
 - Nodes: {G.number_of_nodes()} companies
@@ -395,7 +395,7 @@ consistent with our simulation predictions.
 
 ## 5. Dynamic Community Tracking
 
-Running Louvain community detection on rolling 1-year windows (2015–2024)
+Running Louvain community detection on rolling 1-year windows ({ANALYSIS_START_YEAR}–{ANALYSIS_END_YEAR})
 reveals how the supply-chain community structure evolved across the two major
 energy crises:
 
@@ -457,7 +457,7 @@ confirming community fragmentation as a statistically significant leading indica
 - **Community detection resolution:** 1.0 (default Louvain)
 - **DebtRank convergence threshold:** 0.01 (1% minimum stress increment)
 - **Edge weight normalisation:** Per-node out-degree weights normalised to sum ≤ 1.0
-- **Dynamic window:** 1 year per window, sliding annually 2015–2024
+- **Dynamic window:** 1 year per window, sliding annually {ANALYSIS_START_YEAR}–{ANALYSIS_END_YEAR}
 
 ---
 *CrisisNet Module C | Data Analytics E0259 | Confidential*
