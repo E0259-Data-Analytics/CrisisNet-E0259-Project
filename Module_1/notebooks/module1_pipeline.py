@@ -537,7 +537,7 @@ print("\n" + "─" * 70)
 print("[5/9] Temporal train/val/test split...")
 print("─" * 70)
 
-id_cols = ['Date', 'ticker', 'distress_label']
+id_cols = ['Date', 'ticker', 'distress_label', 'quarter']
 feature_cols = [c for c in X_ts.columns if c not in id_cols]
 
 # Ensure all numeric

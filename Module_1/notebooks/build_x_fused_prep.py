@@ -24,11 +24,13 @@ CRISISNET_DATA = REPO_ROOT / "crisisnet-data"
 
 X_TS_PATH = PROJECT_ROOT / "results" / "X_ts.parquet"
 
-# ── A1: Add quarter string column ─────────────────────────────────────
+# ── A1: Add/fix quarter string column ────────────────────────────────
 # X_ts uses Timestamp index (e.g. 2020-06-30). Modules B and C use
 # string quarters ('2020Q2'). The fusion merge requires a common key.
+# Always re-derive from Date — guards against the pipeline bug where
+# 'quarter' was in feature_cols and got coerced to NaN→0 by to_numeric.
 X_ts = pd.read_parquet(X_TS_PATH).reset_index()
-X_ts['quarter'] = X_ts['Date'].apply(
+X_ts['quarter'] = pd.to_datetime(X_ts['Date']).apply(
     lambda d: f"{d.year}Q{(d.month - 1) // 3 + 1}"
 )
 
