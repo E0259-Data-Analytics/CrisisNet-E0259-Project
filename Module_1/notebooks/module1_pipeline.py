@@ -41,12 +41,14 @@ warnings.filterwarnings('ignore')
 # ═══════════════════════════════════════════════════════════════════════
 # CONFIGURATION
 # ═══════════════════════════════════════════════════════════════════════
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent   # Module_1/
+REPO_ROOT    = PROJECT_ROOT.parent                      # CrisisNet-E0259-Project/
+CRISISNET_DATA = REPO_ROOT / "crisisnet-data"           # canonical dataset root
 DATA_DIR = PROJECT_ROOT / "data"
-MARKET_DIR = DATA_DIR / "market_data"
+MARKET_DIR = CRISISNET_DATA / "Module_1" / "market_data"
 FIN_DIR = MARKET_DIR / "financials"
-CREDIT_DIR = DATA_DIR / "credit_spreads"
-LABELS_DIR = DATA_DIR / "labels"
+CREDIT_DIR = CRISISNET_DATA / "Module_1" / "credit_spreads"
+LABELS_DIR = CRISISNET_DATA / "Labels"
 RESULTS_DIR = PROJECT_ROOT / "results"
 VIZ_DIR = RESULTS_DIR / "visualizations"
 MODELS_DIR = PROJECT_ROOT / "models"
@@ -78,8 +80,12 @@ print("─" * 70)
 prices_raw = pd.read_parquet(MARKET_DIR / "all_prices.parquet")
 prices_raw.index = pd.to_datetime(prices_raw.index)
 prices_raw.index.name = 'Date'
-TICKERS = sorted(prices_raw.columns.get_level_values(0).unique().tolist())
-print(f"  ✓ Stock prices: {len(TICKERS)} tickers, {len(prices_raw)} trading days "
+# A2: Use canonical ticker list from data/company_list.csv instead of
+# discovering from price columns (ensures 40-ticker universe alignment)
+company_list = pd.read_csv(CRISISNET_DATA / "data" / "company_list.csv")
+TICKERS = sorted(company_list['ticker'].tolist())
+print(f"  ✓ Stock prices: {len(TICKERS)} tickers (from company_list.csv), "
+      f"{len(prices_raw)} trading days "
       f"({prices_raw.index.min().date()} → {prices_raw.index.max().date()})")
 
 # 1b. FRED macro series
@@ -495,19 +501,19 @@ print("\n" + "─" * 70)
 print("[4/9] Creating distress labels...")
 print("─" * 70)
 
-X_ts['distress_label'] = 0
-
-for _, row in defaults_df.iterrows():
-    t = row['ticker']
-    ed = pd.to_datetime(row['event_date'])
-    mask = (X_ts['ticker'] == t) & (X_ts['Date'] >= ed - timedelta(days=270)) & (X_ts['Date'] < ed + timedelta(days=30))
-    X_ts.loc[mask, 'distress_label'] = 1
-
-for _, row in drawdowns_df.iterrows():
-    t = row['ticker']
-    sd = pd.to_datetime(row['distress_start'])
-    mask = (X_ts['ticker'] == t) & (X_ts['Date'] >= sd - timedelta(days=180)) & (X_ts['Date'] < sd + timedelta(days=90))
-    X_ts.loc[mask, 'distress_label'] = 1
+# A3: Use unified canonical labels from data/label_unified.parquet
+# (replaces inline label construction from defaults_df + drawdowns_df)
+labels = pd.read_parquet(CRISISNET_DATA / "data" / "label_unified.parquet")
+X_ts['quarter'] = X_ts['Date'].apply(
+    lambda d: f"{d.year}Q{(d.month - 1) // 3 + 1}"
+)
+X_ts = X_ts.drop(columns=['distress_label'], errors='ignore')
+X_ts = X_ts.merge(
+    labels[['ticker', 'quarter', 'distress_label']],
+    on=['ticker', 'quarter'],
+    how='left'
+)
+X_ts['distress_label'] = X_ts['distress_label'].fillna(0).astype(int)
 
 n_pos = X_ts['distress_label'].sum()
 n_neg = len(X_ts) - n_pos
