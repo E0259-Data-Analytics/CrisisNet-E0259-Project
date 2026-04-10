@@ -88,6 +88,11 @@ print(f"  ✓ Stock prices: {len(TICKERS)} tickers (from company_list.csv), "
       f"{len(prices_raw)} trading days "
       f"({prices_raw.index.min().date()} → {prices_raw.index.max().date()})")
 
+# Quarter-end dates for the full analysis window — used to generate
+# placeholder records for tickers whose price data is all-NaN
+# (e.g. CHK, SWN, HES, MRO, PXD: in all_prices.parquet but 0 non-null rows)
+ANALYSIS_QDATES = pd.date_range('2015-03-31', '2025-12-31', freq='QE')
+
 # 1b. FRED macro series
 fred = pd.read_parquet(CREDIT_DIR / "fred_all_series.parquet")
 fred.index = pd.to_datetime(fred.index)
@@ -294,6 +299,12 @@ for ticker in tqdm(TICKERS, desc="  Fundamentals", unit="ticker"):
     except KeyError:
         continue
     if len(close) < 60:
+        # Ticker has no usable price data (e.g. delisted/bankrupt company whose
+        # OHLCV rows are all-NaN in all_prices.parquet: CHK, SWN, HES, MRO, PXD).
+        # Generate NaN-filled quarterly placeholder records so distress labels
+        # are attached in Section [4/9] — these tickers ARE the positive class.
+        for qdate in ANALYSIS_QDATES:
+            records.append({'ticker': ticker, 'Date': qdate})
         continue
 
     log_ret = np.log(close / close.shift(1)).dropna()

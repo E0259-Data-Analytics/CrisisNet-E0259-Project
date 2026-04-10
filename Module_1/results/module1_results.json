@@ -44,7 +44,7 @@
       "WMB",
       "XOM"
     ],
-    "n_features": 88,
+    "n_features": 89,
     "feature_names": [
       "close_price",
       "volatility_30d",
@@ -133,155 +133,156 @@
       "oil_momentum",
       "hy_oas_change",
       "yield_curve_inverted",
-      "regime_stress_frac"
+      "regime_stress_frac",
+      "quarter"
     ],
-    "train_samples": 940,
-    "val_samples": 140,
-    "test_samples": 455,
-    "train_distress": 195,
+    "train_samples": 1080,
+    "val_samples": 160,
+    "test_samples": 515,
+    "train_distress": 262,
     "test_distress": 3,
-    "train_distress_rate": 0.2074468085106383,
-    "test_distress_rate": 0.006593406593406593
+    "train_distress_rate": 0.24259259259259258,
+    "test_distress_rate": 0.005825242718446602
   },
   "models": {
     "Altman Z-Score": {
       "auc_roc": 0.5,
-      "brier": 0.6878763287815148,
+      "brier": 0.6883864178400799,
       "classification_report": {
         "Healthy": {
           "precision": 0.0,
           "recall": 0.0,
           "f1-score": 0.0,
-          "support": 452.0
+          "support": 512.0
         },
         "Distress": {
-          "precision": 0.006593406593406593,
+          "precision": 0.005825242718446602,
           "recall": 1.0,
-          "f1-score": 0.013100436681222707,
+          "f1-score": 0.011583011583011582,
           "support": 3.0
         },
-        "accuracy": 0.006593406593406593,
+        "accuracy": 0.005825242718446602,
         "macro avg": {
-          "precision": 0.0032967032967032967,
+          "precision": 0.002912621359223301,
           "recall": 0.5,
-          "f1-score": 0.006550218340611353,
-          "support": 455.0
+          "f1-score": 0.005791505791505791,
+          "support": 515.0
         },
         "weighted avg": {
-          "precision": 4.347301050597754e-05,
-          "recall": 0.006593406593406593,
-          "f1-score": 8.637650559047938e-05,
-          "support": 455.0
+          "precision": 3.393345272881516e-05,
+          "recall": 0.005825242718446602,
+          "f1-score": 6.747385388162087e-05,
+          "support": 515.0
         }
       }
     },
     "XGBoost": {
-      "auc_roc": 0.8842182890855458,
-      "brier": 0.11313849687576294,
+      "auc_roc": 0.9895833333333334,
+      "brier": 0.09038568288087845,
       "classification_report": {
         "Healthy": {
           "precision": 1.0,
-          "recall": 0.8517699115044248,
-          "f1-score": 0.9199522102747909,
-          "support": 452.0
+          "recall": 0.8828125,
+          "f1-score": 0.9377593360995851,
+          "support": 512.0
         },
         "Distress": {
-          "precision": 0.04285714285714286,
+          "precision": 0.047619047619047616,
           "recall": 1.0,
-          "f1-score": 0.0821917808219178,
+          "f1-score": 0.09090909090909091,
           "support": 3.0
         },
-        "accuracy": 0.8527472527472527,
+        "accuracy": 0.883495145631068,
         "macro avg": {
-          "precision": 0.5214285714285715,
-          "recall": 0.9258849557522124,
-          "f1-score": 0.5010719955483544,
-          "support": 455.0
+          "precision": 0.5238095238095238,
+          "recall": 0.94140625,
+          "f1-score": 0.514334213504338,
+          "support": 515.0
         },
         "weighted avg": {
-          "precision": 0.9936891679748823,
-          "recall": 0.8527472527472527,
-          "f1-score": 0.9144285151355411,
-          "support": 455.0
+          "precision": 0.9944521497919555,
+          "recall": 0.883495145631068,
+          "f1-score": 0.9328262278751743,
+          "support": 515.0
         }
       },
       "walk_forward_cv": {
-        "mean_auc": 0.6827373983893336,
-        "std_auc": 0.060069351627488936,
+        "mean_auc": 0.8567874169872898,
+        "std_auc": 0.09595897115055586,
         "fold_aucs": [
-          0.7779605263157896,
-          0.7150415721844292,
-          0.6186792452830189,
-          0.6208945370523189,
-          0.6811111111111111
+          0.9451317912856374,
+          0.7638081395348837,
+          0.731628453850676,
+          0.8692307692307693,
+          0.9741379310344828
         ]
       }
     },
     "LSTM": {
-      "auc_roc": 0.8696581196581197,
-      "brier": 0.5022948384284973,
+      "auc_roc": 0.9668560606060606,
+      "brier": 0.4057844579219818,
       "classification_report": {
         "Healthy": {
           "precision": 0.0,
           "recall": 0.0,
           "f1-score": 0.0,
-          "support": 312.0
+          "support": 352.0
         },
         "Distress": {
-          "precision": 0.009523809523809525,
+          "precision": 0.008450704225352112,
           "recall": 1.0,
-          "f1-score": 0.018867924528301886,
+          "f1-score": 0.01675977653631285,
           "support": 3.0
         },
-        "accuracy": 0.009523809523809525,
+        "accuracy": 0.008450704225352112,
         "macro avg": {
-          "precision": 0.004761904761904762,
+          "precision": 0.004225352112676056,
           "recall": 0.5,
-          "f1-score": 0.009433962264150943,
-          "support": 315.0
+          "f1-score": 0.008379888268156424,
+          "support": 355.0
         },
         "weighted avg": {
-          "precision": 9.070294784580499e-05,
-          "recall": 0.009523809523809525,
-          "f1-score": 0.00017969451931716083,
-          "support": 315.0
+          "precision": 7.141440190438405e-05,
+          "recall": 0.008450704225352112,
+          "f1-score": 0.0001416319143913762,
+          "support": 355.0
         }
       }
     },
     "Daily LSTM": {
-      "auc_roc": 0.7974006033962961,
-      "brier": 0.0835857018828392,
+      "auc_roc": 0.9678977087830253,
+      "brier": 0.06267668306827545,
       "classification_report": {
         "Healthy": {
-          "precision": 0.9950720400918772,
-          "recall": 0.9163525882624414,
-          "f1-score": 0.9540913368170261,
+          "precision": 0.9993003251430218,
+          "recall": 0.933774325051919,
+          "f1-score": 0.9654267480466808,
           "support": 26002.0
         },
         "Distress": {
-          "precision": 0.011363636363636364,
-          "recall": 0.17482517482517482,
-          "f1-score": 0.021340162185232606,
+          "precision": 0.06818181818181818,
+          "recall": 0.8811188811188811,
+          "f1-score": 0.12656956303365144,
           "support": 143.0
         },
-        "accuracy": 0.9122968062727099,
+        "accuracy": 0.9334863262574106,
         "macro avg": {
-          "precision": 0.5032178382277568,
-          "recall": 0.5455888815438081,
-          "f1-score": 0.48771574950112934,
+          "precision": 0.53374107166242,
+          "recall": 0.9074466030854,
+          "f1-score": 0.5459981555401662,
           "support": 26145.0
         },
         "weighted avg": {
-          "precision": 0.9896916498936313,
-          "recall": 0.9122968062727099,
-          "f1-score": 0.9489896570322739,
+          "precision": 0.9942075752292542,
+          "recall": 0.9334863262574106,
+          "f1-score": 0.9608386211598242,
           "support": 26145.0
         }
       }
     },
     "Cox PH": {
-      "c_index": 0.6976490784428614,
-      "c_index_train": 0.7362497166150276
+      "c_index": 0.7096766191779462,
+      "c_index_train": 0.7453593445924797
     }
   }
 }
