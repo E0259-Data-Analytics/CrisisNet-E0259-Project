@@ -1,0 +1,288 @@
+{
+  "metadata": {
+    "module": "Module 1 \u2014 Time Series & Credit Risk Engine",
+    "n_tickers": 40,
+    "tickers": [
+      "AM",
+      "APA",
+      "AR",
+      "BKR",
+      "CHK",
+      "CHRD",
+      "COP",
+      "CTRA",
+      "CVX",
+      "DK",
+      "DTM",
+      "DVN",
+      "EOG",
+      "EPD",
+      "EQT",
+      "ET",
+      "FANG",
+      "FTI",
+      "HAL",
+      "HES",
+      "KMI",
+      "LNG",
+      "MPC",
+      "MRO",
+      "MTDR",
+      "NOV",
+      "OKE",
+      "OVV",
+      "OXY",
+      "PBF",
+      "PR",
+      "PSX",
+      "PXD",
+      "RRC",
+      "SLB",
+      "SWN",
+      "TRGP",
+      "VLO",
+      "WMB",
+      "XOM"
+    ],
+    "n_features": 89,
+    "feature_names": [
+      "close_price",
+      "volatility_30d",
+      "volume_ratio",
+      "intraday_range",
+      "max_drawdown_6m",
+      "momentum_60d",
+      "momentum_90d",
+      "X1_wc_ta",
+      "X2_re_ta",
+      "X3_ebit_ta",
+      "X4_mcap_tl",
+      "X5_rev_ta",
+      "altman_z",
+      "debt_to_equity",
+      "interest_coverage",
+      "current_ratio",
+      "debt_to_assets",
+      "free_cashflow",
+      "fcf_to_debt",
+      "merton_dd",
+      "merton_pd",
+      "asset_volatility",
+      "leverage_ratio",
+      "close_last",
+      "close_mean",
+      "close_std",
+      "log_return_mean",
+      "log_return_std",
+      "log_return_min",
+      "log_return_max",
+      "log_return_skew",
+      "vol_30d_mean",
+      "vol_30d_last",
+      "vol_30d_max",
+      "vol_60d_mean",
+      "vol_60d_last",
+      "vol_ratio_10_60_mean",
+      "vol_ratio_10_60_max",
+      "return_zscore_30d_mean",
+      "return_zscore_30d_std",
+      "return_zscore_30d_min",
+      "return_zscore_30d_max",
+      "mom_20d_last",
+      "mom_60d_last",
+      "mom_120d_last",
+      "mom_250d_last",
+      "bb_pct_mean",
+      "bb_pct_min",
+      "bb_width_mean",
+      "bb_width_max",
+      "rsi_14_mean",
+      "rsi_14_last",
+      "rsi_14_min",
+      "macd_hist_mean",
+      "macd_hist_last",
+      "vol_ratio_20_mean",
+      "vol_ratio_20_max",
+      "obv_slope_20_mean",
+      "obv_slope_20_last",
+      "price_sma50_ratio_mean",
+      "price_sma50_ratio_last",
+      "price_sma200_ratio_mean",
+      "price_sma200_ratio_last",
+      "sma50_sma200_cross_last",
+      "drawdown_mean",
+      "drawdown_min",
+      "atr_pct_mean",
+      "atr_pct_max",
+      "hy_oas",
+      "hy_oas_last",
+      "vix_mean",
+      "vix_last",
+      "oil_wti",
+      "oil_wti_last",
+      "oil_brent",
+      "natgas_price",
+      "yield_slope",
+      "yield_slope_last",
+      "treasury_10y",
+      "ted_spread",
+      "fed_funds",
+      "unemployment",
+      "baa_spread",
+      "bbb_spread",
+      "oil_momentum",
+      "hy_oas_change",
+      "yield_curve_inverted",
+      "regime_stress_frac",
+      "quarter"
+    ],
+    "train_samples": 1080,
+    "val_samples": 160,
+    "test_samples": 515,
+    "train_distress": 262,
+    "test_distress": 3,
+    "train_distress_rate": 0.24259259259259258,
+    "test_distress_rate": 0.005825242718446602
+  },
+  "models": {
+    "Altman Z-Score": {
+      "auc_roc": 0.5,
+      "brier": 0.6883864178400799,
+      "classification_report": {
+        "Healthy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 512.0
+        },
+        "Distress": {
+          "precision": 0.005825242718446602,
+          "recall": 1.0,
+          "f1-score": 0.011583011583011582,
+          "support": 3.0
+        },
+        "accuracy": 0.005825242718446602,
+        "macro avg": {
+          "precision": 0.002912621359223301,
+          "recall": 0.5,
+          "f1-score": 0.005791505791505791,
+          "support": 515.0
+        },
+        "weighted avg": {
+          "precision": 3.393345272881516e-05,
+          "recall": 0.005825242718446602,
+          "f1-score": 6.747385388162087e-05,
+          "support": 515.0
+        }
+      }
+    },
+    "XGBoost": {
+      "auc_roc": 0.9895833333333334,
+      "brier": 0.09038568288087845,
+      "classification_report": {
+        "Healthy": {
+          "precision": 1.0,
+          "recall": 0.8828125,
+          "f1-score": 0.9377593360995851,
+          "support": 512.0
+        },
+        "Distress": {
+          "precision": 0.047619047619047616,
+          "recall": 1.0,
+          "f1-score": 0.09090909090909091,
+          "support": 3.0
+        },
+        "accuracy": 0.883495145631068,
+        "macro avg": {
+          "precision": 0.5238095238095238,
+          "recall": 0.94140625,
+          "f1-score": 0.514334213504338,
+          "support": 515.0
+        },
+        "weighted avg": {
+          "precision": 0.9944521497919555,
+          "recall": 0.883495145631068,
+          "f1-score": 0.9328262278751743,
+          "support": 515.0
+        }
+      },
+      "walk_forward_cv": {
+        "mean_auc": 0.8567874169872898,
+        "std_auc": 0.09595897115055586,
+        "fold_aucs": [
+          0.9451317912856374,
+          0.7638081395348837,
+          0.731628453850676,
+          0.8692307692307693,
+          0.9741379310344828
+        ]
+      }
+    },
+    "LSTM": {
+      "auc_roc": 0.9668560606060606,
+      "brier": 0.4057844579219818,
+      "classification_report": {
+        "Healthy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 352.0
+        },
+        "Distress": {
+          "precision": 0.008450704225352112,
+          "recall": 1.0,
+          "f1-score": 0.01675977653631285,
+          "support": 3.0
+        },
+        "accuracy": 0.008450704225352112,
+        "macro avg": {
+          "precision": 0.004225352112676056,
+          "recall": 0.5,
+          "f1-score": 0.008379888268156424,
+          "support": 355.0
+        },
+        "weighted avg": {
+          "precision": 7.141440190438405e-05,
+          "recall": 0.008450704225352112,
+          "f1-score": 0.0001416319143913762,
+          "support": 355.0
+        }
+      }
+    },
+    "Daily LSTM": {
+      "auc_roc": 0.9678977087830253,
+      "brier": 0.06267668306827545,
+      "classification_report": {
+        "Healthy": {
+          "precision": 0.9993003251430218,
+          "recall": 0.933774325051919,
+          "f1-score": 0.9654267480466808,
+          "support": 26002.0
+        },
+        "Distress": {
+          "precision": 0.06818181818181818,
+          "recall": 0.8811188811188811,
+          "f1-score": 0.12656956303365144,
+          "support": 143.0
+        },
+        "accuracy": 0.9334863262574106,
+        "macro avg": {
+          "precision": 0.53374107166242,
+          "recall": 0.9074466030854,
+          "f1-score": 0.5459981555401662,
+          "support": 26145.0
+        },
+        "weighted avg": {
+          "precision": 0.9942075752292542,
+          "recall": 0.9334863262574106,
+          "f1-score": 0.9608386211598242,
+          "support": 26145.0
+        }
+      }
+    },
+    "Cox PH": {
+      "c_index": 0.7096766191779462,
+      "c_index_train": 0.7453593445924797
+    }
+  }
+}

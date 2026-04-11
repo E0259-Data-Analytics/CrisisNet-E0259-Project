@@ -1,0 +1,31 @@
+source,target,relationship_type,description
+SLB,XOM,service_provider,oilfield services
+SLB,CVX,service_provider,oilfield services
+SLB,COP,service_provider,oilfield services
+HAL,XOM,service_provider,oilfield services
+HAL,CVX,service_provider,oilfield services
+HAL,EOG,service_provider,oilfield services
+BKR,XOM,service_provider,oilfield services
+BKR,COP,service_provider,oilfield services
+NOV,SLB,equipment_supplier,drilling equipment
+NOV,HAL,equipment_supplier,drilling equipment
+FTI,XOM,service_provider,subsea engineering
+FTI,CVX,service_provider,subsea engineering
+EOG,EPD,shipper,crude/NGL transport
+DVN,TRGP,shipper,gas processing
+FANG,EPD,shipper,crude transport
+EQT,WMB,shipper,gas transport
+AR,AM,shipper,gas gathering (subsidiary)
+CTRA,WMB,shipper,gas transport
+RRC,ET,shipper,gas transport
+SWN,ET,shipper,gas transport
+KMI,VLO,pipeline_supplier,crude delivery
+KMI,MPC,pipeline_supplier,crude delivery
+EPD,VLO,pipeline_supplier,NGL supply
+EPD,PSX,pipeline_supplier,NGL supply
+ET,PSX,pipeline_supplier,crude/NGL
+XOM,VLO,crude_supplier,crude oil
+CVX,MPC,crude_supplier,crude oil
+OXY,VLO,crude_supplier,crude oil
+CHK,LNG,gas_supplier,natural gas for LNG
+EQT,LNG,gas_supplier,natural gas for LNG

@@ -1,0 +1,441 @@
+algorithm,year,node,community_id,community_label,community_size,community_members,internal_edges,isolation_index,top_subsector,n_distressed,distressed_members,modularity_Q,subsector,defaulted
+louvain,2015,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Integrated Oil,False
+louvain,2015,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Integrated Oil,False
+louvain,2015,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,E&P,False
+louvain,2015,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2015,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2015,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2015,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2015,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2015,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Refining,False
+louvain,2015,OXY,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Integrated Oil,False
+louvain,2015,OVV,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,E&P,False
+louvain,2015,VLO,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Refining,False
+louvain,2015,MPC,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Refining,False
+louvain,2015,KMI,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Midstream,False
+louvain,2015,EOG,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,FANG,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,EPD,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2015,MRO,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2015,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,CTRA,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,E&P,False
+louvain,2015,DK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Refining,False
+louvain,2015,WMB,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Midstream,False
+louvain,2015,EQT,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Natural Gas,False
+louvain,2015,CHK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Natural Gas,True
+louvain,2015,LNG,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,LNG,False
+louvain,2015,PSX,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Refining,False
+louvain,2015,ET,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Midstream,False
+louvain,2015,RRC,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Natural Gas,False
+louvain,2015,SWN,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Natural Gas,True
+louvain,2015,OKE,11,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6419497458914242,Midstream,False
+louvain,2015,AM,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2015,AR,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,Natural Gas,False
+louvain,2015,HES,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,PXD,13,Community_13,1,PXD,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,CHRD,3,Community_3,1,CHRD,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,DTM,7,Community_7,1,DTM,0,0.0,Midstream,0,,0.6419497458914242,Midstream,False
+louvain,2015,MTDR,0,Community_0,1,MTDR,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2015,PR,1,Community_1,1,PR,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2016,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Integrated Oil,False
+louvain,2016,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Integrated Oil,False
+louvain,2016,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,E&P,False
+louvain,2016,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Oilfield Services,False
+louvain,2016,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Oilfield Services,False
+louvain,2016,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Oilfield Services,False
+louvain,2016,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Oilfield Services,False
+louvain,2016,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Oilfield Services,False
+louvain,2016,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6454786425050064,Refining,False
+louvain,2016,OXY,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,Integrated Oil,False
+louvain,2016,EOG,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,FANG,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,OVV,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,VLO,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,Refining,False
+louvain,2016,MPC,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,Refining,False
+louvain,2016,KMI,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,Midstream,False
+louvain,2016,EPD,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,Midstream,False
+louvain,2016,MRO,6,Integrated_Refining,9,"EOG, EPD, FANG, KMI, MPC, MRO, OVV, OXY, VLO",9,0.8181818181818182,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6454786425050064,Midstream,False
+louvain,2016,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,CTRA,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",7,0.6363636363636364,Natural Gas,1,CHK,0.6454786425050064,E&P,False
+louvain,2016,DK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",7,0.6363636363636364,Natural Gas,1,CHK,0.6454786425050064,Refining,False
+louvain,2016,WMB,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",7,0.6363636363636364,Natural Gas,1,CHK,0.6454786425050064,Midstream,False
+louvain,2016,EQT,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",7,0.6363636363636364,Natural Gas,1,CHK,0.6454786425050064,Natural Gas,False
+louvain,2016,CHK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",7,0.6363636363636364,Natural Gas,1,CHK,0.6454786425050064,Natural Gas,True
+louvain,2016,LNG,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",7,0.6363636363636364,Natural Gas,1,CHK,0.6454786425050064,LNG,False
+louvain,2016,PSX,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6454786425050064,Refining,False
+louvain,2016,ET,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6454786425050064,Midstream,False
+louvain,2016,RRC,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6454786425050064,Natural Gas,False
+louvain,2016,SWN,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6454786425050064,Natural Gas,True
+louvain,2016,OKE,11,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6454786425050064,Midstream,False
+louvain,2016,AM,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6454786425050064,Midstream,False
+louvain,2016,AR,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6454786425050064,Natural Gas,False
+louvain,2016,HES,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,PXD,0,Community_0,1,PXD,0,0.0,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,CHRD,1,Community_1,1,CHRD,0,0.0,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,DTM,2,Community_2,1,DTM,0,0.0,Midstream,0,,0.6454786425050064,Midstream,False
+louvain,2016,MTDR,3,Community_3,1,MTDR,0,0.0,E&P,0,,0.6454786425050064,E&P,False
+louvain,2016,PR,7,Community_7,1,PR,0,0.0,E&P,0,,0.6454786425050064,E&P,False
+louvain,2017,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Integrated Oil,False
+louvain,2017,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Integrated Oil,False
+louvain,2017,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,E&P,False
+louvain,2017,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2017,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2017,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2017,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2017,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2017,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Refining,False
+louvain,2017,OXY,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Integrated Oil,False
+louvain,2017,OVV,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,E&P,False
+louvain,2017,VLO,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Refining,False
+louvain,2017,MPC,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Refining,False
+louvain,2017,KMI,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Midstream,False
+louvain,2017,EOG,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,FANG,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,EPD,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2017,MRO,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2017,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,CTRA,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,E&P,False
+louvain,2017,DK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Refining,False
+louvain,2017,WMB,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Midstream,False
+louvain,2017,EQT,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Natural Gas,False
+louvain,2017,CHK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Natural Gas,True
+louvain,2017,LNG,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,LNG,False
+louvain,2017,PSX,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Refining,False
+louvain,2017,ET,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Midstream,False
+louvain,2017,RRC,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Natural Gas,False
+louvain,2017,SWN,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Natural Gas,True
+louvain,2017,OKE,11,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6419497458914242,Midstream,False
+louvain,2017,AM,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2017,AR,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,Natural Gas,False
+louvain,2017,HES,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,PXD,13,Community_13,1,PXD,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,CHRD,3,Community_3,1,CHRD,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,DTM,7,Community_7,1,DTM,0,0.0,Midstream,0,,0.6419497458914242,Midstream,False
+louvain,2017,MTDR,0,Community_0,1,MTDR,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2017,PR,1,Community_1,1,PR,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2018,XOM,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Integrated Oil,False
+louvain,2018,CVX,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Integrated Oil,False
+louvain,2018,COP,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,E&P,False
+louvain,2018,SLB,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Oilfield Services,False
+louvain,2018,HAL,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Oilfield Services,False
+louvain,2018,BKR,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Oilfield Services,False
+louvain,2018,FTI,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Oilfield Services,False
+louvain,2018,NOV,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Oilfield Services,False
+louvain,2018,PBF,0,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6476077582499351,Refining,False
+louvain,2018,OXY,5,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6476077582499351,Integrated Oil,False
+louvain,2018,OVV,5,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6476077582499351,E&P,False
+louvain,2018,VLO,5,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6476077582499351,Refining,False
+louvain,2018,MPC,5,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6476077582499351,Refining,False
+louvain,2018,KMI,5,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6476077582499351,Midstream,False
+louvain,2018,EOG,3,E&P_Core,5,"APA, EOG, EPD, FANG, MRO",4,0.5,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,FANG,3,E&P_Core,5,"APA, EOG, EPD, FANG, MRO",4,0.5,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,APA,3,E&P_Core,5,"APA, EOG, EPD, FANG, MRO",4,0.5,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,EPD,3,E&P_Core,5,"APA, EOG, EPD, FANG, MRO",4,0.5,E&P,0,,0.6476077582499351,Midstream,False
+louvain,2018,MRO,3,E&P_Core,5,"APA, EOG, EPD, FANG, MRO",4,0.5,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6476077582499351,Midstream,False
+louvain,2018,CTRA,9,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6476077582499351,E&P,False
+louvain,2018,DK,9,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6476077582499351,Refining,False
+louvain,2018,WMB,9,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6476077582499351,Midstream,False
+louvain,2018,EQT,9,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6476077582499351,Natural Gas,False
+louvain,2018,CHK,9,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6476077582499351,Natural Gas,True
+louvain,2018,LNG,9,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6476077582499351,LNG,False
+louvain,2018,PSX,8,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6476077582499351,Refining,False
+louvain,2018,ET,8,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6476077582499351,Midstream,False
+louvain,2018,RRC,8,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6476077582499351,Natural Gas,False
+louvain,2018,SWN,8,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6476077582499351,Natural Gas,True
+louvain,2018,OKE,10,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6476077582499351,Midstream,False
+louvain,2018,AM,11,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6476077582499351,Midstream,False
+louvain,2018,AR,11,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6476077582499351,Natural Gas,False
+louvain,2018,HES,11,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,PXD,12,Community_12,1,PXD,0,0.0,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,CHRD,2,Community_2,1,CHRD,0,0.0,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,DTM,6,Community_6,1,DTM,0,0.0,Midstream,0,,0.6476077582499351,Midstream,False
+louvain,2018,MTDR,7,Community_7,1,MTDR,0,0.0,E&P,0,,0.6476077582499351,E&P,False
+louvain,2018,PR,1,Community_1,1,PR,0,0.0,E&P,0,,0.6476077582499351,E&P,False
+louvain,2019,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Integrated Oil,False
+louvain,2019,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Integrated Oil,False
+louvain,2019,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,E&P,False
+louvain,2019,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2019,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2019,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2019,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2019,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2019,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Refining,False
+louvain,2019,OXY,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Integrated Oil,False
+louvain,2019,OVV,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,VLO,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Refining,False
+louvain,2019,MPC,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Refining,False
+louvain,2019,KMI,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2019,PXD,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,EOG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,FANG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,EPD,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2019,MRO,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2019,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,CTRA,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,E&P,False
+louvain,2019,DK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Refining,False
+louvain,2019,WMB,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Midstream,False
+louvain,2019,EQT,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Natural Gas,False
+louvain,2019,CHK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Natural Gas,True
+louvain,2019,LNG,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,LNG,False
+louvain,2019,PSX,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Refining,False
+louvain,2019,ET,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Midstream,False
+louvain,2019,RRC,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Natural Gas,False
+louvain,2019,SWN,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Natural Gas,True
+louvain,2019,OKE,12,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6352473266780884,Midstream,False
+louvain,2019,AM,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2019,AR,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6352473266780884,Natural Gas,False
+louvain,2019,HES,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,CHRD,1,Community_1,1,CHRD,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,DTM,2,Community_2,1,DTM,0,0.0,Midstream,0,,0.6352473266780884,Midstream,False
+louvain,2019,MTDR,6,Community_6,1,MTDR,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2019,PR,7,Community_7,1,PR,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Integrated Oil,False
+louvain,2020,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Integrated Oil,False
+louvain,2020,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,E&P,False
+louvain,2020,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2020,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2020,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2020,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2020,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Oilfield Services,False
+louvain,2020,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6352473266780884,Refining,False
+louvain,2020,OXY,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Integrated Oil,False
+louvain,2020,OVV,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,VLO,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Refining,False
+louvain,2020,MPC,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Refining,False
+louvain,2020,KMI,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2020,PXD,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,1.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,EOG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,FANG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,EPD,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2020,MRO,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2020,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,CTRA,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,E&P,False
+louvain,2020,DK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Refining,False
+louvain,2020,WMB,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Midstream,False
+louvain,2020,EQT,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Natural Gas,False
+louvain,2020,CHK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,Natural Gas,True
+louvain,2020,LNG,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6352473266780884,LNG,False
+louvain,2020,PSX,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Refining,False
+louvain,2020,ET,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Midstream,False
+louvain,2020,RRC,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Natural Gas,False
+louvain,2020,SWN,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6352473266780884,Natural Gas,True
+louvain,2020,OKE,12,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6352473266780884,Midstream,False
+louvain,2020,AM,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6352473266780884,Midstream,False
+louvain,2020,AR,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6352473266780884,Natural Gas,False
+louvain,2020,HES,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,CHRD,1,Community_1,1,CHRD,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,DTM,2,Community_2,1,DTM,0,0.0,Midstream,0,,0.6352473266780884,Midstream,False
+louvain,2020,MTDR,6,Community_6,1,MTDR,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2020,PR,7,Community_7,1,PR,0,0.0,E&P,0,,0.6352473266780884,E&P,False
+louvain,2021,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Integrated Oil,False
+louvain,2021,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Integrated Oil,False
+louvain,2021,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,E&P,False
+louvain,2021,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2021,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2021,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2021,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2021,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2021,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Refining,False
+louvain,2021,OXY,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Integrated Oil,False
+louvain,2021,OVV,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,VLO,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Refining,False
+louvain,2021,MPC,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Refining,False
+louvain,2021,KMI,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2021,PXD,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,EOG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,FANG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,EPD,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2021,MRO,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2021,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,CTRA,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,E&P,False
+louvain,2021,DK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Refining,False
+louvain,2021,WMB,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Midstream,False
+louvain,2021,EQT,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Natural Gas,False
+louvain,2021,CHK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Natural Gas,True
+louvain,2021,LNG,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,LNG,False
+louvain,2021,PSX,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Refining,False
+louvain,2021,ET,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Midstream,False
+louvain,2021,RRC,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Natural Gas,False
+louvain,2021,SWN,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Natural Gas,True
+louvain,2021,OKE,12,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6181673996360516,Midstream,False
+louvain,2021,AM,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2021,AR,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6181673996360516,Natural Gas,False
+louvain,2021,HES,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,CHRD,1,Community_1,1,CHRD,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,DTM,2,Community_2,1,DTM,0,0.0,Midstream,0,,0.6181673996360516,Midstream,False
+louvain,2021,MTDR,6,Community_6,1,MTDR,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2021,PR,7,Community_7,1,PR,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Integrated Oil,False
+louvain,2022,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Integrated Oil,False
+louvain,2022,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,E&P,False
+louvain,2022,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2022,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2022,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2022,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2022,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Oilfield Services,False
+louvain,2022,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6181673996360516,Refining,False
+louvain,2022,OXY,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Integrated Oil,False
+louvain,2022,OVV,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,VLO,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Refining,False
+louvain,2022,MPC,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Refining,False
+louvain,2022,KMI,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2022,PXD,9,Integrated_Refining,6,"KMI, MPC, OVV, OXY, PXD, VLO",5,0.8333333333333334,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,EOG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,FANG,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,EPD,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2022,MRO,3,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.375,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2022,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,CTRA,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,E&P,False
+louvain,2022,DK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Refining,False
+louvain,2022,WMB,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Midstream,False
+louvain,2022,EQT,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Natural Gas,False
+louvain,2022,CHK,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,Natural Gas,True
+louvain,2022,LNG,11,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6181673996360516,LNG,False
+louvain,2022,PSX,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Refining,False
+louvain,2022,ET,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Midstream,False
+louvain,2022,RRC,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Natural Gas,False
+louvain,2022,SWN,10,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6181673996360516,Natural Gas,True
+louvain,2022,OKE,12,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6181673996360516,Midstream,False
+louvain,2022,AM,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6181673996360516,Midstream,False
+louvain,2022,AR,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6181673996360516,Natural Gas,False
+louvain,2022,HES,0,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,CHRD,1,Community_1,1,CHRD,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,DTM,2,Community_2,1,DTM,0,0.0,Midstream,0,,0.6181673996360516,Midstream,False
+louvain,2022,MTDR,6,Community_6,1,MTDR,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2022,PR,7,Community_7,1,PR,0,0.0,E&P,0,,0.6181673996360516,E&P,False
+louvain,2023,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Integrated Oil,False
+louvain,2023,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Integrated Oil,False
+louvain,2023,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,E&P,False
+louvain,2023,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2023,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2023,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2023,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2023,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2023,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Refining,False
+louvain,2023,OXY,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Integrated Oil,False
+louvain,2023,OVV,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,E&P,False
+louvain,2023,VLO,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Refining,False
+louvain,2023,MPC,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Refining,False
+louvain,2023,KMI,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Midstream,False
+louvain,2023,EOG,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,FANG,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,EPD,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,Midstream,False
+louvain,2023,MRO,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6243571595502051,Midstream,False
+louvain,2023,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,CTRA,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,E&P,False
+louvain,2023,DK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Refining,False
+louvain,2023,WMB,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Midstream,False
+louvain,2023,EQT,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Natural Gas,False
+louvain,2023,CHK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Natural Gas,True
+louvain,2023,LNG,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,LNG,False
+louvain,2023,PSX,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Refining,False
+louvain,2023,ET,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Midstream,False
+louvain,2023,RRC,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Natural Gas,False
+louvain,2023,SWN,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Natural Gas,True
+louvain,2023,OKE,11,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6243571595502051,Midstream,False
+louvain,2023,AM,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6243571595502051,Midstream,False
+louvain,2023,AR,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6243571595502051,Natural Gas,False
+louvain,2023,HES,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,PXD,13,Community_13,1,PXD,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,CHRD,3,Community_3,1,CHRD,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,DTM,7,Community_7,1,DTM,0,0.0,Midstream,0,,0.6243571595502051,Midstream,False
+louvain,2023,MTDR,0,Community_0,1,MTDR,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2023,PR,2,Community_2,1,PR,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Integrated Oil,False
+louvain,2024,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Integrated Oil,False
+louvain,2024,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,E&P,False
+louvain,2024,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2024,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2024,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2024,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2024,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Oilfield Services,False
+louvain,2024,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6243571595502051,Refining,False
+louvain,2024,OXY,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Integrated Oil,False
+louvain,2024,OVV,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,E&P,False
+louvain,2024,VLO,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Refining,False
+louvain,2024,MPC,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Refining,False
+louvain,2024,KMI,1,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,0.8,Refining,0,,0.6243571595502051,Midstream,False
+louvain,2024,EOG,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,FANG,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,EPD,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,Midstream,False
+louvain,2024,MRO,6,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6243571595502051,Midstream,False
+louvain,2024,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,CTRA,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,E&P,False
+louvain,2024,DK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Refining,False
+louvain,2024,WMB,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Midstream,False
+louvain,2024,EQT,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Natural Gas,False
+louvain,2024,CHK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,Natural Gas,True
+louvain,2024,LNG,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6243571595502051,LNG,False
+louvain,2024,PSX,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Refining,False
+louvain,2024,ET,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Midstream,False
+louvain,2024,RRC,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Natural Gas,False
+louvain,2024,SWN,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6243571595502051,Natural Gas,True
+louvain,2024,OKE,11,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6243571595502051,Midstream,False
+louvain,2024,AM,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6243571595502051,Midstream,False
+louvain,2024,AR,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6243571595502051,Natural Gas,False
+louvain,2024,HES,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,PXD,13,Community_13,1,PXD,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,CHRD,3,Community_3,1,CHRD,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,DTM,7,Community_7,1,DTM,0,0.0,Midstream,0,,0.6243571595502051,Midstream,False
+louvain,2024,MTDR,0,Community_0,1,MTDR,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2024,PR,2,Community_2,1,PR,0,0.0,E&P,0,,0.6243571595502051,E&P,False
+louvain,2025,XOM,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Integrated Oil,False
+louvain,2025,CVX,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Integrated Oil,False
+louvain,2025,COP,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,E&P,False
+louvain,2025,SLB,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2025,HAL,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2025,BKR,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2025,FTI,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2025,NOV,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Oilfield Services,False
+louvain,2025,PBF,8,Oilfield_Services,9,"BKR, COP, CVX, FTI, HAL, NOV, PBF, SLB, XOM",14,0.7777777777777778,Oilfield Services,0,,0.6419497458914242,Refining,False
+louvain,2025,OXY,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Integrated Oil,False
+louvain,2025,OVV,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,E&P,False
+louvain,2025,VLO,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Refining,False
+louvain,2025,MPC,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Refining,False
+louvain,2025,KMI,6,Integrated_Refining,5,"KMI, MPC, OVV, OXY, VLO",4,1.0,Refining,0,,0.6419497458914242,Midstream,False
+louvain,2025,EOG,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,FANG,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,EPD,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2025,MRO,2,E&P_Core,4,"EOG, EPD, FANG, MRO",3,0.42857142857142855,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,DVN,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,TRGP,4,E&P_Core,2,"DVN, TRGP",1,1.0,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2025,APA,5,E&P_Core,1,APA,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,CTRA,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,E&P,False
+louvain,2025,DK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Refining,False
+louvain,2025,WMB,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Midstream,False
+louvain,2025,EQT,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Natural Gas,False
+louvain,2025,CHK,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,Natural Gas,True
+louvain,2025,LNG,10,Gas_Gathering_Processing,6,"CHK, CTRA, DK, EQT, LNG, WMB",6,0.6,Natural Gas,1,CHK,0.6419497458914242,LNG,False
+louvain,2025,PSX,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Refining,False
+louvain,2025,ET,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Midstream,False
+louvain,2025,RRC,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Natural Gas,False
+louvain,2025,SWN,9,Gas_Gathering_Processing,4,"ET, PSX, RRC, SWN",3,0.75,Natural Gas,1,SWN,0.6419497458914242,Natural Gas,True
+louvain,2025,OKE,11,Midstream_Liquids,1,OKE,0,0.0,Midstream,0,,0.6419497458914242,Midstream,False
+louvain,2025,AM,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,Midstream,False
+louvain,2025,AR,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,Natural Gas,False
+louvain,2025,HES,12,Gas_Gathering_Processing,3,"AM, AR, HES",3,0.5,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,PXD,13,Community_13,1,PXD,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,CHRD,3,Community_3,1,CHRD,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,DTM,7,Community_7,1,DTM,0,0.0,Midstream,0,,0.6419497458914242,Midstream,False
+louvain,2025,MTDR,0,Community_0,1,MTDR,0,0.0,E&P,0,,0.6419497458914242,E&P,False
+louvain,2025,PR,1,Community_1,1,PR,0,0.0,E&P,0,,0.6419497458914242,E&P,False

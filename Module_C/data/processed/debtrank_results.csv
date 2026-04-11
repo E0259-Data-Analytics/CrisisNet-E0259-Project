@@ -1,0 +1,1801 @@
+scenario,description,seed_companies,node,name,subsector,final_stress,is_seed,systemic_impact,n_stressed_nodes,defaulted
+single_XOM,XOM default,XOM,XOM,ExxonMobil,Integrated Oil,1.0,True,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,CVX,Chevron,Integrated Oil,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,COP,ConocoPhillips,E&P,0.027546296296296294,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,EOG,EOG Resources,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,DVN,Devon Energy,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,FANG,Diamondback Energy,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,APA,APA Corporation,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,OVV,Ovintiv,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,CTRA,Coterra Energy,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,HAL,Halliburton,Oilfield Services,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,BKR,Baker Hughes,Oilfield Services,0.06296296296296296,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,FTI,TechnipFMC,Oilfield Services,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,NOV,NOV Inc.,Oilfield Services,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,VLO,Valero Energy,Refining,0.37037037037037035,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,MPC,Marathon Petroleum,Refining,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,PSX,Phillips 66,Refining,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,DK,Delek US Holdings,Refining,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,PBF,PBF Energy,Refining,0.6296296296296295,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,KMI,Kinder Morgan,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,WMB,Williams Companies,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,OKE,ONEOK,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,ET,Energy Transfer,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,EPD,Enterprise Products,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,TRGP,Targa Resources,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,AM,Antero Midstream,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,EQT,EQT Corporation,Natural Gas,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,AR,Antero Resources,Natural Gas,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,RRC,Range Resources,Natural Gas,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.052262731481481486,5,True
+single_XOM,XOM default,XOM,SWN,Southwestern Energy,Natural Gas,0.0,False,0.052262731481481486,5,True
+single_XOM,XOM default,XOM,LNG,Cheniere Energy,LNG,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,HES,Hess Corporation,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,MRO,Marathon Oil,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,PXD,Pioneer Natural Resources,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,CHRD,Chord Energy,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,DTM,DT Midstream,Midstream,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,MTDR,Matador Resources,E&P,0.0,False,0.052262731481481486,5,False
+single_XOM,XOM default,XOM,PR,Permian Resources,E&P,0.0,False,0.052262731481481486,5,False
+single_CVX,CVX default,CVX,XOM,ExxonMobil,Integrated Oil,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,CVX,Chevron,Integrated Oil,1.0,True,0.0375,2,False
+single_CVX,CVX default,CVX,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,COP,ConocoPhillips,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,EOG,EOG Resources,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,DVN,Devon Energy,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,FANG,Diamondback Energy,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,APA,APA Corporation,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,OVV,Ovintiv,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,CTRA,Coterra Energy,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,HAL,Halliburton,Oilfield Services,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,BKR,Baker Hughes,Oilfield Services,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,FTI,TechnipFMC,Oilfield Services,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,NOV,NOV Inc.,Oilfield Services,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,VLO,Valero Energy,Refining,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,MPC,Marathon Petroleum,Refining,0.5,False,0.0375,2,False
+single_CVX,CVX default,CVX,PSX,Phillips 66,Refining,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,DK,Delek US Holdings,Refining,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,PBF,PBF Energy,Refining,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,KMI,Kinder Morgan,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,WMB,Williams Companies,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,OKE,ONEOK,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,ET,Energy Transfer,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,EPD,Enterprise Products,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,TRGP,Targa Resources,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,AM,Antero Midstream,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,EQT,EQT Corporation,Natural Gas,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,AR,Antero Resources,Natural Gas,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,RRC,Range Resources,Natural Gas,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.0375,2,True
+single_CVX,CVX default,CVX,SWN,Southwestern Energy,Natural Gas,0.0,False,0.0375,2,True
+single_CVX,CVX default,CVX,LNG,Cheniere Energy,LNG,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,HES,Hess Corporation,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,MRO,Marathon Oil,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,PXD,Pioneer Natural Resources,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,CHRD,Chord Energy,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,DTM,DT Midstream,Midstream,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,MTDR,Matador Resources,E&P,0.0,False,0.0375,2,False
+single_CVX,CVX default,CVX,PR,Permian Resources,E&P,0.0,False,0.0375,2,False
+single_OXY,OXY default,OXY,XOM,ExxonMobil,Integrated Oil,0.0196875,False,0.050859375,6,False
+single_OXY,OXY default,OXY,CVX,Chevron,Integrated Oil,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,OXY,Occidental Petroleum,Integrated Oil,1.0,True,0.050859375,6,False
+single_OXY,OXY default,OXY,COP,ConocoPhillips,E&P,0.0196875,False,0.050859375,6,False
+single_OXY,OXY default,OXY,EOG,EOG Resources,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,DVN,Devon Energy,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,FANG,Diamondback Energy,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,APA,APA Corporation,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,OVV,Ovintiv,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,CTRA,Coterra Energy,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,HAL,Halliburton,Oilfield Services,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,BKR,Baker Hughes,Oilfield Services,0.045,False,0.050859375,6,False
+single_OXY,OXY default,OXY,FTI,TechnipFMC,Oilfield Services,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,NOV,NOV Inc.,Oilfield Services,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,VLO,Valero Energy,Refining,0.5,False,0.050859375,6,False
+single_OXY,OXY default,OXY,MPC,Marathon Petroleum,Refining,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,PSX,Phillips 66,Refining,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,DK,Delek US Holdings,Refining,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,PBF,PBF Energy,Refining,0.44999999999999996,False,0.050859375,6,False
+single_OXY,OXY default,OXY,KMI,Kinder Morgan,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,WMB,Williams Companies,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,OKE,ONEOK,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,ET,Energy Transfer,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,EPD,Enterprise Products,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,TRGP,Targa Resources,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,AM,Antero Midstream,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,EQT,EQT Corporation,Natural Gas,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,AR,Antero Resources,Natural Gas,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,RRC,Range Resources,Natural Gas,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.050859375,6,True
+single_OXY,OXY default,OXY,SWN,Southwestern Energy,Natural Gas,0.0,False,0.050859375,6,True
+single_OXY,OXY default,OXY,LNG,Cheniere Energy,LNG,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,HES,Hess Corporation,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,MRO,Marathon Oil,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,PXD,Pioneer Natural Resources,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,CHRD,Chord Energy,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,DTM,DT Midstream,Midstream,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,MTDR,Matador Resources,E&P,0.0,False,0.050859375,6,False
+single_OXY,OXY default,OXY,PR,Permian Resources,E&P,0.0,False,0.050859375,6,False
+single_COP,COP default,COP,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_COP,COP default,COP,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_COP,COP default,COP,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_COP,COP default,COP,COP,ConocoPhillips,E&P,1.0,True,0.025,1,False
+single_COP,COP default,COP,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_COP,COP default,COP,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_COP,COP default,COP,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_COP,COP default,COP,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_COP,COP default,COP,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_COP,COP default,COP,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_COP,COP default,COP,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_COP,COP default,COP,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_COP,COP default,COP,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_COP,COP default,COP,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_COP,COP default,COP,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_COP,COP default,COP,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_COP,COP default,COP,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_COP,COP default,COP,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_COP,COP default,COP,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_COP,COP default,COP,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_COP,COP default,COP,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_COP,COP default,COP,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_COP,COP default,COP,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_EOG,EOG default,EOG,XOM,ExxonMobil,Integrated Oil,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,CVX,Chevron,Integrated Oil,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,COP,ConocoPhillips,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,EOG,EOG Resources,E&P,1.0,True,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,DVN,Devon Energy,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,FANG,Diamondback Energy,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,APA,APA Corporation,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,OVV,Ovintiv,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,CTRA,Coterra Energy,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,HAL,Halliburton,Oilfield Services,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,BKR,Baker Hughes,Oilfield Services,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,FTI,TechnipFMC,Oilfield Services,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,NOV,NOV Inc.,Oilfield Services,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,VLO,Valero Energy,Refining,0.3448275862068966,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,MPC,Marathon Petroleum,Refining,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,PSX,Phillips 66,Refining,0.3448275862068966,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,DK,Delek US Holdings,Refining,0.31034482758620685,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,PBF,PBF Energy,Refining,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,KMI,Kinder Morgan,Midstream,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,WMB,Williams Companies,Midstream,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,OKE,ONEOK,Midstream,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,ET,Energy Transfer,Midstream,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,EPD,Enterprise Products,Midstream,0.6896551724137931,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,TRGP,Targa Resources,Midstream,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,AM,Antero Midstream,Midstream,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,EQT,EQT Corporation,Natural Gas,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,AR,Antero Resources,Natural Gas,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,RRC,Range Resources,Natural Gas,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.06817241379310345,6,True
+single_EOG,EOG default,EOG,SWN,Southwestern Energy,Natural Gas,0.0,False,0.06817241379310345,6,True
+single_EOG,EOG default,EOG,LNG,Cheniere Energy,LNG,0.03724137931034482,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,HES,Hess Corporation,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,MRO,Marathon Oil,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,PXD,Pioneer Natural Resources,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,CHRD,Chord Energy,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,DTM,DT Midstream,Midstream,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,MTDR,Matador Resources,E&P,0.0,False,0.06817241379310345,6,False
+single_EOG,EOG default,EOG,PR,Permian Resources,E&P,0.0,False,0.06817241379310345,6,False
+single_DVN,DVN default,DVN,XOM,ExxonMobil,Integrated Oil,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,CVX,Chevron,Integrated Oil,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,COP,ConocoPhillips,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,EOG,EOG Resources,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,DVN,Devon Energy,E&P,1.0,True,0.05,2,False
+single_DVN,DVN default,DVN,FANG,Diamondback Energy,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,APA,APA Corporation,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,OVV,Ovintiv,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,CTRA,Coterra Energy,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,HAL,Halliburton,Oilfield Services,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,BKR,Baker Hughes,Oilfield Services,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,FTI,TechnipFMC,Oilfield Services,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,NOV,NOV Inc.,Oilfield Services,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,VLO,Valero Energy,Refining,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,MPC,Marathon Petroleum,Refining,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,PSX,Phillips 66,Refining,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,DK,Delek US Holdings,Refining,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,PBF,PBF Energy,Refining,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,KMI,Kinder Morgan,Midstream,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,WMB,Williams Companies,Midstream,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,OKE,ONEOK,Midstream,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,ET,Energy Transfer,Midstream,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,EPD,Enterprise Products,Midstream,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,TRGP,Targa Resources,Midstream,1.0,False,0.05,2,False
+single_DVN,DVN default,DVN,AM,Antero Midstream,Midstream,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,EQT,EQT Corporation,Natural Gas,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,AR,Antero Resources,Natural Gas,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,RRC,Range Resources,Natural Gas,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.05,2,True
+single_DVN,DVN default,DVN,SWN,Southwestern Energy,Natural Gas,0.0,False,0.05,2,True
+single_DVN,DVN default,DVN,LNG,Cheniere Energy,LNG,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,HES,Hess Corporation,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,MRO,Marathon Oil,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,PXD,Pioneer Natural Resources,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,CHRD,Chord Energy,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,DTM,DT Midstream,Midstream,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,MTDR,Matador Resources,E&P,0.0,False,0.05,2,False
+single_DVN,DVN default,DVN,PR,Permian Resources,E&P,0.0,False,0.05,2,False
+single_FANG,FANG default,FANG,XOM,ExxonMobil,Integrated Oil,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,CVX,Chevron,Integrated Oil,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,OXY,Occidental Petroleum,Integrated Oil,0.07194244604316548,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,COP,ConocoPhillips,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,EOG,EOG Resources,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,DVN,Devon Energy,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,FANG,Diamondback Energy,E&P,1.0,True,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,APA,APA Corporation,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,OVV,Ovintiv,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,CTRA,Coterra Energy,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,HAL,Halliburton,Oilfield Services,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,BKR,Baker Hughes,Oilfield Services,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,FTI,TechnipFMC,Oilfield Services,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,NOV,NOV Inc.,Oilfield Services,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,VLO,Valero Energy,Refining,0.3956834532374101,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,MPC,Marathon Petroleum,Refining,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,PSX,Phillips 66,Refining,0.3597122302158274,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,DK,Delek US Holdings,Refining,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,PBF,PBF Energy,Refining,0.03237410071942446,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,KMI,Kinder Morgan,Midstream,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,WMB,Williams Companies,Midstream,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,OKE,ONEOK,Midstream,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,ET,Energy Transfer,Midstream,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,EPD,Enterprise Products,Midstream,0.7194244604316548,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,TRGP,Targa Resources,Midstream,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,AM,Antero Midstream,Midstream,0.20863309352517986,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,EQT,EQT Corporation,Natural Gas,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,AR,Antero Resources,Natural Gas,0.10014388489208632,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,RRC,Range Resources,Natural Gas,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.07219784172661871,8,True
+single_FANG,FANG default,FANG,SWN,Southwestern Energy,Natural Gas,0.0,False,0.07219784172661871,8,True
+single_FANG,FANG default,FANG,LNG,Cheniere Energy,LNG,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,HES,Hess Corporation,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,MRO,Marathon Oil,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,PXD,Pioneer Natural Resources,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,CHRD,Chord Energy,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,DTM,DT Midstream,Midstream,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,MTDR,Matador Resources,E&P,0.0,False,0.07219784172661871,8,False
+single_FANG,FANG default,FANG,PR,Permian Resources,E&P,0.0,False,0.07219784172661871,8,False
+single_APA,APA default,APA,XOM,ExxonMobil,Integrated Oil,0.0,False,0.0475,4,False
+single_APA,APA default,APA,CVX,Chevron,Integrated Oil,0.0,False,0.0475,4,False
+single_APA,APA default,APA,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.0475,4,False
+single_APA,APA default,APA,COP,ConocoPhillips,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,EOG,EOG Resources,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,DVN,Devon Energy,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,FANG,Diamondback Energy,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,APA,APA Corporation,E&P,1.0,True,0.0475,4,False
+single_APA,APA default,APA,OVV,Ovintiv,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,CTRA,Coterra Energy,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.0475,4,False
+single_APA,APA default,APA,HAL,Halliburton,Oilfield Services,0.0,False,0.0475,4,False
+single_APA,APA default,APA,BKR,Baker Hughes,Oilfield Services,0.0,False,0.0475,4,False
+single_APA,APA default,APA,FTI,TechnipFMC,Oilfield Services,0.0,False,0.0475,4,False
+single_APA,APA default,APA,NOV,NOV Inc.,Oilfield Services,0.0,False,0.0475,4,False
+single_APA,APA default,APA,VLO,Valero Energy,Refining,0.22499999999999998,False,0.0475,4,False
+single_APA,APA default,APA,MPC,Marathon Petroleum,Refining,0.0,False,0.0475,4,False
+single_APA,APA default,APA,PSX,Phillips 66,Refining,0.22499999999999998,False,0.0475,4,False
+single_APA,APA default,APA,DK,Delek US Holdings,Refining,0.0,False,0.0475,4,False
+single_APA,APA default,APA,PBF,PBF Energy,Refining,0.0,False,0.0475,4,False
+single_APA,APA default,APA,KMI,Kinder Morgan,Midstream,0.0,False,0.0475,4,False
+single_APA,APA default,APA,WMB,Williams Companies,Midstream,0.0,False,0.0475,4,False
+single_APA,APA default,APA,OKE,ONEOK,Midstream,0.0,False,0.0475,4,False
+single_APA,APA default,APA,ET,Energy Transfer,Midstream,0.0,False,0.0475,4,False
+single_APA,APA default,APA,EPD,Enterprise Products,Midstream,0.44999999999999996,False,0.0475,4,False
+single_APA,APA default,APA,TRGP,Targa Resources,Midstream,0.0,False,0.0475,4,False
+single_APA,APA default,APA,AM,Antero Midstream,Midstream,0.0,False,0.0475,4,False
+single_APA,APA default,APA,EQT,EQT Corporation,Natural Gas,0.0,False,0.0475,4,False
+single_APA,APA default,APA,AR,Antero Resources,Natural Gas,0.0,False,0.0475,4,False
+single_APA,APA default,APA,RRC,Range Resources,Natural Gas,0.0,False,0.0475,4,False
+single_APA,APA default,APA,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.0475,4,True
+single_APA,APA default,APA,SWN,Southwestern Energy,Natural Gas,0.0,False,0.0475,4,True
+single_APA,APA default,APA,LNG,Cheniere Energy,LNG,0.0,False,0.0475,4,False
+single_APA,APA default,APA,HES,Hess Corporation,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,MRO,Marathon Oil,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,PXD,Pioneer Natural Resources,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,CHRD,Chord Energy,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,DTM,DT Midstream,Midstream,0.0,False,0.0475,4,False
+single_APA,APA default,APA,MTDR,Matador Resources,E&P,0.0,False,0.0475,4,False
+single_APA,APA default,APA,PR,Permian Resources,E&P,0.0,False,0.0475,4,False
+single_OVV,OVV default,OVV,XOM,ExxonMobil,Integrated Oil,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,CVX,Chevron,Integrated Oil,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,COP,ConocoPhillips,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,EOG,EOG Resources,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,DVN,Devon Energy,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,FANG,Diamondback Energy,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,APA,APA Corporation,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,OVV,Ovintiv,E&P,1.0,True,0.0365,4,False
+single_OVV,OVV default,OVV,CTRA,Coterra Energy,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,HAL,Halliburton,Oilfield Services,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,BKR,Baker Hughes,Oilfield Services,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,FTI,TechnipFMC,Oilfield Services,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,NOV,NOV Inc.,Oilfield Services,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,VLO,Valero Energy,Refining,0.115,False,0.0365,4,False
+single_OVV,OVV default,OVV,MPC,Marathon Petroleum,Refining,0.115,False,0.0365,4,False
+single_OVV,OVV default,OVV,PSX,Phillips 66,Refining,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,DK,Delek US Holdings,Refining,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,PBF,PBF Energy,Refining,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,KMI,Kinder Morgan,Midstream,0.23,False,0.0365,4,False
+single_OVV,OVV default,OVV,WMB,Williams Companies,Midstream,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,OKE,ONEOK,Midstream,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,ET,Energy Transfer,Midstream,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,EPD,Enterprise Products,Midstream,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,TRGP,Targa Resources,Midstream,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,AM,Antero Midstream,Midstream,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,EQT,EQT Corporation,Natural Gas,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,AR,Antero Resources,Natural Gas,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,RRC,Range Resources,Natural Gas,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.0365,4,True
+single_OVV,OVV default,OVV,SWN,Southwestern Energy,Natural Gas,0.0,False,0.0365,4,True
+single_OVV,OVV default,OVV,LNG,Cheniere Energy,LNG,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,HES,Hess Corporation,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,MRO,Marathon Oil,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,PXD,Pioneer Natural Resources,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,CHRD,Chord Energy,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,DTM,DT Midstream,Midstream,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,MTDR,Matador Resources,E&P,0.0,False,0.0365,4,False
+single_OVV,OVV default,OVV,PR,Permian Resources,E&P,0.0,False,0.0365,4,False
+single_CTRA,CTRA default,CTRA,XOM,ExxonMobil,Integrated Oil,0.038274793388429755,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,CVX,Chevron,Integrated Oil,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,COP,ConocoPhillips,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,EOG,EOG Resources,E&P,0.17355371900826447,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,DVN,Devon Energy,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,FANG,Diamondback Energy,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,APA,APA Corporation,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,OVV,Ovintiv,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,CTRA,Coterra Energy,E&P,1.0,True,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,HAL,Halliburton,Oilfield Services,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,BKR,Baker Hughes,Oilfield Services,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,FTI,TechnipFMC,Oilfield Services,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,NOV,NOV Inc.,Oilfield Services,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,VLO,Valero Energy,Refining,0.05984611000284982,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,MPC,Marathon Petroleum,Refining,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,PSX,Phillips 66,Refining,0.10106511826731263,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,DK,Delek US Holdings,Refining,0.053861499002564824,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,PBF,PBF Energy,Refining,0.07120638200183654,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,KMI,Kinder Morgan,Midstream,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,WMB,Williams Companies,Midstream,0.8264462809917356,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,OKE,ONEOK,Midstream,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,ET,Energy Transfer,Midstream,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,EPD,Enterprise Products,Midstream,0.11969222000569964,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,TRGP,Targa Resources,Midstream,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,AM,Antero Midstream,Midstream,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,EQT,EQT Corporation,Natural Gas,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,AR,Antero Resources,Natural Gas,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,RRC,Range Resources,Natural Gas,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,CHK,Chesapeake Energy,Natural Gas,0.39669421487603307,False,0.08043749604192393,11,True
+single_CTRA,CTRA default,CTRA,SWN,Southwestern Energy,Natural Gas,0.0,False,0.08043749604192393,11,True
+single_CTRA,CTRA default,CTRA,LNG,Cheniere Energy,LNG,0.3768595041322314,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,HES,Hess Corporation,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,MRO,Marathon Oil,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,PXD,Pioneer Natural Resources,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,CHRD,Chord Energy,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,DTM,DT Midstream,Midstream,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,MTDR,Matador Resources,E&P,0.0,False,0.08043749604192393,11,False
+single_CTRA,CTRA default,CTRA,PR,Permian Resources,E&P,0.0,False,0.08043749604192393,11,False
+single_SLB,SLB default,SLB,XOM,ExxonMobil,Integrated Oil,0.33333333333333337,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,CVX,Chevron,Integrated Oil,0.33333333333333337,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,COP,ConocoPhillips,E&P,0.33333333333333337,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,EOG,EOG Resources,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,DVN,Devon Energy,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,FANG,Diamondback Energy,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,APA,APA Corporation,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,OVV,Ovintiv,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,CTRA,Coterra Energy,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,SLB,SLB (Schlumberger),Oilfield Services,1.0,True,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,HAL,Halliburton,Oilfield Services,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,BKR,Baker Hughes,Oilfield Services,0.020987654320987655,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,FTI,TechnipFMC,Oilfield Services,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,NOV,NOV Inc.,Oilfield Services,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,VLO,Valero Energy,Refining,0.1234567901234568,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,MPC,Marathon Petroleum,Refining,0.16666666666666669,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,PSX,Phillips 66,Refining,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,DK,Delek US Holdings,Refining,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,PBF,PBF Energy,Refining,0.20987654320987653,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,KMI,Kinder Morgan,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,WMB,Williams Companies,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,OKE,ONEOK,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,ET,Energy Transfer,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,EPD,Enterprise Products,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,TRGP,Targa Resources,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,AM,Antero Midstream,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,EQT,EQT Corporation,Natural Gas,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,AR,Antero Resources,Natural Gas,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,RRC,Range Resources,Natural Gas,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.0630246913580247,8,True
+single_SLB,SLB default,SLB,SWN,Southwestern Energy,Natural Gas,0.0,False,0.0630246913580247,8,True
+single_SLB,SLB default,SLB,LNG,Cheniere Energy,LNG,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,HES,Hess Corporation,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,MRO,Marathon Oil,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,PXD,Pioneer Natural Resources,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,CHRD,Chord Energy,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,DTM,DT Midstream,Midstream,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,MTDR,Matador Resources,E&P,0.0,False,0.0630246913580247,8,False
+single_SLB,SLB default,SLB,PR,Permian Resources,E&P,0.0,False,0.0630246913580247,8,False
+single_HAL,HAL default,HAL,XOM,ExxonMobil,Integrated Oil,0.33333333333333337,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,CVX,Chevron,Integrated Oil,0.33333333333333337,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,COP,ConocoPhillips,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,EOG,EOG Resources,E&P,0.33333333333333337,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,DVN,Devon Energy,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,FANG,Diamondback Energy,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,APA,APA Corporation,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,OVV,Ovintiv,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,CTRA,Coterra Energy,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,HAL,Halliburton,Oilfield Services,1.0,True,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,BKR,Baker Hughes,Oilfield Services,0.020987654320987655,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,FTI,TechnipFMC,Oilfield Services,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,NOV,NOV Inc.,Oilfield Services,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,VLO,Valero Energy,Refining,0.238399318859089,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,MPC,Marathon Petroleum,Refining,0.16666666666666669,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,PSX,Phillips 66,Refining,0.11494252873563221,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,DK,Delek US Holdings,Refining,0.10344827586206896,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,PBF,PBF Energy,Refining,0.20987654320987653,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,KMI,Kinder Morgan,Midstream,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,WMB,Williams Companies,Midstream,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,OKE,ONEOK,Midstream,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,ET,Energy Transfer,Midstream,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,EPD,Enterprise Products,Midstream,0.22988505747126442,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,TRGP,Targa Resources,Midstream,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,AM,Antero Midstream,Midstream,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,EQT,EQT Corporation,Natural Gas,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,AR,Antero Resources,Natural Gas,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,RRC,Range Resources,Natural Gas,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.07741549595572585,12,True
+single_HAL,HAL default,HAL,SWN,Southwestern Energy,Natural Gas,0.0,False,0.07741549595572585,12,True
+single_HAL,HAL default,HAL,LNG,Cheniere Energy,LNG,0.012413793103448275,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,HES,Hess Corporation,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,MRO,Marathon Oil,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,PXD,Pioneer Natural Resources,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,CHRD,Chord Energy,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,DTM,DT Midstream,Midstream,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,MTDR,Matador Resources,E&P,0.0,False,0.07741549595572585,12,False
+single_HAL,HAL default,HAL,PR,Permian Resources,E&P,0.0,False,0.07741549595572585,12,False
+single_BKR,BKR default,BKR,XOM,ExxonMobil,Integrated Oil,0.4583333333333333,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,CVX,Chevron,Integrated Oil,0.02083333333333334,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,COP,ConocoPhillips,E&P,0.4583333333333333,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,EOG,EOG Resources,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,DVN,Devon Energy,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,FANG,Diamondback Energy,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,APA,APA Corporation,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,OVV,Ovintiv,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,CTRA,Coterra Energy,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,SLB,SLB (Schlumberger),Oilfield Services,0.06250000000000001,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,HAL,Halliburton,Oilfield Services,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,BKR,Baker Hughes,Oilfield Services,1.0,True,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,FTI,TechnipFMC,Oilfield Services,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,NOV,NOV Inc.,Oilfield Services,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,VLO,Valero Energy,Refining,0.16203703703703703,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,MPC,Marathon Petroleum,Refining,0.01041666666666667,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,PSX,Phillips 66,Refining,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,DK,Delek US Holdings,Refining,0.04150390625000001,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,PBF,PBF Energy,Refining,0.2754629629629629,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,KMI,Kinder Morgan,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,WMB,Williams Companies,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,OKE,ONEOK,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,ET,Energy Transfer,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,EPD,Enterprise Products,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,TRGP,Targa Resources,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,AM,Antero Midstream,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,EQT,EQT Corporation,Natural Gas,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,AR,Antero Resources,Natural Gas,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,RRC,Range Resources,Natural Gas,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.06379801432291667,10,True
+single_BKR,BKR default,BKR,SWN,Southwestern Energy,Natural Gas,0.0,False,0.06379801432291667,10,True
+single_BKR,BKR default,BKR,LNG,Cheniere Energy,LNG,0.06250000000000001,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,HES,Hess Corporation,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,MRO,Marathon Oil,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,PXD,Pioneer Natural Resources,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,CHRD,Chord Energy,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,DTM,DT Midstream,Midstream,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,MTDR,Matador Resources,E&P,0.0,False,0.06379801432291667,10,False
+single_BKR,BKR default,BKR,PR,Permian Resources,E&P,0.0,False,0.06379801432291667,10,False
+single_FTI,FTI default,FTI,XOM,ExxonMobil,Integrated Oil,0.5,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,CVX,Chevron,Integrated Oil,0.5,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,COP,ConocoPhillips,E&P,0.013773148148148147,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,EOG,EOG Resources,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,DVN,Devon Energy,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,FANG,Diamondback Energy,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,APA,APA Corporation,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,OVV,Ovintiv,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,CTRA,Coterra Energy,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,HAL,Halliburton,Oilfield Services,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,BKR,Baker Hughes,Oilfield Services,0.03148148148148148,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,FTI,TechnipFMC,Oilfield Services,1.0,True,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,NOV,NOV Inc.,Oilfield Services,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,VLO,Valero Energy,Refining,0.18518518518518517,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,MPC,Marathon Petroleum,Refining,0.25,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,PSX,Phillips 66,Refining,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,DK,Delek US Holdings,Refining,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,PBF,PBF Energy,Refining,0.31481481481481477,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,KMI,Kinder Morgan,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,WMB,Williams Companies,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,OKE,ONEOK,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,ET,Energy Transfer,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,EPD,Enterprise Products,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,TRGP,Targa Resources,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,AM,Antero Midstream,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,EQT,EQT Corporation,Natural Gas,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,AR,Antero Resources,Natural Gas,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,RRC,Range Resources,Natural Gas,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.06988136574074075,8,True
+single_FTI,FTI default,FTI,SWN,Southwestern Energy,Natural Gas,0.0,False,0.06988136574074075,8,True
+single_FTI,FTI default,FTI,LNG,Cheniere Energy,LNG,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,HES,Hess Corporation,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,MRO,Marathon Oil,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,PXD,Pioneer Natural Resources,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,CHRD,Chord Energy,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,DTM,DT Midstream,Midstream,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,MTDR,Matador Resources,E&P,0.0,False,0.06988136574074075,8,False
+single_FTI,FTI default,FTI,PR,Permian Resources,E&P,0.0,False,0.06988136574074075,8,False
+single_NOV,NOV default,NOV,XOM,ExxonMobil,Integrated Oil,0.33333333333333337,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,CVX,Chevron,Integrated Oil,0.33333333333333337,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,COP,ConocoPhillips,E&P,0.16666666666666669,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,EOG,EOG Resources,E&P,0.16666666666666669,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,DVN,Devon Energy,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,FANG,Diamondback Energy,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,APA,APA Corporation,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,OVV,Ovintiv,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,CTRA,Coterra Energy,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,SLB,SLB (Schlumberger),Oilfield Services,0.5,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,HAL,Halliburton,Oilfield Services,0.5,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,BKR,Baker Hughes,Oilfield Services,0.020987654320987655,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,FTI,TechnipFMC,Oilfield Services,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,NOV,NOV Inc.,Oilfield Services,1.0,True,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,VLO,Valero Energy,Refining,0.18092805449127292,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,MPC,Marathon Petroleum,Refining,0.16666666666666669,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,PSX,Phillips 66,Refining,0.057471264367816105,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,DK,Delek US Holdings,Refining,0.05172413793103448,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,PBF,PBF Energy,Refining,0.20987654320987653,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,KMI,Kinder Morgan,Midstream,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,WMB,Williams Companies,Midstream,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,OKE,ONEOK,Midstream,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,ET,Energy Transfer,Midstream,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,EPD,Enterprise Products,Midstream,0.11494252873563221,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,TRGP,Targa Resources,Midstream,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,AM,Antero Midstream,Midstream,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,EQT,EQT Corporation,Natural Gas,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,AR,Antero Resources,Natural Gas,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,RRC,Range Resources,Natural Gas,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.09506492124308216,14,True
+single_NOV,NOV default,NOV,SWN,Southwestern Energy,Natural Gas,0.0,False,0.09506492124308216,14,True
+single_NOV,NOV default,NOV,LNG,Cheniere Energy,LNG,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,HES,Hess Corporation,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,MRO,Marathon Oil,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,PXD,Pioneer Natural Resources,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,CHRD,Chord Energy,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,DTM,DT Midstream,Midstream,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,MTDR,Matador Resources,E&P,0.0,False,0.09506492124308216,14,False
+single_NOV,NOV default,NOV,PR,Permian Resources,E&P,0.0,False,0.09506492124308216,14,False
+single_VLO,VLO default,VLO,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,VLO,Valero Energy,Refining,1.0,True,0.025,1,False
+single_VLO,VLO default,VLO,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_VLO,VLO default,VLO,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_VLO,VLO default,VLO,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_VLO,VLO default,VLO,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,MPC,Marathon Petroleum,Refining,1.0,True,0.025,1,False
+single_MPC,MPC default,MPC,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_MPC,MPC default,MPC,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_MPC,MPC default,MPC,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_MPC,MPC default,MPC,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,PSX,Phillips 66,Refining,1.0,True,0.025,1,False
+single_PSX,PSX default,PSX,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_PSX,PSX default,PSX,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_PSX,PSX default,PSX,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_PSX,PSX default,PSX,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_DK,DK default,DK,XOM,ExxonMobil,Integrated Oil,0.0121875,False,0.0290078125,5,False
+single_DK,DK default,DK,CVX,Chevron,Integrated Oil,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,COP,ConocoPhillips,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,EOG,EOG Resources,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,DVN,Devon Energy,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,FANG,Diamondback Energy,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,APA,APA Corporation,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,OVV,Ovintiv,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,CTRA,Coterra Energy,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,HAL,Halliburton,Oilfield Services,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,BKR,Baker Hughes,Oilfield Services,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,FTI,TechnipFMC,Oilfield Services,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,NOV,NOV Inc.,Oilfield Services,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,VLO,Valero Energy,Refining,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,MPC,Marathon Petroleum,Refining,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,PSX,Phillips 66,Refining,0.013125000000000001,False,0.0290078125,5,False
+single_DK,DK default,DK,DK,Delek US Holdings,Refining,1.0,True,0.0290078125,5,False
+single_DK,DK default,DK,PBF,PBF Energy,Refining,0.015,False,0.0290078125,5,False
+single_DK,DK default,DK,KMI,Kinder Morgan,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,WMB,Williams Companies,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,OKE,ONEOK,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,ET,Energy Transfer,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,EPD,Enterprise Products,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,TRGP,Targa Resources,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,AM,Antero Midstream,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,EQT,EQT Corporation,Natural Gas,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,AR,Antero Resources,Natural Gas,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,RRC,Range Resources,Natural Gas,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.0290078125,5,True
+single_DK,DK default,DK,SWN,Southwestern Energy,Natural Gas,0.0,False,0.0290078125,5,True
+single_DK,DK default,DK,LNG,Cheniere Energy,LNG,0.12,False,0.0290078125,5,False
+single_DK,DK default,DK,HES,Hess Corporation,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,MRO,Marathon Oil,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,PXD,Pioneer Natural Resources,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,CHRD,Chord Energy,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,DTM,DT Midstream,Midstream,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,MTDR,Matador Resources,E&P,0.0,False,0.0290078125,5,False
+single_DK,DK default,DK,PR,Permian Resources,E&P,0.0,False,0.0290078125,5,False
+single_PBF,PBF default,PBF,XOM,ExxonMobil,Integrated Oil,0.043750000000000004,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,CVX,Chevron,Integrated Oil,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,COP,ConocoPhillips,E&P,0.043750000000000004,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,EOG,EOG Resources,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,DVN,Devon Energy,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,FANG,Diamondback Energy,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,APA,APA Corporation,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,OVV,Ovintiv,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,CTRA,Coterra Energy,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,HAL,Halliburton,Oilfield Services,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,BKR,Baker Hughes,Oilfield Services,0.1,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,FTI,TechnipFMC,Oilfield Services,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,NOV,NOV Inc.,Oilfield Services,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,VLO,Valero Energy,Refining,0.016203703703703703,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,MPC,Marathon Petroleum,Refining,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,PSX,Phillips 66,Refining,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,DK,Delek US Holdings,Refining,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,PBF,PBF Energy,Refining,1.0,True,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,KMI,Kinder Morgan,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,WMB,Williams Companies,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,OKE,ONEOK,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,ET,Energy Transfer,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,EPD,Enterprise Products,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,TRGP,Targa Resources,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,AM,Antero Midstream,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,EQT,EQT Corporation,Natural Gas,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,AR,Antero Resources,Natural Gas,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,RRC,Range Resources,Natural Gas,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.030092592592592594,5,True
+single_PBF,PBF default,PBF,SWN,Southwestern Energy,Natural Gas,0.0,False,0.030092592592592594,5,True
+single_PBF,PBF default,PBF,LNG,Cheniere Energy,LNG,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,HES,Hess Corporation,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,MRO,Marathon Oil,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,PXD,Pioneer Natural Resources,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,CHRD,Chord Energy,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,DTM,DT Midstream,Midstream,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,MTDR,Matador Resources,E&P,0.0,False,0.030092592592592594,5,False
+single_PBF,PBF default,PBF,PR,Permian Resources,E&P,0.0,False,0.030092592592592594,5,False
+single_KMI,KMI default,KMI,XOM,ExxonMobil,Integrated Oil,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,CVX,Chevron,Integrated Oil,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,COP,ConocoPhillips,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,EOG,EOG Resources,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,DVN,Devon Energy,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,FANG,Diamondback Energy,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,APA,APA Corporation,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,OVV,Ovintiv,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,CTRA,Coterra Energy,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,HAL,Halliburton,Oilfield Services,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,BKR,Baker Hughes,Oilfield Services,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,FTI,TechnipFMC,Oilfield Services,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,NOV,NOV Inc.,Oilfield Services,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,VLO,Valero Energy,Refining,0.5,False,0.05,3,False
+single_KMI,KMI default,KMI,MPC,Marathon Petroleum,Refining,0.5,False,0.05,3,False
+single_KMI,KMI default,KMI,PSX,Phillips 66,Refining,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,DK,Delek US Holdings,Refining,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,PBF,PBF Energy,Refining,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,KMI,Kinder Morgan,Midstream,1.0,True,0.05,3,False
+single_KMI,KMI default,KMI,WMB,Williams Companies,Midstream,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,OKE,ONEOK,Midstream,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,ET,Energy Transfer,Midstream,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,EPD,Enterprise Products,Midstream,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,TRGP,Targa Resources,Midstream,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,AM,Antero Midstream,Midstream,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,EQT,EQT Corporation,Natural Gas,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,AR,Antero Resources,Natural Gas,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,RRC,Range Resources,Natural Gas,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.05,3,True
+single_KMI,KMI default,KMI,SWN,Southwestern Energy,Natural Gas,0.0,False,0.05,3,True
+single_KMI,KMI default,KMI,LNG,Cheniere Energy,LNG,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,HES,Hess Corporation,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,MRO,Marathon Oil,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,PXD,Pioneer Natural Resources,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,CHRD,Chord Energy,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,DTM,DT Midstream,Midstream,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,MTDR,Matador Resources,E&P,0.0,False,0.05,3,False
+single_KMI,KMI default,KMI,PR,Permian Resources,E&P,0.0,False,0.05,3,False
+single_WMB,WMB default,WMB,XOM,ExxonMobil,Integrated Oil,0.04631249999999999,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,CVX,Chevron,Integrated Oil,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,COP,ConocoPhillips,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,EOG,EOG Resources,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,DVN,Devon Energy,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,FANG,Diamondback Energy,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,APA,APA Corporation,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,OVV,Ovintiv,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,CTRA,Coterra Energy,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,HAL,Halliburton,Oilfield Services,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,BKR,Baker Hughes,Oilfield Services,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,FTI,TechnipFMC,Oilfield Services,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,NOV,NOV Inc.,Oilfield Services,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,VLO,Valero Energy,Refining,0.017152777777777774,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,MPC,Marathon Petroleum,Refining,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,PSX,Phillips 66,Refining,0.049875,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,DK,Delek US Holdings,Refining,0.3028125,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,PBF,PBF Energy,Refining,0.08615972222222221,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,KMI,Kinder Morgan,Midstream,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,WMB,Williams Companies,Midstream,1.0,True,0.0609578125,8,False
+single_WMB,WMB default,WMB,OKE,ONEOK,Midstream,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,ET,Energy Transfer,Midstream,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,EPD,Enterprise Products,Midstream,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,TRGP,Targa Resources,Midstream,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,AM,Antero Midstream,Midstream,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,EQT,EQT Corporation,Natural Gas,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,AR,Antero Resources,Natural Gas,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,RRC,Range Resources,Natural Gas,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,CHK,Chesapeake Energy,Natural Gas,0.48,False,0.0609578125,8,True
+single_WMB,WMB default,WMB,SWN,Southwestern Energy,Natural Gas,0.0,False,0.0609578125,8,True
+single_WMB,WMB default,WMB,LNG,Cheniere Energy,LNG,0.45599999999999996,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,HES,Hess Corporation,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,MRO,Marathon Oil,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,PXD,Pioneer Natural Resources,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,CHRD,Chord Energy,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,DTM,DT Midstream,Midstream,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,MTDR,Matador Resources,E&P,0.0,False,0.0609578125,8,False
+single_WMB,WMB default,WMB,PR,Permian Resources,E&P,0.0,False,0.0609578125,8,False
+single_OKE,OKE default,OKE,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,OKE,ONEOK,Midstream,1.0,True,0.025,1,False
+single_OKE,OKE default,OKE,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_OKE,OKE default,OKE,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_OKE,OKE default,OKE,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_OKE,OKE default,OKE,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_ET,ET default,ET,XOM,ExxonMobil,Integrated Oil,0.016861347087378638,False,0.05811242162216829,7,False
+single_ET,ET default,ET,CVX,Chevron,Integrated Oil,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,COP,ConocoPhillips,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,EOG,EOG Resources,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,DVN,Devon Energy,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,FANG,Diamondback Energy,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,APA,APA Corporation,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,OVV,Ovintiv,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,CTRA,Coterra Energy,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,HAL,Halliburton,Oilfield Services,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,BKR,Baker Hughes,Oilfield Services,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,FTI,TechnipFMC,Oilfield Services,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,NOV,NOV Inc.,Oilfield Services,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,VLO,Valero Energy,Refining,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,MPC,Marathon Petroleum,Refining,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,PSX,Phillips 66,Refining,0.8252427184466019,False,0.05811242162216829,7,False
+single_ET,ET default,ET,DK,Delek US Holdings,Refining,0.1102472694174757,False,0.05811242162216829,7,False
+single_ET,ET default,ET,PBF,PBF Energy,Refining,0.03136883090614886,False,0.05811242162216829,7,False
+single_ET,ET default,ET,KMI,Kinder Morgan,Midstream,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,WMB,Williams Companies,Midstream,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,OKE,ONEOK,Midstream,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,ET,Energy Transfer,Midstream,1.0,True,0.05811242162216829,7,False
+single_ET,ET default,ET,EPD,Enterprise Products,Midstream,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,TRGP,Targa Resources,Midstream,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,AM,Antero Midstream,Midstream,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,EQT,EQT Corporation,Natural Gas,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,AR,Antero Resources,Natural Gas,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,RRC,Range Resources,Natural Gas,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,CHK,Chesapeake Energy,Natural Gas,0.17475728155339804,False,0.05811242162216829,7,True
+single_ET,ET default,ET,SWN,Southwestern Energy,Natural Gas,0.0,False,0.05811242162216829,7,True
+single_ET,ET default,ET,LNG,Cheniere Energy,LNG,0.16601941747572813,False,0.05811242162216829,7,False
+single_ET,ET default,ET,HES,Hess Corporation,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,MRO,Marathon Oil,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,PXD,Pioneer Natural Resources,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,CHRD,Chord Energy,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,DTM,DT Midstream,Midstream,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,MTDR,Matador Resources,E&P,0.0,False,0.05811242162216829,7,False
+single_ET,ET default,ET,PR,Permian Resources,E&P,0.0,False,0.05811242162216829,7,False
+single_EPD,EPD default,EPD,XOM,ExxonMobil,Integrated Oil,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,CVX,Chevron,Integrated Oil,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,COP,ConocoPhillips,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,EOG,EOG Resources,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,DVN,Devon Energy,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,FANG,Diamondback Energy,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,APA,APA Corporation,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,OVV,Ovintiv,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,CTRA,Coterra Energy,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,HAL,Halliburton,Oilfield Services,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,BKR,Baker Hughes,Oilfield Services,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,FTI,TechnipFMC,Oilfield Services,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,NOV,NOV Inc.,Oilfield Services,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,VLO,Valero Energy,Refining,0.5,False,0.05,3,False
+single_EPD,EPD default,EPD,MPC,Marathon Petroleum,Refining,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,PSX,Phillips 66,Refining,0.5,False,0.05,3,False
+single_EPD,EPD default,EPD,DK,Delek US Holdings,Refining,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,PBF,PBF Energy,Refining,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,KMI,Kinder Morgan,Midstream,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,WMB,Williams Companies,Midstream,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,OKE,ONEOK,Midstream,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,ET,Energy Transfer,Midstream,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,EPD,Enterprise Products,Midstream,1.0,True,0.05,3,False
+single_EPD,EPD default,EPD,TRGP,Targa Resources,Midstream,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,AM,Antero Midstream,Midstream,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,EQT,EQT Corporation,Natural Gas,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,AR,Antero Resources,Natural Gas,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,RRC,Range Resources,Natural Gas,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.05,3,True
+single_EPD,EPD default,EPD,SWN,Southwestern Energy,Natural Gas,0.0,False,0.05,3,True
+single_EPD,EPD default,EPD,LNG,Cheniere Energy,LNG,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,HES,Hess Corporation,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,MRO,Marathon Oil,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,PXD,Pioneer Natural Resources,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,CHRD,Chord Energy,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,DTM,DT Midstream,Midstream,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,MTDR,Matador Resources,E&P,0.0,False,0.05,3,False
+single_EPD,EPD default,EPD,PR,Permian Resources,E&P,0.0,False,0.05,3,False
+single_TRGP,TRGP default,TRGP,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,TRGP,Targa Resources,Midstream,1.0,True,0.025,1,False
+single_TRGP,TRGP default,TRGP,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_TRGP,TRGP default,TRGP,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_TRGP,TRGP default,TRGP,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_TRGP,TRGP default,TRGP,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_AM,AM default,AM,XOM,ExxonMobil,Integrated Oil,0.04363636363636363,False,0.03918181818181818,5,False
+single_AM,AM default,AM,CVX,Chevron,Integrated Oil,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,COP,ConocoPhillips,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,EOG,EOG Resources,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,DVN,Devon Energy,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,FANG,Diamondback Energy,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,APA,APA Corporation,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,OVV,Ovintiv,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,CTRA,Coterra Energy,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,HAL,Halliburton,Oilfield Services,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,BKR,Baker Hughes,Oilfield Services,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,FTI,TechnipFMC,Oilfield Services,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,NOV,NOV Inc.,Oilfield Services,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,VLO,Valero Energy,Refining,0.016161616161616158,False,0.03918181818181818,5,False
+single_AM,AM default,AM,MPC,Marathon Petroleum,Refining,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,PSX,Phillips 66,Refining,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,DK,Delek US Holdings,Refining,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,PBF,PBF Energy,Refining,0.027474747474747468,False,0.03918181818181818,5,False
+single_AM,AM default,AM,KMI,Kinder Morgan,Midstream,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,WMB,Williams Companies,Midstream,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,OKE,ONEOK,Midstream,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,ET,Energy Transfer,Midstream,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,EPD,Enterprise Products,Midstream,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,TRGP,Targa Resources,Midstream,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,AM,Antero Midstream,Midstream,1.0,True,0.03918181818181818,5,False
+single_AM,AM default,AM,EQT,EQT Corporation,Natural Gas,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,AR,Antero Resources,Natural Gas,0.48,False,0.03918181818181818,5,False
+single_AM,AM default,AM,RRC,Range Resources,Natural Gas,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.03918181818181818,5,True
+single_AM,AM default,AM,SWN,Southwestern Energy,Natural Gas,0.0,False,0.03918181818181818,5,True
+single_AM,AM default,AM,LNG,Cheniere Energy,LNG,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,HES,Hess Corporation,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,MRO,Marathon Oil,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,PXD,Pioneer Natural Resources,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,CHRD,Chord Energy,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,DTM,DT Midstream,Midstream,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,MTDR,Matador Resources,E&P,0.0,False,0.03918181818181818,5,False
+single_AM,AM default,AM,PR,Permian Resources,E&P,0.0,False,0.03918181818181818,5,False
+single_EQT,EQT default,EQT,XOM,ExxonMobil,Integrated Oil,0.049479166666666664,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,CVX,Chevron,Integrated Oil,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,COP,ConocoPhillips,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,EOG,EOG Resources,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,DVN,Devon Energy,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,FANG,Diamondback Energy,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,APA,APA Corporation,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,OVV,Ovintiv,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,CTRA,Coterra Energy,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,HAL,Halliburton,Oilfield Services,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,BKR,Baker Hughes,Oilfield Services,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,FTI,TechnipFMC,Oilfield Services,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,NOV,NOV Inc.,Oilfield Services,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,VLO,Valero Energy,Refining,0.018325617283950615,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,MPC,Marathon Petroleum,Refining,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,PSX,Phillips 66,Refining,0.053285256410256415,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,DK,Delek US Holdings,Refining,0.3235176282051282,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,PBF,PBF Energy,Refining,0.09205098528015193,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,KMI,Kinder Morgan,Midstream,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,WMB,Williams Companies,Midstream,0.5128205128205129,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,OKE,ONEOK,Midstream,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,ET,Energy Transfer,Midstream,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,EPD,Enterprise Products,Midstream,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,TRGP,Targa Resources,Midstream,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,AM,Antero Midstream,Midstream,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,EQT,EQT Corporation,Natural Gas,1.0,True,0.0695703125,9,False
+single_EQT,EQT default,EQT,AR,Antero Resources,Natural Gas,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,RRC,Range Resources,Natural Gas,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,CHK,Chesapeake Energy,Natural Gas,0.24615384615384617,False,0.0695703125,9,True
+single_EQT,EQT default,EQT,SWN,Southwestern Energy,Natural Gas,0.0,False,0.0695703125,9,True
+single_EQT,EQT default,EQT,LNG,Cheniere Energy,LNG,0.48717948717948717,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,HES,Hess Corporation,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,MRO,Marathon Oil,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,PXD,Pioneer Natural Resources,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,CHRD,Chord Energy,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,DTM,DT Midstream,Midstream,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,MTDR,Matador Resources,E&P,0.0,False,0.0695703125,9,False
+single_EQT,EQT default,EQT,PR,Permian Resources,E&P,0.0,False,0.0695703125,9,False
+single_AR,AR default,AR,XOM,ExxonMobil,Integrated Oil,0.09090909090909091,False,0.05227272727272727,5,False
+single_AR,AR default,AR,CVX,Chevron,Integrated Oil,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,COP,ConocoPhillips,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,EOG,EOG Resources,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,DVN,Devon Energy,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,FANG,Diamondback Energy,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,APA,APA Corporation,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,OVV,Ovintiv,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,CTRA,Coterra Energy,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,HAL,Halliburton,Oilfield Services,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,BKR,Baker Hughes,Oilfield Services,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,FTI,TechnipFMC,Oilfield Services,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,NOV,NOV Inc.,Oilfield Services,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,VLO,Valero Energy,Refining,0.03367003367003367,False,0.05227272727272727,5,False
+single_AR,AR default,AR,MPC,Marathon Petroleum,Refining,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,PSX,Phillips 66,Refining,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,DK,Delek US Holdings,Refining,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,PBF,PBF Energy,Refining,0.057239057239057235,False,0.05227272727272727,5,False
+single_AR,AR default,AR,KMI,Kinder Morgan,Midstream,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,WMB,Williams Companies,Midstream,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,OKE,ONEOK,Midstream,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,ET,Energy Transfer,Midstream,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,EPD,Enterprise Products,Midstream,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,TRGP,Targa Resources,Midstream,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,AM,Antero Midstream,Midstream,0.9090909090909091,False,0.05227272727272727,5,False
+single_AR,AR default,AR,EQT,EQT Corporation,Natural Gas,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,AR,Antero Resources,Natural Gas,1.0,True,0.05227272727272727,5,False
+single_AR,AR default,AR,RRC,Range Resources,Natural Gas,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.05227272727272727,5,True
+single_AR,AR default,AR,SWN,Southwestern Energy,Natural Gas,0.0,False,0.05227272727272727,5,True
+single_AR,AR default,AR,LNG,Cheniere Energy,LNG,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,HES,Hess Corporation,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,MRO,Marathon Oil,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,PXD,Pioneer Natural Resources,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,CHRD,Chord Energy,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,DTM,DT Midstream,Midstream,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,MTDR,Matador Resources,E&P,0.0,False,0.05227272727272727,5,False
+single_AR,AR default,AR,PR,Permian Resources,E&P,0.0,False,0.05227272727272727,5,False
+single_RRC,RRC default,RRC,XOM,ExxonMobil,Integrated Oil,0.016861347087378638,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,CVX,Chevron,Integrated Oil,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,COP,ConocoPhillips,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,EOG,EOG Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,DVN,Devon Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,FANG,Diamondback Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,APA,APA Corporation,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,OVV,Ovintiv,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,CTRA,Coterra Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,HAL,Halliburton,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,BKR,Baker Hughes,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,FTI,TechnipFMC,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,NOV,NOV Inc.,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,VLO,Valero Energy,Refining,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,MPC,Marathon Petroleum,Refining,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,PSX,Phillips 66,Refining,0.8252427184466019,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,DK,Delek US Holdings,Refining,0.1102472694174757,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,PBF,PBF Energy,Refining,0.03136883090614886,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,KMI,Kinder Morgan,Midstream,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,WMB,Williams Companies,Midstream,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,OKE,ONEOK,Midstream,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,ET,Energy Transfer,Midstream,1.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,EPD,Enterprise Products,Midstream,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,TRGP,Targa Resources,Midstream,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,AM,Antero Midstream,Midstream,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,EQT,EQT Corporation,Natural Gas,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,AR,Antero Resources,Natural Gas,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,RRC,Range Resources,Natural Gas,1.0,True,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,CHK,Chesapeake Energy,Natural Gas,0.17475728155339804,False,0.08311242162216828,8,True
+single_RRC,RRC default,RRC,SWN,Southwestern Energy,Natural Gas,0.0,False,0.08311242162216828,8,True
+single_RRC,RRC default,RRC,LNG,Cheniere Energy,LNG,0.16601941747572813,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,HES,Hess Corporation,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,MRO,Marathon Oil,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,PXD,Pioneer Natural Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,CHRD,Chord Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,DTM,DT Midstream,Midstream,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,MTDR,Matador Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_RRC,RRC default,RRC,PR,Permian Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_CHK,CHK default,CHK,XOM,ExxonMobil,Integrated Oil,0.096484375,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,CVX,Chevron,Integrated Oil,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,COP,ConocoPhillips,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,EOG,EOG Resources,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,DVN,Devon Energy,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,FANG,Diamondback Energy,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,APA,APA Corporation,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,OVV,Ovintiv,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,CTRA,Coterra Energy,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,HAL,Halliburton,Oilfield Services,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,BKR,Baker Hughes,Oilfield Services,0.011875,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,FTI,TechnipFMC,Oilfield Services,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,NOV,NOV Inc.,Oilfield Services,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,VLO,Valero Energy,Refining,0.0357349537037037,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,MPC,Marathon Petroleum,Refining,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,PSX,Phillips 66,Refining,0.10390625,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,DK,Delek US Holdings,Refining,0.630859375,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,PBF,PBF Energy,Refining,0.17949942129629629,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,KMI,Kinder Morgan,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,WMB,Williams Companies,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,OKE,ONEOK,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,ET,Energy Transfer,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,EPD,Enterprise Products,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,TRGP,Targa Resources,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,AM,Antero Midstream,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,EQT,EQT Corporation,Natural Gas,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,AR,Antero Resources,Natural Gas,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,RRC,Range Resources,Natural Gas,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,CHK,Chesapeake Energy,Natural Gas,1.0,True,0.075208984375,8,True
+single_CHK,CHK default,CHK,SWN,Southwestern Energy,Natural Gas,0.0,False,0.075208984375,8,True
+single_CHK,CHK default,CHK,LNG,Cheniere Energy,LNG,0.95,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,HES,Hess Corporation,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,MRO,Marathon Oil,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,PXD,Pioneer Natural Resources,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,CHRD,Chord Energy,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,DTM,DT Midstream,Midstream,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,MTDR,Matador Resources,E&P,0.0,False,0.075208984375,8,False
+single_CHK,CHK default,CHK,PR,Permian Resources,E&P,0.0,False,0.075208984375,8,False
+single_SWN,SWN default,SWN,XOM,ExxonMobil,Integrated Oil,0.016861347087378638,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,CVX,Chevron,Integrated Oil,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,COP,ConocoPhillips,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,EOG,EOG Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,DVN,Devon Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,FANG,Diamondback Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,APA,APA Corporation,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,OVV,Ovintiv,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,CTRA,Coterra Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,HAL,Halliburton,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,BKR,Baker Hughes,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,FTI,TechnipFMC,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,NOV,NOV Inc.,Oilfield Services,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,VLO,Valero Energy,Refining,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,MPC,Marathon Petroleum,Refining,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,PSX,Phillips 66,Refining,0.8252427184466019,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,DK,Delek US Holdings,Refining,0.1102472694174757,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,PBF,PBF Energy,Refining,0.03136883090614886,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,KMI,Kinder Morgan,Midstream,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,WMB,Williams Companies,Midstream,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,OKE,ONEOK,Midstream,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,ET,Energy Transfer,Midstream,1.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,EPD,Enterprise Products,Midstream,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,TRGP,Targa Resources,Midstream,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,AM,Antero Midstream,Midstream,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,EQT,EQT Corporation,Natural Gas,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,AR,Antero Resources,Natural Gas,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,RRC,Range Resources,Natural Gas,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,CHK,Chesapeake Energy,Natural Gas,0.17475728155339804,False,0.08311242162216828,8,True
+single_SWN,SWN default,SWN,SWN,Southwestern Energy,Natural Gas,1.0,True,0.08311242162216828,8,True
+single_SWN,SWN default,SWN,LNG,Cheniere Energy,LNG,0.16601941747572813,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,HES,Hess Corporation,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,MRO,Marathon Oil,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,PXD,Pioneer Natural Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,CHRD,Chord Energy,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,DTM,DT Midstream,Midstream,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,MTDR,Matador Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_SWN,SWN default,SWN,PR,Permian Resources,E&P,0.0,False,0.08311242162216828,8,False
+single_LNG,LNG default,LNG,XOM,ExxonMobil,Integrated Oil,0.1015625,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,CVX,Chevron,Integrated Oil,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,COP,ConocoPhillips,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,EOG,EOG Resources,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,DVN,Devon Energy,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,FANG,Diamondback Energy,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,APA,APA Corporation,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,OVV,Ovintiv,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,CTRA,Coterra Energy,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,HAL,Halliburton,Oilfield Services,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,BKR,Baker Hughes,Oilfield Services,0.0125,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,FTI,TechnipFMC,Oilfield Services,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,NOV,NOV Inc.,Oilfield Services,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,VLO,Valero Energy,Refining,0.03761574074074074,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,MPC,Marathon Petroleum,Refining,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,PSX,Phillips 66,Refining,0.10937500000000001,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,DK,Delek US Holdings,Refining,0.6640625,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,PBF,PBF Energy,Refining,0.18894675925925924,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,KMI,Kinder Morgan,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,WMB,Williams Companies,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,OKE,ONEOK,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,ET,Energy Transfer,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,EPD,Enterprise Products,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,TRGP,Targa Resources,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,AM,Antero Midstream,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,EQT,EQT Corporation,Natural Gas,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,AR,Antero Resources,Natural Gas,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,RRC,Range Resources,Natural Gas,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.052851562500000004,7,True
+single_LNG,LNG default,LNG,SWN,Southwestern Energy,Natural Gas,0.0,False,0.052851562500000004,7,True
+single_LNG,LNG default,LNG,LNG,Cheniere Energy,LNG,1.0,True,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,HES,Hess Corporation,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,MRO,Marathon Oil,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,PXD,Pioneer Natural Resources,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,CHRD,Chord Energy,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,DTM,DT Midstream,Midstream,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,MTDR,Matador Resources,E&P,0.0,False,0.052851562500000004,7,False
+single_LNG,LNG default,LNG,PR,Permian Resources,E&P,0.0,False,0.052851562500000004,7,False
+single_HES,HES default,HES,XOM,ExxonMobil,Integrated Oil,0.034411915767847974,False,0.09094867994144804,14,False
+single_HES,HES default,HES,CVX,Chevron,Integrated Oil,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,COP,ConocoPhillips,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,EOG,EOG Resources,E&P,0.2542372881355932,False,0.09094867994144804,14,False
+single_HES,HES default,HES,DVN,Devon Energy,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,FANG,Diamondback Energy,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,APA,APA Corporation,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,OVV,Ovintiv,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,CTRA,Coterra Energy,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,HAL,Halliburton,Oilfield Services,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,BKR,Baker Hughes,Oilfield Services,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,FTI,TechnipFMC,Oilfield Services,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,NOV,NOV Inc.,Oilfield Services,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,VLO,Valero Energy,Refining,0.10041318437967571,False,0.09094867994144804,14,False
+single_HES,HES default,HES,MPC,Marathon Petroleum,Refining,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,PSX,Phillips 66,Refining,0.39072326597931906,False,0.09094867994144804,14,False
+single_HES,HES default,HES,DK,Delek US Holdings,Refining,0.07890122735242547,False,0.09094867994144804,14,False
+single_HES,HES default,HES,PBF,PBF Energy,Refining,0.021666761779756127,False,0.09094867994144804,14,False
+single_HES,HES default,HES,KMI,Kinder Morgan,Midstream,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,WMB,Williams Companies,Midstream,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,OKE,ONEOK,Midstream,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,ET,Energy Transfer,Midstream,0.3672316384180791,False,0.09094867994144804,14,False
+single_HES,HES default,HES,EPD,Enterprise Products,Midstream,0.17533606078316774,False,0.09094867994144804,14,False
+single_HES,HES default,HES,TRGP,Targa Resources,Midstream,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,AM,Antero Midstream,Midstream,0.3441191576784797,False,0.09094867994144804,14,False
+single_HES,HES default,HES,EQT,EQT Corporation,Natural Gas,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,AR,Antero Resources,Natural Gas,0.3785310734463277,False,0.09094867994144804,14,False
+single_HES,HES default,HES,RRC,Range Resources,Natural Gas,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,CHK,Chesapeake Energy,Natural Gas,0.06417640283034391,False,0.09094867994144804,14,True
+single_HES,HES default,HES,SWN,Southwestern Energy,Natural Gas,0.3672316384180791,False,0.09094867994144804,14,True
+single_HES,HES default,HES,LNG,Cheniere Energy,LNG,0.06096758268882671,False,0.09094867994144804,14,False
+single_HES,HES default,HES,HES,Hess Corporation,E&P,1.0,True,0.09094867994144804,14,False
+single_HES,HES default,HES,MRO,Marathon Oil,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,PXD,Pioneer Natural Resources,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,CHRD,Chord Energy,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,DTM,DT Midstream,Midstream,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,MTDR,Matador Resources,E&P,0.0,False,0.09094867994144804,14,False
+single_HES,HES default,HES,PR,Permian Resources,E&P,0.0,False,0.09094867994144804,14,False
+single_MRO,MRO default,MRO,XOM,ExxonMobil,Integrated Oil,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,CVX,Chevron,Integrated Oil,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,COP,ConocoPhillips,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,EOG,EOG Resources,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,DVN,Devon Energy,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,FANG,Diamondback Energy,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,APA,APA Corporation,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,OVV,Ovintiv,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,CTRA,Coterra Energy,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,HAL,Halliburton,Oilfield Services,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,BKR,Baker Hughes,Oilfield Services,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,FTI,TechnipFMC,Oilfield Services,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,NOV,NOV Inc.,Oilfield Services,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,VLO,Valero Energy,Refining,0.07,False,0.032,4,False
+single_MRO,MRO default,MRO,MPC,Marathon Petroleum,Refining,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,PSX,Phillips 66,Refining,0.07,False,0.032,4,False
+single_MRO,MRO default,MRO,DK,Delek US Holdings,Refining,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,PBF,PBF Energy,Refining,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,KMI,Kinder Morgan,Midstream,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,WMB,Williams Companies,Midstream,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,OKE,ONEOK,Midstream,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,ET,Energy Transfer,Midstream,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,EPD,Enterprise Products,Midstream,0.14,False,0.032,4,False
+single_MRO,MRO default,MRO,TRGP,Targa Resources,Midstream,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,AM,Antero Midstream,Midstream,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,EQT,EQT Corporation,Natural Gas,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,AR,Antero Resources,Natural Gas,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,RRC,Range Resources,Natural Gas,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.032,4,True
+single_MRO,MRO default,MRO,SWN,Southwestern Energy,Natural Gas,0.0,False,0.032,4,True
+single_MRO,MRO default,MRO,LNG,Cheniere Energy,LNG,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,HES,Hess Corporation,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,MRO,Marathon Oil,E&P,1.0,True,0.032,4,False
+single_MRO,MRO default,MRO,PXD,Pioneer Natural Resources,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,CHRD,Chord Energy,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,DTM,DT Midstream,Midstream,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,MTDR,Matador Resources,E&P,0.0,False,0.032,4,False
+single_MRO,MRO default,MRO,PR,Permian Resources,E&P,0.0,False,0.032,4,False
+single_PXD,PXD default,PXD,XOM,ExxonMobil,Integrated Oil,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,CVX,Chevron,Integrated Oil,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,COP,ConocoPhillips,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,EOG,EOG Resources,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,DVN,Devon Energy,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,FANG,Diamondback Energy,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,APA,APA Corporation,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,OVV,Ovintiv,E&P,0.3,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,CTRA,Coterra Energy,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,HAL,Halliburton,Oilfield Services,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,BKR,Baker Hughes,Oilfield Services,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,FTI,TechnipFMC,Oilfield Services,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,NOV,NOV Inc.,Oilfield Services,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,VLO,Valero Energy,Refining,0.0345,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,MPC,Marathon Petroleum,Refining,0.0345,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,PSX,Phillips 66,Refining,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,DK,Delek US Holdings,Refining,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,PBF,PBF Energy,Refining,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,KMI,Kinder Morgan,Midstream,0.069,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,WMB,Williams Companies,Midstream,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,OKE,ONEOK,Midstream,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,ET,Energy Transfer,Midstream,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,EPD,Enterprise Products,Midstream,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,TRGP,Targa Resources,Midstream,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,AM,Antero Midstream,Midstream,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,EQT,EQT Corporation,Natural Gas,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,AR,Antero Resources,Natural Gas,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,RRC,Range Resources,Natural Gas,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.035949999999999996,5,True
+single_PXD,PXD default,PXD,SWN,Southwestern Energy,Natural Gas,0.0,False,0.035949999999999996,5,True
+single_PXD,PXD default,PXD,LNG,Cheniere Energy,LNG,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,HES,Hess Corporation,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,MRO,Marathon Oil,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,PXD,Pioneer Natural Resources,E&P,1.0,True,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,CHRD,Chord Energy,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,DTM,DT Midstream,Midstream,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,MTDR,Matador Resources,E&P,0.0,False,0.035949999999999996,5,False
+single_PXD,PXD default,PXD,PR,Permian Resources,E&P,0.0,False,0.035949999999999996,5,False
+single_CHRD,CHRD default,CHRD,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_CHRD,CHRD default,CHRD,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_CHRD,CHRD default,CHRD,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,CHRD,Chord Energy,E&P,1.0,True,0.025,1,False
+single_CHRD,CHRD default,CHRD,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_CHRD,CHRD default,CHRD,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_DTM,DTM default,DTM,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_DTM,DTM default,DTM,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,DTM,DT Midstream,Midstream,1.0,True,0.025,1,False
+single_DTM,DTM default,DTM,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_DTM,DTM default,DTM,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_MTDR,MTDR default,MTDR,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_MTDR,MTDR default,MTDR,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_MTDR,MTDR default,MTDR,MTDR,Matador Resources,E&P,1.0,True,0.025,1,False
+single_MTDR,MTDR default,MTDR,PR,Permian Resources,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,XOM,ExxonMobil,Integrated Oil,0.0,False,0.025,1,False
+single_PR,PR default,PR,CVX,Chevron,Integrated Oil,0.0,False,0.025,1,False
+single_PR,PR default,PR,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.025,1,False
+single_PR,PR default,PR,COP,ConocoPhillips,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,EOG,EOG Resources,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,DVN,Devon Energy,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,FANG,Diamondback Energy,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,APA,APA Corporation,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,OVV,Ovintiv,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,CTRA,Coterra Energy,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.025,1,False
+single_PR,PR default,PR,HAL,Halliburton,Oilfield Services,0.0,False,0.025,1,False
+single_PR,PR default,PR,BKR,Baker Hughes,Oilfield Services,0.0,False,0.025,1,False
+single_PR,PR default,PR,FTI,TechnipFMC,Oilfield Services,0.0,False,0.025,1,False
+single_PR,PR default,PR,NOV,NOV Inc.,Oilfield Services,0.0,False,0.025,1,False
+single_PR,PR default,PR,VLO,Valero Energy,Refining,0.0,False,0.025,1,False
+single_PR,PR default,PR,MPC,Marathon Petroleum,Refining,0.0,False,0.025,1,False
+single_PR,PR default,PR,PSX,Phillips 66,Refining,0.0,False,0.025,1,False
+single_PR,PR default,PR,DK,Delek US Holdings,Refining,0.0,False,0.025,1,False
+single_PR,PR default,PR,PBF,PBF Energy,Refining,0.0,False,0.025,1,False
+single_PR,PR default,PR,KMI,Kinder Morgan,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,WMB,Williams Companies,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,OKE,ONEOK,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,ET,Energy Transfer,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,EPD,Enterprise Products,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,TRGP,Targa Resources,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,AM,Antero Midstream,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,EQT,EQT Corporation,Natural Gas,0.0,False,0.025,1,False
+single_PR,PR default,PR,AR,Antero Resources,Natural Gas,0.0,False,0.025,1,False
+single_PR,PR default,PR,RRC,Range Resources,Natural Gas,0.0,False,0.025,1,False
+single_PR,PR default,PR,CHK,Chesapeake Energy,Natural Gas,0.0,False,0.025,1,True
+single_PR,PR default,PR,SWN,Southwestern Energy,Natural Gas,0.0,False,0.025,1,True
+single_PR,PR default,PR,LNG,Cheniere Energy,LNG,0.0,False,0.025,1,False
+single_PR,PR default,PR,HES,Hess Corporation,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,MRO,Marathon Oil,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,PXD,Pioneer Natural Resources,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,CHRD,Chord Energy,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,DTM,DT Midstream,Midstream,0.0,False,0.025,1,False
+single_PR,PR default,PR,MTDR,Matador Resources,E&P,0.0,False,0.025,1,False
+single_PR,PR default,PR,PR,Permian Resources,E&P,1.0,True,0.025,1,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,XOM,ExxonMobil,Integrated Oil,0.096484375,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,CVX,Chevron,Integrated Oil,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,COP,ConocoPhillips,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,EOG,EOG Resources,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,DVN,Devon Energy,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,FANG,Diamondback Energy,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,APA,APA Corporation,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,OVV,Ovintiv,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,CTRA,Coterra Energy,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,HAL,Halliburton,Oilfield Services,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,BKR,Baker Hughes,Oilfield Services,0.011875,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,FTI,TechnipFMC,Oilfield Services,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,NOV,NOV Inc.,Oilfield Services,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,VLO,Valero Energy,Refining,0.0357349537037037,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,MPC,Marathon Petroleum,Refining,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,PSX,Phillips 66,Refining,0.10390625,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,DK,Delek US Holdings,Refining,0.630859375,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,PBF,PBF Energy,Refining,0.17949942129629629,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,KMI,Kinder Morgan,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,WMB,Williams Companies,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,OKE,ONEOK,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,ET,Energy Transfer,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,EPD,Enterprise Products,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,TRGP,Targa Resources,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,AM,Antero Midstream,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,EQT,EQT Corporation,Natural Gas,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,AR,Antero Resources,Natural Gas,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,RRC,Range Resources,Natural Gas,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,CHK,Chesapeake Energy,Natural Gas,1.0,True,0.075208984375,8,True
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,SWN,Southwestern Energy,Natural Gas,0.0,False,0.075208984375,8,True
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,LNG,Cheniere Energy,LNG,0.95,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,HES,Hess Corporation,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,MRO,Marathon Oil,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,PXD,Pioneer Natural Resources,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,CHRD,Chord Energy,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,DTM,DT Midstream,Midstream,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,MTDR,Matador Resources,E&P,0.0,False,0.075208984375,8,False
+historical_chk_2020,Chesapeake Energy Chapter 11 (Jun 2020),CHK,PR,Permian Resources,E&P,0.0,False,0.075208984375,8,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",XOM,ExxonMobil,Integrated Oil,0.0675390625,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",CVX,Chevron,Integrated Oil,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",COP,ConocoPhillips,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",EOG,EOG Resources,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",DVN,Devon Energy,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",FANG,Diamondback Energy,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",APA,APA Corporation,E&P,0.5,True,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",OVV,Ovintiv,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",CTRA,Coterra Energy,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",HAL,Halliburton,Oilfield Services,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",BKR,Baker Hughes,Oilfield Services,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",FTI,TechnipFMC,Oilfield Services,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",NOV,NOV Inc.,Oilfield Services,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",VLO,Valero Energy,Refining,0.1375144675925926,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",MPC,Marathon Petroleum,Refining,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",PSX,Phillips 66,Refining,0.6803800060679611,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",DK,Delek US Holdings,Refining,0.44160156249999993,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",PBF,PBF Energy,Refining,0.1256495949074074,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",KMI,Kinder Morgan,Midstream,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",WMB,Williams Companies,Midstream,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",OKE,ONEOK,Midstream,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",ET,Energy Transfer,Midstream,0.6,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",EPD,Enterprise Products,Midstream,0.22499999999999998,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",TRGP,Targa Resources,Midstream,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",AM,Antero Midstream,Midstream,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",EQT,EQT Corporation,Natural Gas,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",AR,Antero Resources,Natural Gas,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",RRC,Range Resources,Natural Gas,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",CHK,Chesapeake Energy,Natural Gas,0.7,True,0.11856711733919903,11,True
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",SWN,Southwestern Energy,Natural Gas,0.6,True,0.11856711733919903,11,True
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",LNG,Cheniere Energy,LNG,0.6649999999999999,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",HES,Hess Corporation,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",MRO,Marathon Oil,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",PXD,Pioneer Natural Resources,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",CHRD,Chord Energy,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",DTM,DT Midstream,Midstream,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",MTDR,Matador Resources,E&P,0.0,False,0.11856711733919903,11,False
+oil_crash_2015_wave,2015-16 oil crash: multiple E&P distress,"APA, CHK, SWN",PR,Permian Resources,E&P,0.0,False,0.11856711733919903,11,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,XOM,ExxonMobil,Integrated Oil,0.096484375,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,CVX,Chevron,Integrated Oil,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,COP,ConocoPhillips,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,EOG,EOG Resources,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,DVN,Devon Energy,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,FANG,Diamondback Energy,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,APA,APA Corporation,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,OVV,Ovintiv,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,CTRA,Coterra Energy,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,HAL,Halliburton,Oilfield Services,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,BKR,Baker Hughes,Oilfield Services,0.011875,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,FTI,TechnipFMC,Oilfield Services,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,NOV,NOV Inc.,Oilfield Services,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,VLO,Valero Energy,Refining,0.0357349537037037,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,MPC,Marathon Petroleum,Refining,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,PSX,Phillips 66,Refining,0.10390625,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,DK,Delek US Holdings,Refining,0.630859375,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,PBF,PBF Energy,Refining,0.17949942129629629,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,KMI,Kinder Morgan,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,WMB,Williams Companies,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,OKE,ONEOK,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,ET,Energy Transfer,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,EPD,Enterprise Products,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,TRGP,Targa Resources,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,AM,Antero Midstream,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,EQT,EQT Corporation,Natural Gas,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,AR,Antero Resources,Natural Gas,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,RRC,Range Resources,Natural Gas,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,CHK,Chesapeake Energy,Natural Gas,1.0,True,0.075208984375,8,True
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,SWN,Southwestern Energy,Natural Gas,0.0,False,0.075208984375,8,True
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,LNG,Cheniere Energy,LNG,0.95,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,HES,Hess Corporation,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,MRO,Marathon Oil,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,PXD,Pioneer Natural Resources,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,CHRD,Chord Energy,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,DTM,DT Midstream,Midstream,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,MTDR,Matador Resources,E&P,0.0,False,0.075208984375,8,False
+covid_2020_wave,2020 COVID wave: CHK + Oasis + Chaparral,CHK,PR,Permian Resources,E&P,0.0,False,0.075208984375,8,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",XOM,ExxonMobil,Integrated Oil,0.5,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",CVX,Chevron,Integrated Oil,0.5,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",COP,ConocoPhillips,E&P,0.2666666666666667,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",EOG,EOG Resources,E&P,0.23333333333333334,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",DVN,Devon Energy,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",FANG,Diamondback Energy,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",APA,APA Corporation,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",OVV,Ovintiv,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",CTRA,Coterra Energy,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",SLB,SLB (Schlumberger),Oilfield Services,0.8,True,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",HAL,Halliburton,Oilfield Services,0.7,True,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",BKR,Baker Hughes,Oilfield Services,0.03148148148148148,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",FTI,TechnipFMC,Oilfield Services,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",NOV,NOV Inc.,Oilfield Services,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",VLO,Valero Energy,Refining,0.2656449553001277,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",MPC,Marathon Petroleum,Refining,0.25,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",PSX,Phillips 66,Refining,0.08045977011494254,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",DK,Delek US Holdings,Refining,0.07241379310344827,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",PBF,PBF Energy,Refining,0.31481481481481477,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",KMI,Kinder Morgan,Midstream,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",WMB,Williams Companies,Midstream,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",OKE,ONEOK,Midstream,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",ET,Energy Transfer,Midstream,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",EPD,Enterprise Products,Midstream,0.16091954022988508,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",TRGP,Targa Resources,Midstream,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",AM,Antero Midstream,Midstream,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",EQT,EQT Corporation,Natural Gas,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",AR,Antero Resources,Natural Gas,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",RRC,Range Resources,Natural Gas,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",CHK,Chesapeake Energy,Natural Gas,0.0,False,0.10439335887611749,13,True
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",SWN,Southwestern Energy,Natural Gas,0.0,False,0.10439335887611749,13,True
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",LNG,Cheniere Energy,LNG,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",HES,Hess Corporation,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",MRO,Marathon Oil,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",PXD,Pioneer Natural Resources,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",CHRD,Chord Energy,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",DTM,DT Midstream,Midstream,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",MTDR,Matador Resources,E&P,0.0,False,0.10439335887611749,13,False
+oilfield_services_shock,Oilfield services sector shock,"HAL, SLB",PR,Permian Resources,E&P,0.0,False,0.10439335887611749,13,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",XOM,ExxonMobil,Integrated Oil,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",CVX,Chevron,Integrated Oil,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",OXY,Occidental Petroleum,Integrated Oil,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",COP,ConocoPhillips,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",EOG,EOG Resources,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",DVN,Devon Energy,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",FANG,Diamondback Energy,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",APA,APA Corporation,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",OVV,Ovintiv,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",CTRA,Coterra Energy,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",SLB,SLB (Schlumberger),Oilfield Services,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",HAL,Halliburton,Oilfield Services,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",BKR,Baker Hughes,Oilfield Services,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",FTI,TechnipFMC,Oilfield Services,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",NOV,NOV Inc.,Oilfield Services,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",VLO,Valero Energy,Refining,0.6,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",MPC,Marathon Petroleum,Refining,0.3,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",PSX,Phillips 66,Refining,0.3,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",DK,Delek US Holdings,Refining,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",PBF,PBF Energy,Refining,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",KMI,Kinder Morgan,Midstream,0.6,True,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",WMB,Williams Companies,Midstream,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",OKE,ONEOK,Midstream,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",ET,Energy Transfer,Midstream,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",EPD,Enterprise Products,Midstream,0.6,True,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",TRGP,Targa Resources,Midstream,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",AM,Antero Midstream,Midstream,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",EQT,EQT Corporation,Natural Gas,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",AR,Antero Resources,Natural Gas,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",RRC,Range Resources,Natural Gas,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",CHK,Chesapeake Energy,Natural Gas,0.0,False,0.06,5,True
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",SWN,Southwestern Energy,Natural Gas,0.0,False,0.06,5,True
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",LNG,Cheniere Energy,LNG,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",HES,Hess Corporation,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",MRO,Marathon Oil,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",PXD,Pioneer Natural Resources,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",CHRD,Chord Energy,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",DTM,DT Midstream,Midstream,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",MTDR,Matador Resources,E&P,0.0,False,0.06,5,False
+midstream_disruption,Midstream pipeline disruption,"EPD, KMI",PR,Permian Resources,E&P,0.0,False,0.06,5,False
