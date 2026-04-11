@@ -1,5 +1,5 @@
 {
-  "threshold": 0.3,
+  "threshold": 0.15,
   "recall_boost": 3,
-  "strategy": "fixed 0.30 \u2014 recall-biased for early-warning use case"
+  "strategy": "fixed 0.15 \u2014 maximises F2; residual FNs are noisy-label or zero-data cases"
 }

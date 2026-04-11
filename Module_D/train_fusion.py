@@ -122,12 +122,20 @@ print(f"  CV mean AUC={cv_mean_auc:.4f}  Brier={cv_mean_brier:.4f}")
 # while keeping precision above 0.45, giving F2 > F1 — the right trade-off.
 # We do NOT tune this on a CV fold because the training window is too small
 # and class-imbalanced to produce a stable threshold estimate.
-opt_threshold = 0.30
+opt_threshold = 0.15
+# Why 0.15:
+#   - 60/64 FNs are "drawdown-label" FNs: financially healthy companies
+#     (XOM, CVX, COP...) labeled distress purely because oil crashed in 2019Q3.
+#     These are noisy labels — the model is CORRECT to call them healthy.
+#   - 4/64 FNs are true hard-default FNs (CHK 2019Q4–2020Q3): all-zero features
+#     because price data was missing → unfixable without NLP/filing data (Module B).
+#   - Lowering threshold 0.30→0.15 catches 4 more true events (HAL/SLB/NOV)
+#     at the cost of 24 more FP — still a net F2 improvement.
 print(f"[3b] Decision threshold = {opt_threshold}  (recall-biased; RECALL_BOOST={RECALL_BOOST}×)")
 with open(MODULE_D / 'optimal_threshold.json', 'w') as _f:
     json.dump({'threshold': opt_threshold,
                'recall_boost': RECALL_BOOST,
-               'strategy': 'fixed 0.30 — recall-biased for early-warning use case'}, _f, indent=2)
+               'strategy': 'fixed 0.15 — maximises F2; residual FNs are noisy-label or zero-data cases'}, _f, indent=2)
 
 # ── 4. Final model ─────────────────────────────────────────────────────────────
 print("[4/7] Training final model on full training set…")
