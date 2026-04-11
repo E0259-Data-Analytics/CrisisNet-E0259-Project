@@ -1,13 +1,15 @@
 """
 CrisisNet — Interactive Dashboard
 ===================================
-Four-tab Streamlit app for exploring CrisisNet fusion model outputs.
+Six-tab Streamlit app for exploring CrisisNet fusion model outputs.
 
 Tabs:
   1. Company Scorecard    — live health rankings with filters
   2. SHAP Waterfall       — per-company SHAP explainability
   3. Network Graph        — supply-chain contagion explorer
   4. Risk Timeline        — multi-company historical risk evolution
+  5. Predictions vs Actuals — confusion matrix, hit/miss per company
+  6. Live Scoring         — upload CSV → run full pipeline → get health scores
 
 Usage:
     pip install streamlit plotly networkx shap lightgbm pyarrow
@@ -36,14 +38,16 @@ REPO_ROOT   = Path(__file__).resolve().parent.parent
 MODULE_D    = REPO_ROOT / "Module_D"
 MODULE_C    = REPO_ROOT / "Module_C"
 
-HEALTH_PATH  = MODULE_D / "health_scores.parquet"
-FUSED_PATH   = MODULE_D / "X_fused.parquet"
-SHAP_PATH    = MODULE_D / "shap_values.npy"
-FEAT_PATH    = MODULE_D / "shap_feat_cols.json"
-ABLATION_PATH= MODULE_D / "ablation_results.json"
-METRICS_PATH = MODULE_D / "metrics.json"
-GRAPH_PATH   = MODULE_C / "results" / "exports" / "X_graph.parquet"
-GRAPH_PKL    = MODULE_C / "data" / "processed" / "supply_chain_graph.pkl"
+HEALTH_PATH   = MODULE_D / "health_scores.parquet"
+FUSED_PATH    = MODULE_D / "X_fused.parquet"
+SHAP_PATH     = MODULE_D / "shap_values.npy"
+FEAT_PATH     = MODULE_D / "shap_feat_cols.json"
+ABLATION_PATH = MODULE_D / "ablation_results.json"
+METRICS_PATH  = MODULE_D / "metrics.json"
+TEST_PRED_PATH= MODULE_D / "test_predictions.parquet"
+MODEL_PATH    = MODULE_D / "lgbm_fusion.txt"
+GRAPH_PATH    = MODULE_C / "results" / "exports" / "X_graph.parquet"
+GRAPH_PKL     = MODULE_C / "data" / "processed" / "supply_chain_graph.pkl"
 
 # ── Cached data loaders ────────────────────────────────────────────────────────
 @st.cache_data
@@ -74,6 +78,15 @@ def load_ablation():
 def load_metrics():
     with open(METRICS_PATH) as f:
         return json.load(f)
+
+@st.cache_data
+def load_test_predictions():
+    return pd.read_parquet(TEST_PRED_PATH)
+
+@st.cache_resource
+def load_lgbm_model():
+    import lightgbm as lgb
+    return lgb.Booster(model_file=str(MODEL_PATH))
 
 @st.cache_resource
 def load_graph():
@@ -174,6 +187,8 @@ tabs = st.tabs([
     "🔍  SHAP Explainer",
     "🕸️   Network Graph",
     "📈  Risk Timeline",
+    "✅  Predictions vs Actuals",
+    "⚡  Live Scoring",
 ])
 
 # ── TAB 1: Company Scorecard ──────────────────────────────────────────────────
@@ -213,7 +228,7 @@ with tabs[0]:
             disp.style
             .background_gradient(subset=['Health Score'], cmap='RdYlGn', vmin=0, vmax=1)
             .background_gradient(subset=['Distress Prob'], cmap='YlOrRd', vmin=0, vmax=1)
-            .applymap(color_tier, subset=['Risk Tier'])
+            .map(color_tier, subset=['Risk Tier'])
             .format({'Health Score': '{:.4f}', 'Distress Prob': '{:.4f}'})
         )
         st.dataframe(styled, use_container_width=True, height=450)
@@ -372,19 +387,34 @@ with tabs[2]:
         st.warning("X_graph.parquet not found.")
     else:
         col1, col2 = st.columns([1, 3])
+        # X_graph.parquet has raw column names (no graph_ prefix)
+        gf_cols = [c for c in gf.columns if c not in {'ticker', 'quarter', 'year', 'name', 'subsector', 'defaulted'}]
+
+        # Pick sensible defaults — fall back gracefully if column absent
+        def _pick(candidates):
+            for c in candidates:
+                if c in gf.columns:
+                    return c
+            return gf_cols[0] if gf_cols else 'ticker'
+
+        default_metric = _pick(['systemic_importance_score', 'pagerank', 'betweenness_centrality'])
+        default_color  = _pick(['debtrank_exposure', 'contagion_out', 'louvain_community_id'])
+
         with col1:
             nw_quarter = st.selectbox("Quarter", sorted(gf['quarter'].unique(), reverse=True), key='nw_q')
             nw_metric  = st.selectbox(
                 "Node size by",
-                ['graph_systemic_importance_score', 'graph_pagerank',
-                 'graph_betweenness_centrality', 'graph_contagion_vulnerability'],
-                format_func=lambda x: x.replace('graph_', '').replace('_', ' ').title()
+                [c for c in gf_cols if pd.api.types.is_numeric_dtype(gf[c])],
+                index=[c for c in gf_cols if pd.api.types.is_numeric_dtype(gf[c])].index(default_metric)
+                      if default_metric in gf_cols else 0,
+                format_func=lambda x: x.replace('_', ' ').title(),
             )
             nw_color   = st.selectbox(
                 "Node color by",
-                ['graph_debtrank_exposure', 'graph_contagion_out',
-                 'graph_louvain_community_id', 'graph_systemic_risk_contribution'],
-                format_func=lambda x: x.replace('graph_', '').replace('_', ' ').title()
+                [c for c in gf_cols if pd.api.types.is_numeric_dtype(gf[c])],
+                index=[c for c in gf_cols if pd.api.types.is_numeric_dtype(gf[c])].index(default_color)
+                      if default_color in gf_cols else 0,
+                format_func=lambda x: x.replace('_', ' ').title(),
             )
             show_labels= st.checkbox("Show labels", value=True)
 
@@ -395,33 +425,29 @@ with tabs[2]:
 
         with col2:
             if nw_metric in gf_q.columns and nw_color in gf_q.columns:
-                # Layout: circular by subsector
                 import math
                 tickers = gf_q['ticker'].tolist()
                 n       = len(tickers)
                 angles  = [2 * math.pi * i / n for i in range(n)]
                 x_pos   = [math.cos(a) for a in angles]
                 y_pos   = [math.sin(a) for a in angles]
-                pos     = {t: (x, y) for t, x, y in zip(tickers, x_pos, y_pos)}
 
-                sizes  = gf_q[nw_metric].fillna(0).values
+                sizes  = gf_q[nw_metric].fillna(0).values.astype(float)
                 sizes  = 8 + 42 * (sizes - sizes.min()) / max(sizes.max() - sizes.min(), 1e-9)
-                colors = gf_q[nw_color].fillna(0).values
-                health = gf_q['health_score'].fillna(0.5).values
+                colors = gf_q[nw_color].fillna(0).values.astype(float)
 
-                # hover text
+                sys_col  = 'systemic_importance_score' if 'systemic_importance_score' in gf_q.columns else nw_metric
+                debt_col = 'debtrank_exposure' if 'debtrank_exposure' in gf_q.columns else nw_color
                 hover = [
                     f"<b>{row['ticker']}</b><br>"
                     f"Health Score: {row.get('health_score', float('nan')):.3f}<br>"
                     f"Risk Tier: {row.get('risk_tier', 'N/A')}<br>"
-                    f"Systemic Score: {row.get('graph_systemic_importance_score', float('nan')):.3f}<br>"
-                    f"DebtRank Exposure: {row.get('graph_debtrank_exposure', float('nan')):.3f}"
+                    f"Systemic Score: {row.get(sys_col, float('nan')):.3f}<br>"
+                    f"DebtRank Exposure: {row.get(debt_col, float('nan')):.3f}"
                     for _, row in gf_q.iterrows()
                 ]
 
                 fig_net = go.Figure()
-
-                # Nodes
                 fig_net.add_trace(go.Scatter(
                     x=x_pos, y=y_pos,
                     mode='markers+text' if show_labels else 'markers',
@@ -434,19 +460,14 @@ with tabs[2]:
                         color=colors,
                         colorscale='RdYlGn_r',
                         showscale=True,
-                        colorbar=dict(
-                            title=nw_color.replace('graph_', '').replace('_', ' ').title(),
-                            thickness=15,
-                        ),
+                        colorbar=dict(title=nw_color.replace('_', ' ').title(), thickness=15),
                         line=dict(width=2, color='white'),
                     ),
                     name='Companies',
                 ))
-
                 fig_net.update_layout(
                     title=f"Supply-Chain Network — {nw_quarter}",
-                    showlegend=False,
-                    height=600,
+                    showlegend=False, height=600,
                     xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                     yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                     paper_bgcolor='rgba(10,15,30,1)',
@@ -456,19 +477,20 @@ with tabs[2]:
                 )
                 st.plotly_chart(fig_net, use_container_width=True)
             else:
-                st.info(f"Column {nw_metric} or {nw_color} not found in X_graph for this quarter.")
+                st.info(f"Column '{nw_metric}' or '{nw_color}' not found for this quarter.")
 
         # Contagion stats table
         st.divider()
         st.subheader("Systemic Risk Rankings")
-        rank_cols = ['ticker', 'graph_systemic_importance_score', 'graph_debtrank_exposure',
-                     'graph_contagion_out', 'graph_contagion_vulnerability']
+        rank_primary = 'systemic_importance_score' if 'systemic_importance_score' in gf_q.columns else nw_metric
+        rank_cols = ['ticker', rank_primary,
+                     'debtrank_exposure', 'contagion_out', 'contagion_vulnerability']
         rank_cols = [c for c in rank_cols if c in gf_q.columns]
         rank_df   = gf_q[rank_cols + ['health_score', 'risk_tier']].sort_values(
-            'graph_systemic_importance_score', ascending=False
+            rank_primary, ascending=False
         )
         st.dataframe(
-            rank_df.style.background_gradient(subset=['graph_systemic_importance_score'], cmap='YlOrRd'),
+            rank_df.style.background_gradient(subset=[rank_primary], cmap='YlOrRd'),
             use_container_width=True
         )
 
@@ -611,3 +633,360 @@ with tabs[3]:
         st.divider()
         st.subheader("ROC Comparison — CrisisNet Fusion vs Altman Z-Score (1968)")
         st.image(str(roc_path), use_container_width=True)
+
+# ── TAB 5: Predictions vs Actuals ────────────────────────────────────────────
+with tabs[4]:
+    import plotly.graph_objects as go
+    import plotly.express as px
+
+    st.subheader("Predictions vs Actuals — Test Set (2019–2025)")
+    st.caption("Train: 2015–2018 (early oil crash) | Test: 2019–2025 (COVID crisis + peak defaults)")
+
+    if not TEST_PRED_PATH.exists():
+        st.warning("test_predictions.parquet not found. Re-run `python Module_D/train_fusion.py`.")
+    else:
+        preds = load_test_predictions()
+
+        # ── KPI row ───────────────────────────────────────────────────────────
+        from sklearn.metrics import (confusion_matrix, classification_report,
+                                     precision_score, recall_score, f1_score)
+        y_true = preds['distress_label'].values
+        y_pred = preds['predicted_label'].values
+        y_prob = preds['distress_prob'].values
+
+        acc    = (y_true == y_pred).mean()
+        prec   = precision_score(y_true, y_pred, zero_division=0)
+        rec    = recall_score(y_true, y_pred, zero_division=0)
+        f1     = f1_score(y_true, y_pred, zero_division=0)
+        tp = int(((y_true == 1) & (y_pred == 1)).sum())
+        fp = int(((y_true == 0) & (y_pred == 1)).sum())
+        fn = int(((y_true == 1) & (y_pred == 0)).sum())
+        tn = int(((y_true == 0) & (y_pred == 0)).sum())
+
+        k1, k2, k3, k4, k5 = st.columns(5)
+        k1.metric("Accuracy",  f"{acc:.3f}")
+        k2.metric("Precision", f"{prec:.3f}", help="Of predicted distress, how many were real?")
+        k3.metric("Recall",    f"{rec:.3f}",  help="Of actual distress, how many did we catch?")
+        k4.metric("F1 Score",  f"{f1:.3f}")
+        k5.metric("Distress Caught", f"{tp}/{tp+fn}", help="True Positives / Total Positives")
+
+        st.divider()
+        col_left, col_right = st.columns([1, 2])
+
+        with col_left:
+            # Confusion matrix heatmap
+            cm_data = [[tn, fp], [fn, tp]]
+            fig_cm = go.Figure(go.Heatmap(
+                z=cm_data,
+                x=['Predicted: Healthy', 'Predicted: Distress'],
+                y=['Actual: Healthy', 'Actual: Distress'],
+                colorscale=[[0, '#1a5276'], [0.5, '#2e86c1'], [1, '#e74c3c']],
+                text=[[f"TN={tn}", f"FP={fp}"], [f"FN={fn}", f"TP={tp}"]],
+                texttemplate="%{text}",
+                textfont=dict(size=18, color='white'),
+                showscale=False,
+            ))
+            fig_cm.update_layout(
+                title="Confusion Matrix",
+                height=350,
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                font=dict(color='white', size=13),
+                margin=dict(t=50, b=60, l=120, r=20),
+            )
+            st.plotly_chart(fig_cm, use_container_width=True)
+
+            # Probability distribution for TP/FP/FN/TN
+            preds['outcome'] = 'True Negative'
+            preds.loc[(y_true == 1) & (y_pred == 1), 'outcome'] = 'True Positive'
+            preds.loc[(y_true == 0) & (y_pred == 1), 'outcome'] = 'False Positive'
+            preds.loc[(y_true == 1) & (y_pred == 0), 'outcome'] = 'False Negative'
+
+            fig_dist = px.histogram(
+                preds, x='distress_prob', color='outcome', nbins=40,
+                barmode='overlay', opacity=0.7,
+                color_discrete_map={
+                    'True Positive': '#27ae60', 'False Negative': '#e74c3c',
+                    'True Negative': '#2980b9', 'False Positive': '#f39c12',
+                },
+                title="Score Distribution by Outcome",
+                labels={'distress_prob': 'P(distress)'},
+            )
+            fig_dist.update_layout(
+                height=320, paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0.05)', font=dict(color='white'),
+                legend=dict(orientation='h', y=1.02),
+            )
+            st.plotly_chart(fig_dist, use_container_width=True)
+
+        with col_right:
+            # Quarter-level accuracy timeline
+            q_stats = preds.groupby('quarter').apply(lambda g: pd.Series({
+                'total':    len(g),
+                'distress': int(g['distress_label'].sum()),
+                'predicted_distress': int(g['predicted_label'].sum()),
+                'correct':  int(g['correct'].sum()),
+                'accuracy': g['correct'].mean(),
+            })).reset_index()
+
+            fig_qa = go.Figure()
+            fig_qa.add_trace(go.Bar(
+                x=q_stats['quarter'], y=q_stats['distress'],
+                name='Actual Distress', marker_color='#e74c3c', opacity=0.7,
+            ))
+            fig_qa.add_trace(go.Bar(
+                x=q_stats['quarter'], y=q_stats['predicted_distress'],
+                name='Predicted Distress', marker_color='#f39c12', opacity=0.7,
+            ))
+            fig_qa.add_trace(go.Scatter(
+                x=q_stats['quarter'], y=q_stats['accuracy'],
+                name='Accuracy', yaxis='y2',
+                mode='lines+markers', line=dict(color='#2ecc71', width=2),
+            ))
+            fig_qa.update_layout(
+                title="Predicted vs Actual Distress Count per Quarter",
+                barmode='group',
+                yaxis=dict(title='Count'),
+                yaxis2=dict(title='Accuracy', overlaying='y', side='right',
+                            range=[0, 1.1], showgrid=False),
+                height=380,
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0.05)',
+                font=dict(color='white'),
+                legend=dict(orientation='h', y=1.02),
+                xaxis=dict(tickangle=45),
+            )
+            st.plotly_chart(fig_qa, use_container_width=True)
+
+            # Per-ticker summary table
+            st.subheader("Per-Company Prediction Summary")
+            ticker_stats = preds.groupby('ticker').apply(lambda g: pd.Series({
+                'Actual Distress Qtrs':    int(g['distress_label'].sum()),
+                'Predicted Distress Qtrs': int(g['predicted_label'].sum()),
+                'True Positives':          int(((g['distress_label']==1) & (g['predicted_label']==1)).sum()),
+                'False Negatives':         int(((g['distress_label']==1) & (g['predicted_label']==0)).sum()),
+                'False Positives':         int(((g['distress_label']==0) & (g['predicted_label']==1)).sum()),
+                'Accuracy':                round(g['correct'].mean(), 3),
+            })).reset_index().sort_values('Actual Distress Qtrs', ascending=False)
+
+            def highlight_misses(row):
+                if row['False Negatives'] > 0:
+                    return ['background-color: rgba(231,76,60,0.3)'] * len(row)
+                elif row['False Positives'] > 0:
+                    return ['background-color: rgba(243,156,18,0.2)'] * len(row)
+                return [''] * len(row)
+
+            st.dataframe(
+                ticker_stats.style.apply(highlight_misses, axis=1)
+                    .background_gradient(subset=['Accuracy'], cmap='RdYlGn', vmin=0.7, vmax=1.0),
+                use_container_width=True, height=350,
+            )
+            st.caption("🔴 Red = missed distress (FN) | 🟡 Yellow = false alarm (FP)")
+
+# ── TAB 6: Live Scoring ────────────────────────────────────────────────────────
+with tabs[5]:
+    import plotly.graph_objects as go
+
+    st.subheader("Live Scoring — Inject Company Data & Run Full Eval")
+    st.markdown(
+        "Upload a CSV of company feature data. The pipeline aligns columns to the trained model, "
+        "fills any missing features with zero, and returns health scores immediately. "
+        "You can also score existing companies in a different time window."
+    )
+
+    model_ready = MODEL_PATH.exists() and FEAT_PATH.exists()
+    if not model_ready:
+        st.error("Model not found. Run `python Module_D/train_fusion.py` first.")
+    else:
+        lgbm_model = load_lgbm_model()
+        with open(FEAT_PATH) as f:
+            all_feat_cols = json.load(f)
+        # Keep only numeric features (same logic as training)
+        numeric_feat_cols = [c for c in all_feat_cols
+                             if c in fused.columns and pd.api.types.is_numeric_dtype(fused[c])]
+
+        mode = st.radio("Scoring mode", ["Upload CSV", "Score existing company (new quarter)"],
+                        horizontal=True)
+
+        if mode == "Upload CSV":
+            st.markdown("**CSV requirements:** must have a `ticker` column and as many feature columns as available. Missing features are filled with 0.")
+            with st.expander("Download feature template CSV"):
+                template = pd.DataFrame(columns=['ticker', 'quarter'] + numeric_feat_cols)
+                st.download_button(
+                    "Download template",
+                    template.to_csv(index=False),
+                    file_name="crisisnet_template.csv",
+                    mime="text/csv",
+                )
+
+            uploaded = st.file_uploader("Upload company data CSV", type="csv")
+            threshold = st.slider("Distress threshold", 0.1, 0.9, 0.5, 0.05)
+
+            if uploaded is not None:
+                try:
+                    user_df = pd.read_csv(uploaded)
+                    st.success(f"Loaded {len(user_df)} rows × {len(user_df.columns)} columns")
+
+                    # Align to model features
+                    aligned = pd.DataFrame(index=user_df.index)
+                    for col in numeric_feat_cols:
+                        aligned[col] = pd.to_numeric(user_df[col], errors='coerce').fillna(0) \
+                                       if col in user_df.columns else 0.0
+
+                    probs  = lgbm_model.predict(aligned.values)
+                    result = user_df[['ticker'] + ([c for c in ['quarter'] if c in user_df.columns])].copy()
+                    result['distress_prob'] = probs.round(4)
+                    result['health_score']  = (1 - probs).round(4)
+                    result['risk_tier']     = pd.cut(
+                        probs,
+                        bins=[-0.01, 0.3, 0.6, 0.8, 1.01],
+                        labels=['Low', 'Medium', 'High', 'Critical']
+                    )
+                    result['predicted_distress'] = (probs > threshold).astype(int)
+
+                    # Show results
+                    st.subheader("Scoring Results")
+                    styled_result = result.style.background_gradient(
+                        subset=['health_score'], cmap='RdYlGn', vmin=0, vmax=1
+                    ).background_gradient(
+                        subset=['distress_prob'], cmap='YlOrRd', vmin=0, vmax=1
+                    )
+                    st.dataframe(styled_result, use_container_width=True)
+
+                    # Bar chart
+                    fig_up = go.Figure(go.Bar(
+                        x=result['ticker'], y=result['distress_prob'],
+                        marker_color=['#e74c3c' if p > threshold else '#2ecc71'
+                                      for p in result['distress_prob']],
+                        text=result['distress_prob'].round(3),
+                        textposition='outside',
+                    ))
+                    fig_up.update_layout(
+                        title=f"Uploaded Companies — P(distress)  [threshold={threshold}]",
+                        yaxis_range=[0, 1.1],
+                        paper_bgcolor='rgba(0,0,0,0)',
+                        plot_bgcolor='rgba(0,0,0,0.05)',
+                        font=dict(color='white'),
+                        height=400,
+                    )
+                    st.plotly_chart(fig_up, use_container_width=True)
+
+                    # Download results
+                    st.download_button(
+                        "Download scored results CSV",
+                        result.to_csv(index=False),
+                        file_name="crisisnet_scored.csv",
+                        mime="text/csv",
+                    )
+
+                    # Coverage report
+                    matched = sum(1 for c in numeric_feat_cols if c in user_df.columns)
+                    st.info(f"Feature coverage: {matched}/{len(numeric_feat_cols)} columns matched "
+                            f"({matched/len(numeric_feat_cols)*100:.0f}%). "
+                            f"Missing features were zero-filled.")
+
+                except Exception as e:
+                    st.error(f"Error processing file: {e}")
+
+        else:  # Score existing company in a custom quarter
+            st.markdown("Pick a company from the existing dataset and a quarter to score.")
+
+            col_s1, col_s2, col_s3 = st.columns(3)
+            with col_s1:
+                sel_ticker = st.selectbox("Ticker", sorted(fused['ticker'].unique()), key='live_ticker')
+            with col_s2:
+                avail_q = sorted(fused[fused['ticker'] == sel_ticker]['quarter'].unique(), reverse=True)
+                sel_q   = st.selectbox("Quarter", avail_q, key='live_q')
+            with col_s3:
+                threshold2 = st.slider("Distress threshold", 0.1, 0.9, 0.5, 0.05, key='live_thresh')
+
+            # Feature sliders for manual overrides
+            row_mask = (fused['ticker'] == sel_ticker) & (fused['quarter'] == sel_q)
+            if row_mask.sum() > 0:
+                base_row = fused[row_mask].iloc[0]
+
+                with st.expander("Override feature values (optional — defaults from dataset)"):
+                    override_cols = ['altman_z', 'merton_dd', 'max_drawdown_6m',
+                                     'volatility_30d', 'debt_to_equity', 'hy_oas']
+                    override_cols = [c for c in override_cols if c in numeric_feat_cols]
+                    overrides = {}
+                    oc1, oc2, oc3 = st.columns(3)
+                    for i, col in enumerate(override_cols):
+                        orig_val = float(base_row.get(col, 0))
+                        with [oc1, oc2, oc3][i % 3]:
+                            overrides[col] = st.number_input(
+                                col.replace('_', ' ').title(),
+                                value=round(orig_val, 4),
+                                key=f"override_{col}"
+                            )
+
+                # Build feature vector
+                feat_vec = np.array([float(base_row.get(c, 0)) for c in numeric_feat_cols])
+                for col, val in overrides.items():
+                    if col in numeric_feat_cols:
+                        feat_vec[numeric_feat_cols.index(col)] = val
+
+                prob      = float(lgbm_model.predict(feat_vec.reshape(1, -1))[0])
+                health    = 1.0 - prob
+                tier      = ('Critical' if prob > 0.8 else 'High' if prob > 0.6
+                             else 'Medium' if prob > 0.3 else 'Low')
+                predicted = 'DISTRESS' if prob > threshold2 else 'HEALTHY'
+                actual_l  = int(base_row.get('distress_label', -1))
+                actual_s  = 'DISTRESS' if actual_l == 1 else ('HEALTHY' if actual_l == 0 else 'Unknown')
+                correct   = predicted == actual_s if actual_l != -1 else None
+
+                st.divider()
+                r1, r2, r3, r4 = st.columns(4)
+                r1.metric("Health Score",     f"{health:.4f}")
+                r2.metric("P(distress)",      f"{prob:.4f}")
+                r3.metric("Prediction",       predicted,
+                          delta="✓ Correct" if correct else ("✗ Wrong" if correct is False else ""),
+                          delta_color="normal" if correct else "inverse")
+                r4.metric("Actual Label",     actual_s)
+
+                # Gauge chart
+                fig_gauge = go.Figure(go.Indicator(
+                    mode="gauge+number+delta",
+                    value=health * 100,
+                    title=dict(text=f"{sel_ticker} — Health Score", font=dict(size=18)),
+                    delta=dict(reference=50, increasing=dict(color='#2ecc71'),
+                               decreasing=dict(color='#e74c3c')),
+                    gauge=dict(
+                        axis=dict(range=[0, 100], tickwidth=1, tickcolor='white'),
+                        bar=dict(color='#2ecc71' if health > 0.6 else '#f39c12' if health > 0.3 else '#e74c3c'),
+                        bgcolor='rgba(0,0,0,0)',
+                        steps=[
+                            dict(range=[0, 30],  color='rgba(231,76,60,0.3)'),
+                            dict(range=[30, 60], color='rgba(243,156,18,0.2)'),
+                            dict(range=[60, 100],color='rgba(39,174,96,0.2)'),
+                        ],
+                        threshold=dict(line=dict(color='white', width=4),
+                                       thickness=0.75, value=50),
+                    ),
+                    number=dict(suffix="%", font=dict(size=28)),
+                ))
+                fig_gauge.update_layout(
+                    height=350,
+                    paper_bgcolor='rgba(0,0,0,0)',
+                    font=dict(color='white'),
+                )
+                st.plotly_chart(fig_gauge, use_container_width=True)
+
+                # Top features driving this prediction
+                st.subheader("Key Features for This Prediction")
+                feat_df = pd.DataFrame({
+                    'Feature': numeric_feat_cols,
+                    'Value':   feat_vec,
+                }).assign(
+                    **{'Dataset Mean': [float(fused[c].mean()) if c in fused.columns else 0
+                                       for c in numeric_feat_cols]}
+                )
+                feat_df['Deviation'] = feat_df['Value'] - feat_df['Dataset Mean']
+                # Show most extreme deviations
+                feat_df = feat_df.reindex(feat_df['Deviation'].abs().sort_values(ascending=False).index)
+                st.dataframe(
+                    feat_df.head(20).style.background_gradient(subset=['Deviation'], cmap='RdYlGn_r'),
+                    use_container_width=True,
+                )
+            else:
+                st.warning(f"No data found for {sel_ticker} / {sel_q}")

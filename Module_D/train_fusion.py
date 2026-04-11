@@ -56,9 +56,13 @@ print(f"      {X.shape[0]} rows  ×  {len(feat_cols)} features")
 print(f"      Distress events (total): {X['distress_label'].sum()}")
 
 # ── 2. Temporal split ─────────────────────────────────────────────────────────
-print("[2/7] Splitting train (≤2021) / test (≥2023)…")
-train = X[X['year'] <= 2021].copy()
-test  = X[X['year'] >= 2023].copy()
+# Train: 2015-2018  (early oil-crash distress, ~85 events)
+# Test:  2019-2025  (COVID + peak energy crisis, ~178 events)
+# This ensures BOTH halves have meaningful distress signal, which is required
+# for valid evaluation.  The 2019-2020 crisis is held out as the true test.
+print("[2/7] Splitting train (≤2018) / test (≥2019)…")
+train = X[X['year'] <= 2018].copy()
+test  = X[X['year'] >= 2019].copy()
 
 y_train = train['distress_label'].values
 y_test  = test['distress_label'].values
@@ -148,6 +152,15 @@ out['distress_prob'] = all_probs
 out['health_score']  = 1.0 - all_probs
 out.to_parquet(MODULE_D / 'health_scores.parquet', index=False)
 print(f"      health_scores.parquet saved  ({out.shape})")
+
+# Also save test-set predictions (for dashboard Predictions vs Actuals tab)
+test_out = test[['ticker', 'quarter', 'year', 'distress_label']].copy()
+test_out['distress_prob']    = fusion_probs
+test_out['health_score']     = 1.0 - fusion_probs
+test_out['predicted_label']  = (fusion_probs > 0.5).astype(int)
+test_out['correct']          = (test_out['predicted_label'] == test_out['distress_label']).astype(int)
+test_out.to_parquet(MODULE_D / 'test_predictions.parquet', index=False)
+print(f"      test_predictions.parquet saved  ({test_out.shape})")
 
 # ── 7. Altman Z-Score baseline comparison ─────────────────────────────────────
 print("[7/7] Altman Z-Score baseline vs CrisisNet Fusion…")

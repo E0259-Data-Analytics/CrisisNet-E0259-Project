@@ -1,15 +1,15 @@
 {
   "Altman Z-Score (1968)": {
     "AUC": 0.5,
-    "Brier": 0.6884
+    "Brier": 0.5879
   },
   "CrisisNet Fusion": {
-    "AUC": 0.9844,
-    "Brier": 0.088
+    "AUC": 0.7885,
+    "Brier": 0.0907
   },
   "cv_walk_forward": {
-    "mean_AUC": 0.8455,
-    "mean_Brier": 0.1112,
+    "mean_AUC": 0.8711,
+    "mean_Brier": 0.0757,
     "n_folds": 5
   }
 }

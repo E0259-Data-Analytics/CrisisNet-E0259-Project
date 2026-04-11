@@ -48,8 +48,8 @@ META      = {'ticker', 'quarter', 'Date', 'distress_label', 'year'}
 feat_cols = [c for c in X.columns
              if c not in META and pd.api.types.is_numeric_dtype(X[c])]
 
-train = X[X['year'] <= 2021].sort_values('quarter').reset_index(drop=True)
-test  = X[X['year'] >= 2023].copy()
+train = X[X['year'] <= 2018].sort_values('quarter').reset_index(drop=True)
+test  = X[X['year'] >= 2019].copy()
 
 y_train = train['distress_label'].values
 y_test  = test['distress_label'].values
