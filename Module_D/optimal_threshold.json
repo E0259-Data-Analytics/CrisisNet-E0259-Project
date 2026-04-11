@@ -1,0 +1,5 @@
+{
+  "threshold": 0.3,
+  "recall_boost": 3,
+  "strategy": "fixed 0.30 \u2014 recall-biased for early-warning use case"
+}

@@ -4,12 +4,12 @@
     "Brier": 0.5879
   },
   "CrisisNet Fusion": {
-    "AUC": 0.7885,
-    "Brier": 0.0907
+    "AUC": 0.7908,
+    "Brier": 0.0916
   },
   "cv_walk_forward": {
-    "mean_AUC": 0.8711,
-    "mean_Brier": 0.0757,
+    "mean_AUC": 0.877,
+    "mean_Brier": 0.0797,
     "n_folds": 5
   }
 }
