@@ -16,34 +16,34 @@
     "rq": "Z sub-factors vs. full Z"
   },
   "module_a_only": {
-    "n_features": 88,
-    "cv_auc": 0.843,
-    "test_auc": 0.7848,
-    "brier": 0.1068,
+    "n_features": 190,
+    "cv_auc": 0.8738,
+    "test_auc": 0.7965,
+    "brier": 0.1051,
     "expected": "~0.88",
     "rq": "Module A standalone"
   },
   "a_plus_b": {
-    "n_features": 88,
-    "cv_auc": 0.843,
-    "test_auc": 0.7848,
-    "brier": 0.1068,
+    "n_features": 190,
+    "cv_auc": 0.8738,
+    "test_auc": 0.7965,
+    "brier": 0.1051,
     "expected": "~0.89\u20130.91",
     "rq": "RQ3: NLP marginal value"
   },
   "a_plus_c": {
-    "n_features": 110,
-    "cv_auc": 0.8711,
-    "test_auc": 0.7885,
-    "brier": 0.0907,
+    "n_features": 212,
+    "cv_auc": 0.893,
+    "test_auc": 0.8036,
+    "brier": 0.0895,
     "expected": "~0.88\u20130.91",
     "rq": "RQ2: Network marginal value"
   },
   "full_fusion": {
-    "n_features": 110,
-    "cv_auc": 0.8711,
-    "test_auc": 0.7885,
-    "brier": 0.0907,
+    "n_features": 212,
+    "cv_auc": 0.893,
+    "test_auc": 0.8036,
+    "brier": 0.0895,
     "expected": "~0.90\u20130.93",
     "rq": "RQ1: Final vs Z-Score"
   }
