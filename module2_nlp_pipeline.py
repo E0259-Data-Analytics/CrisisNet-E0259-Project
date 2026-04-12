@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
+import re
 from typing import Dict, Iterable, Iterator, List, Optional, Sequence, Tuple
 
 import numpy as np
@@ -19,11 +20,15 @@ class TenKRecord:
     year: int
     item_1a: str
     item_7: str
+    item_1a_raw: str
 
 
 def quarter_from_date(dt: pd.Timestamp) -> str:
     q = ((dt.month - 1) // 3) + 1
     return f"{dt.year}Q{q}"
+
+def quarter_from_year(year: int) -> str:
+    return f"{year}Q4"
 
 def quarter_start_date(q: str) -> pd.Timestamp:
     year = int(q[:4])
@@ -85,15 +90,16 @@ def iter_10k_records(
         except Exception:
             continue
 
-        item_1a = payload.get("item_1A") or payload.get("item_1a") or ""
-        item_7 = payload.get("item_7") or ""
+        item_1a_raw = payload.get("item_1A") or payload.get("item_1a") or ""
+        item_7_raw = payload.get("item_7") or ""
 
         yield TenKRecord(
             ticker=ticker,
             filing_date=pd.to_datetime(filing_date),
             year=year,
-            item_1a=clean_text(item_1a),
-            item_7=clean_text(item_7),
+            item_1a=clean_text(item_1a_raw),
+            item_7=clean_text(item_7_raw),
+            item_1a_raw=item_1a_raw if isinstance(item_1a_raw, str) else "",
         )
 
 
@@ -254,7 +260,7 @@ def build_10k_features(
     for rec, topic_vec in zip(tenk_records, topic_mat):
         row = {
             "ticker": rec.ticker,
-            "quarter": quarter_from_date(rec.filing_date),
+            "quarter": quarter_from_year(rec.year),
             **{c: float(v) for c, v in zip(topic_cols, topic_vec)},
         }
         rows.append(row)
@@ -264,16 +270,20 @@ def build_10k_features(
 
 
 def aggregate_sentiment(
-    records: Iterable[Tuple[str, pd.Timestamp, str]],
+    records: Iterable[Tuple[str, object, str]],
     scorer,
 ) -> pd.DataFrame:
     rows = []
-    for ticker, dt, text in records:
+    for ticker, dt_or_quarter, text in records:
         text = clean_text(text)
         pos, neg, neu, score = scorer.score(text)
+        if isinstance(dt_or_quarter, str):
+            quarter = dt_or_quarter
+        else:
+            quarter = quarter_from_date(pd.to_datetime(dt_or_quarter))
         rows.append({
             "ticker": ticker,
-            "quarter": quarter_from_date(dt),
+            "quarter": quarter,
             "pos": pos,
             "neg": neg,
             "neu": neu,
@@ -287,16 +297,20 @@ def aggregate_sentiment(
 
 
 def aggregate_uncertainty(
-    records: Iterable[Tuple[str, pd.Timestamp, str]],
+    records: Iterable[Tuple[str, object, str]],
     scorer: LexiconUncertainty,
 ) -> pd.DataFrame:
     rows = []
-    for ticker, dt, text in records:
+    for ticker, dt_or_quarter, text in records:
         text = clean_text(text)
         rate = scorer.score(text)
+        if isinstance(dt_or_quarter, str):
+            quarter = dt_or_quarter
+        else:
+            quarter = quarter_from_date(pd.to_datetime(dt_or_quarter))
         rows.append({
             "ticker": ticker,
-            "quarter": quarter_from_date(dt),
+            "quarter": quarter,
             "uncertainty_rate": rate,
         })
     df = pd.DataFrame(rows)
@@ -343,6 +357,157 @@ def iter_earnings_calls(
             yield ticker, dt, text
 
 
+def load_lm_dictionary(lexicon_path: Path) -> Optional[Dict[str, set]]:
+    if not lexicon_path.exists():
+        return None
+    df = pd.read_csv(lexicon_path)
+    categories = [
+        "Negative",
+        "Positive",
+        "Uncertainty",
+        "Litigious",
+        "Constraining",
+        "Superfluous",
+    ]
+    lm_dict: Dict[str, set] = {}
+    for cat in categories:
+        if cat not in df.columns:
+            continue
+        words = df[df[cat] != 0]["Word"].astype(str).str.lower().tolist()
+        lm_dict[cat.lower()] = set(words)
+    return lm_dict or None
+
+
+def lm_score(text: str, lm_dict: Dict[str, set]) -> Dict[str, float]:
+    words = clean_text(text).split()
+    n = max(len(words), 1)
+    scores: Dict[str, float] = {}
+    for cat, wordset in lm_dict.items():
+        count = sum(1 for w in words if w in wordset)
+        scores[f"lm_{cat}_pct"] = count / n
+    scores["lm_net_tone"] = scores.get("lm_positive_pct", 0.0) - scores.get("lm_negative_pct", 0.0)
+    return scores
+
+
+def compute_yoy_cosine_distance(records: Sequence[TenKRecord]) -> pd.DataFrame:
+    if len(records) < 2:
+        return pd.DataFrame(columns=["ticker", "quarter", "yoy_cosine_sim", "yoy_cosine_dist"])
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.metrics.pairwise import cosine_similarity
+
+    ordered = sorted(records, key=lambda r: (r.ticker, r.year))
+    texts = [r.item_1a for r in ordered]
+    tfidf = TfidfVectorizer(max_features=5000, stop_words="english")
+    mat = tfidf.fit_transform(texts)
+    prev_idx: Dict[str, int] = {}
+    rows = []
+    for i, rec in enumerate(ordered):
+        if rec.ticker in prev_idx:
+            j = prev_idx[rec.ticker]
+            sim = float(cosine_similarity(mat[i:i + 1], mat[j:j + 1])[0, 0])
+            rows.append({
+                "ticker": rec.ticker,
+                "quarter": quarter_from_year(rec.year),
+                "yoy_cosine_sim": sim,
+                "yoy_cosine_dist": 1.0 - sim,
+            })
+        prev_idx[rec.ticker] = i
+    return pd.DataFrame(rows)
+
+
+def readability_features(text: str) -> Dict[str, float]:
+    text = clean_text(text)
+    words = text.split()
+    sentences = [s.strip() for s in re.split(r"[.!?]", text) if s.strip()]
+    n_words = max(len(words), 1)
+    n_sents = max(len(sentences), 1)
+    complex_words = sum(1 for w in words if len(w) > 6)
+    return {
+        "readability_word_count": float(n_words),
+        "readability_avg_sent_len": float(n_words / n_sents),
+        "readability_complex_pct": float(complex_words / n_words),
+        "readability_fog_approx": float(0.4 * (n_words / n_sents + 100 * complex_words / n_words)),
+    }
+
+
+DISTRESS_PHRASES = [
+    "going concern",
+    "substantial doubt",
+    "ability to continue",
+    "covenant violation",
+    "breach of covenant",
+    "debt acceleration",
+    "waiver of covenant",
+    "credit facility terminated",
+    "payment default",
+    "cross-default",
+    "chapter 11",
+    "forbearance agreement",
+    "debt-for-equity",
+    "distressed exchange",
+    "liquidity concerns",
+    "insufficient liquidity",
+]
+
+
+def distress_keyword_features(text: str) -> Dict[str, float]:
+    text_lower = clean_text(text)
+    total = max(len(text_lower.split()), 1)
+    hits = {phrase: text_lower.count(phrase) for phrase in DISTRESS_PHRASES}
+    distress_count = float(sum(hits.values()))
+    return {
+        "going_concern_flag": 1.0 if hits.get("going concern", 0) > 0 else 0.0,
+        "covenant_flag": 1.0 if any(hits[p] for p in hits if "covenant" in p) else 0.0,
+        "distress_phrase_count": distress_count,
+        "distress_phrase_rate": distress_count / total,
+    }
+
+
+def split_risk_factor_paragraphs(text: str) -> List[str]:
+    if not isinstance(text, str) or not text.strip():
+        return []
+    raw = text.replace("\r\n", "\n")
+    if "\n\n" in raw:
+        parts = [p.strip() for p in re.split(r"\n\s*\n", raw) if p.strip()]
+    else:
+        parts = [p.strip() for p in re.split(r"\n+", raw) if p.strip()]
+    if len(parts) <= 1:
+        sentences = [s.strip() for s in re.split(r"[.!?]", raw) if s.strip()]
+        if len(sentences) > 1:
+            parts = sentences
+    return parts
+
+
+def compute_risk_factor_section_features(records: Sequence[TenKRecord]) -> pd.DataFrame:
+    ordered = sorted(records, key=lambda r: (r.ticker, r.year))
+    rows = []
+    prev_paras: Dict[str, set] = {}
+    prev_counts: Dict[str, int] = {}
+    for rec in ordered:
+        paragraphs = split_risk_factor_paragraphs(rec.item_1a_raw or rec.item_1a)
+        norm_paras = {clean_text(p) for p in paragraphs if p.strip()}
+        count = len(norm_paras)
+        jaccard_sim = np.nan
+        count_delta = np.nan
+        if rec.ticker in prev_paras:
+            prev_set = prev_paras[rec.ticker]
+            union = prev_set | norm_paras
+            if union:
+                jaccard_sim = float(len(prev_set & norm_paras) / len(union))
+            count_delta = float(count - prev_counts.get(rec.ticker, 0))
+        prev_paras[rec.ticker] = norm_paras
+        prev_counts[rec.ticker] = count
+        rows.append({
+            "ticker": rec.ticker,
+            "quarter": quarter_from_year(rec.year),
+            "risk_factor_paragraph_count": float(count),
+            "risk_factor_count_yoy_delta": count_delta,
+            "risk_factor_jaccard_sim": jaccard_sim,
+            "risk_factor_jaccard_dist": (float(1.0 - jaccard_sim) if not np.isnan(jaccard_sim) else np.nan),
+        })
+    return pd.DataFrame(rows)
+
+
 def build_features(
     n_topics: int = 12,
     max_features: int = 6000,
@@ -350,6 +515,8 @@ def build_features(
     finbert_model: Optional[str] = None,
     finbert_device: Optional[int] = -1,
     max_transcripts: Optional[int] = None,
+    lm_dictionary_path: Optional[Path] = None,
+    negate_calls_sentiment: bool = True,
     return_artifacts: bool = False,
 ) -> pd.DataFrame | Tuple[pd.DataFrame, Dict[str, object]]:
     tenk_dir = DATA_ROOT / "Module_2" / "10k_extracted" / "10-K"
@@ -387,7 +554,7 @@ def build_features(
     uncertainty_lexicon_path = DATA_ROOT / "Module_2" / "lexicons" / "lm_uncertainty.txt"
     uncertainty_scorer = LexiconUncertainty(uncertainty_lexicon_path)
 
-    risk_records = [(r.ticker, r.filing_date, r.item_1a) for r in tenk_records]
+    risk_records = [(r.ticker, quarter_from_year(r.year), r.item_1a) for r in tenk_records]
     tenk_sent = aggregate_sentiment(risk_records, scorer)
     tenk_sent = tenk_sent.add_prefix("tenk_")
     tenk_sent = tenk_sent.rename(columns={"tenk_ticker": "ticker", "tenk_quarter": "quarter"})
@@ -409,6 +576,58 @@ def build_features(
     df = df.merge(calls_sent, on=["ticker", "quarter"], how="left")
     df = df.merge(calls_unc, on=["ticker", "quarter"], how="left")
 
+    lm_path = lm_dictionary_path
+    if lm_path is None:
+        lm_path = DATA_ROOT / "Module_2" / "lexicons" / "Loughran-McDonald_MasterDictionary_1993-2023.csv"
+    lm_dict = load_lm_dictionary(lm_path)
+    if lm_dict:
+        lm_rows = []
+        for rec in tenk_records:
+            scores = lm_score(rec.item_1a, lm_dict)
+            lm_rows.append({
+                "ticker": rec.ticker,
+                "quarter": quarter_from_year(rec.year),
+                **scores,
+            })
+        lm_df = pd.DataFrame(lm_rows)
+        df = df.merge(lm_df, on=["ticker", "quarter"], how="left")
+
+    yoy_df = compute_yoy_cosine_distance(tenk_records)
+    if not yoy_df.empty:
+        df = df.merge(yoy_df, on=["ticker", "quarter"], how="left")
+
+    read_rows = []
+    for rec in tenk_records:
+        feats = readability_features(rec.item_1a)
+        read_rows.append({
+            "ticker": rec.ticker,
+            "quarter": quarter_from_year(rec.year),
+            **feats,
+        })
+    read_df = pd.DataFrame(read_rows)
+    if not read_df.empty:
+        read_df = read_df.sort_values(["ticker", "quarter"])
+        read_df["readability_word_count_yoy_delta"] = (
+            read_df.groupby("ticker")["readability_word_count"].diff()
+        )
+        df = df.merge(read_df, on=["ticker", "quarter"], how="left")
+
+    distress_rows = []
+    for rec in tenk_records:
+        feats = distress_keyword_features(rec.item_1a)
+        distress_rows.append({
+            "ticker": rec.ticker,
+            "quarter": quarter_from_year(rec.year),
+            **feats,
+        })
+    distress_df = pd.DataFrame(distress_rows)
+    if not distress_df.empty:
+        df = df.merge(distress_df, on=["ticker", "quarter"], how="left")
+
+    risk_df = compute_risk_factor_section_features(tenk_records)
+    if not risk_df.empty:
+        df = df.merge(risk_df, on=["ticker", "quarter"], how="left")
+
     df["quarter_start"] = df["quarter"].map(quarter_start_date)
     df = df.sort_values(["ticker", "quarter_start"])
 
@@ -418,6 +637,8 @@ def build_features(
             .transform(lambda s: s.rolling(4, min_periods=1).mean())
         )
         df["tenk_score_delta"] = df.groupby("ticker")["tenk_score"].diff()
+    if "calls_score" in df.columns and negate_calls_sentiment:
+        df["calls_score"] = -df["calls_score"]
     if "calls_score" in df.columns:
         df["calls_score_4q_mean"] = (
             df.groupby("ticker")["calls_score"]

@@ -96,6 +96,58 @@ def compute_auc(
     return auc, len(df), len(pos), len(neg)
 
 
+def compute_labels(
+    df: pd.DataFrame,
+    distress: pd.DataFrame,
+    score_col: str,
+    lookahead_days: int,
+) -> Tuple[np.ndarray, np.ndarray]:
+    df = df.dropna(subset=[score_col, "ticker", "quarter"]).copy()
+    df["quarter_start"] = df["quarter"].map(quarter_start_date)
+
+    labels = []
+    for _, row in df.iterrows():
+        ticker = row["ticker"]
+        q_start = row["quarter_start"]
+        window_end = q_start + pd.Timedelta(days=lookahead_days)
+        dd = distress[distress["ticker"] == ticker]
+        label = 0
+        if not dd.empty:
+            if ((dd["distress_start"] >= q_start) & (dd["distress_start"] <= window_end)).any():
+                label = 1
+        labels.append(label)
+    return df[score_col].to_numpy(), np.array(labels, dtype=int)
+
+
+def fbeta_from_counts(tp: int, fp: int, fn: int, beta: float = 2.0) -> float:
+    if tp == 0:
+        return 0.0
+    precision = tp / (tp + fp) if (tp + fp) else 0.0
+    recall = tp / (tp + fn) if (tp + fn) else 0.0
+    if precision == 0.0 and recall == 0.0:
+        return 0.0
+    beta_sq = beta ** 2
+    return (1 + beta_sq) * (precision * recall) / (beta_sq * precision + recall)
+
+
+def best_fbeta(scores: np.ndarray, labels: np.ndarray, beta: float = 2.0) -> Tuple[float, float]:
+    if scores.size == 0:
+        return float("nan"), float("nan")
+    thresholds = np.unique(np.quantile(scores, np.linspace(0.0, 1.0, 101)))
+    best_score = -1.0
+    best_thresh = thresholds[0]
+    for t in thresholds:
+        preds = (scores >= t).astype(int)
+        tp = int(((preds == 1) & (labels == 1)).sum())
+        fp = int(((preds == 1) & (labels == 0)).sum())
+        fn = int(((preds == 0) & (labels == 1)).sum())
+        f = fbeta_from_counts(tp, fp, fn, beta=beta)
+        if f > best_score:
+            best_score = f
+            best_thresh = float(t)
+    return best_score, best_thresh
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate NLP features vs distress labels.")
     parser.add_argument(
@@ -107,6 +159,13 @@ def main() -> None:
     parser.add_argument("--lookahead-days", type=int, default=365)
     parser.add_argument("--labels", type=str, default=None, help="Optional labels file (parquet/csv).")
     parser.add_argument("--all-cols", action="store_true", help="Evaluate all numeric columns.")
+    parser.add_argument(
+        "--metric",
+        type=str,
+        default="f2",
+        choices=["f2", "auc"],
+        help="Primary metric to report.",
+    )
     args = parser.parse_args()
 
     df = pd.read_parquet(args.features)
@@ -119,21 +178,43 @@ def main() -> None:
             if c not in drop_cols and pd.api.types.is_numeric_dtype(df[c])
         ]
         for col in score_cols:
-            auc, n, n_pos, n_neg = compute_auc(df, distress, col, args.lookahead_days)
-            if np.isnan(auc):
-                print(f"{col:45s} AUC=nan (pos={n_pos}, neg={n_neg}, n={n})")
+            scores, labels = compute_labels(df, distress, col, args.lookahead_days)
+            n = len(labels)
+            n_pos = int(labels.sum())
+            n_neg = int(n - n_pos)
+            if args.metric == "auc":
+                auc, _, _, _ = compute_auc(df, distress, col, args.lookahead_days)
+                if np.isnan(auc):
+                    print(f"{col:45s} AUC=nan (pos={n_pos}, neg={n_neg}, n={n})")
+                else:
+                    print(f"{col:45s} AUC={auc:.3f} (pos={n_pos}, neg={n_neg}, n={n})")
             else:
-                print(f"{col:45s} AUC={auc:.3f} (pos={n_pos}, neg={n_neg}, n={n})")
+                f2, thresh = best_fbeta(scores, labels, beta=2.0)
+                if np.isnan(f2):
+                    print(f"{col:45s} F2=nan (pos={n_pos}, neg={n_neg}, n={n})")
+                else:
+                    print(f"{col:45s} F2={f2:.3f} (thr={thresh:.4f}, pos={n_pos}, neg={n_neg}, n={n})")
         return
 
     score_col = pick_score_column(df, args.score_col)
-    auc, n, n_pos, n_neg = compute_auc(df, distress, score_col, args.lookahead_days)
-    if np.isnan(auc):
-        print("Insufficient positives or negatives for AUC.")
-        return
     print(f"Score column: {score_col}")
+    scores, labels = compute_labels(df, distress, score_col, args.lookahead_days)
+    n = len(labels)
+    n_pos = int(labels.sum())
+    n_neg = int(n - n_pos)
     print(f"Samples: {n} | Positives: {n_pos} | Negatives: {n_neg}")
-    print(f"AUC: {auc:.3f}")
+    if args.metric == "auc":
+        auc, _, _, _ = compute_auc(df, distress, score_col, args.lookahead_days)
+        if np.isnan(auc):
+            print("Insufficient positives or negatives for AUC.")
+            return
+        print(f"AUC: {auc:.3f}")
+    else:
+        f2, thresh = best_fbeta(scores, labels, beta=2.0)
+        if np.isnan(f2):
+            print("Insufficient positives or negatives for F2.")
+            return
+        print(f"F2: {f2:.3f} (best threshold={thresh:.4f})")
 
 
 if __name__ == "__main__":

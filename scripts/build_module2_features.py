@@ -21,6 +21,17 @@ def main() -> None:
     parser.add_argument("--auto-device", action="store_true", help="Auto-select GPU if available (FinBERT only).")
     parser.add_argument("--max-transcripts", type=int, default=None)
     parser.add_argument(
+        "--lm-dict",
+        type=str,
+        default=None,
+        help="Optional path to Loughran-McDonald master dictionary CSV.",
+    )
+    parser.add_argument(
+        "--no-negate-calls",
+        action="store_true",
+        help="Disable calls_score negation (enabled by default).",
+    )
+    parser.add_argument(
         "--output",
         type=str,
         default=str(DATA_ROOT / "Module_2" / "features" / "X_nlp.parquet"),
@@ -43,6 +54,8 @@ def main() -> None:
         finbert_model=args.finbert_model,
         finbert_device=finbert_device,
         max_transcripts=args.max_transcripts,
+        lm_dictionary_path=Path(args.lm_dict) if args.lm_dict else None,
+        negate_calls_sentiment=not args.no_negate_calls,
         return_artifacts=args.save_artifacts,
     )
     if args.save_artifacts:
