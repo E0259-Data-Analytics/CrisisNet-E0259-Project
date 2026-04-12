@@ -287,7 +287,7 @@ def nlp_risk_baseline(lookahead_days: int = 365) -> List[LogRecord]:
 
     tenk_dir = DATA_ROOT / "Module_2" / "10k_extracted" / "10-K"
     meta_path = DATA_ROOT / "Module_2" / "filings_metadata.csv"
-    map_path = DATA_ROOT / "Module_1" / "sec_xbrl" / "ticker_cik_mapping.csv"
+    map_path = DATA_ROOT / "Module_A" / "sec_xbrl" / "ticker_cik_mapping.csv"
     labels_path = DATA_ROOT / "splits" / "labels" / "distress_drawdowns" / "train.parquet"
 
     if not (tenk_dir.exists() and meta_path.exists() and map_path.exists() and labels_path.exists()):

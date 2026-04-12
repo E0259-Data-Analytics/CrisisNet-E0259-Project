@@ -39,7 +39,7 @@ Data Inputs (from report)
 2. Filings metadata: `crisisnet-data/Module_2/filings_metadata.csv`.
 3. Earnings call Q&A: `crisisnet-data/Module_2/transcripts/huggingface/train.jsonl` (large file, ~3.6 GB).
 4. Label reference: `crisisnet-data/splits/labels/distress_drawdowns/`.
-5. Ticker-CIK map: `crisisnet-data/Module_1/sec_xbrl/ticker_cik_mapping.csv`.
+5. Ticker-CIK map: `crisisnet-data/Module_A/sec_xbrl/ticker_cik_mapping.csv`.
 
 Step-by-step Execution Plan
 1. Verify environment

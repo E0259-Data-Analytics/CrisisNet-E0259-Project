@@ -29,7 +29,7 @@ The module trains four predictive models and benchmarks them against the industr
 ## Directory Structure
 
 ```
-Module_1/
+Module_A/
 ├── README.md                    # This file
 ├── notebooks/
 │   └── module1_pipeline.py      # Complete pipeline script
@@ -52,7 +52,7 @@ Module_1/
 └── results/
     ├── X_ts.parquet             # OUTPUT: Feature vector for Module D
     ├── module1_results.json     # All numerical results
-    ├── MODULE_1_DETAILED_REPORT.md
+    ├── Module_A_DETAILED_REPORT.md
     └── visualizations/          # 16 publication-quality plots
         ├── 01_roc_curves_comparison.png
         ├── 02_model_comparison.png
@@ -83,7 +83,7 @@ pip install pandas pyarrow numpy scikit-learn xgboost lifelines hmmlearn matplot
 
 ### Execute
 ```bash
-cd Module_1/notebooks
+cd Module_A/notebooks
 python module1_pipeline.py
 ```
 

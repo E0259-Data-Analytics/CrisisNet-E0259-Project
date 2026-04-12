@@ -523,7 +523,7 @@ def build_features(
 ) -> pd.DataFrame | Tuple[pd.DataFrame, Dict[str, object]]:
     tenk_dir = DATA_ROOT / "Module_2" / "10k_extracted" / "10-K"
     meta_path = DATA_ROOT / "Module_2" / "filings_metadata.csv"
-    map_path = DATA_ROOT / "Module_1" / "sec_xbrl" / "ticker_cik_mapping.csv"
+    map_path = DATA_ROOT / "Module_A" / "sec_xbrl" / "ticker_cik_mapping.csv"
     transcripts_path = DATA_ROOT / "Module_2" / "transcripts" / "huggingface" / "train.jsonl"
 
     meta = load_filings_metadata(meta_path)

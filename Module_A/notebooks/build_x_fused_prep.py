@@ -8,17 +8,17 @@ X_ts.parquet, adds the quarter string column required for merge
 alignment with X_nlp and X_graph, and re-exports.
 
 Usage:
-    cd Module_1/notebooks
+    cd Module_A/notebooks
     python build_x_fused_prep.py
 
 Output:
-    Module_1/results/X_ts.parquet  (updated in-place with 'quarter' column)
+    Module_A/results/X_ts.parquet  (updated in-place with 'quarter' column)
 """
 
 from pathlib import Path
 import pandas as pd
 
-PROJECT_ROOT   = Path(__file__).resolve().parent.parent   # Module_1/
+PROJECT_ROOT   = Path(__file__).resolve().parent.parent   # Module_A/
 REPO_ROOT      = PROJECT_ROOT.parent                      # CrisisNet-E0259-Project/
 CRISISNET_DATA = REPO_ROOT / "crisisnet-data"
 

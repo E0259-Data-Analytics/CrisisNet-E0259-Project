@@ -1,7 +1,7 @@
 # CrisisNet Module 1 — The Financial Heartbeat Monitor
 ## Analysis Report
 **Generated:** 2026-03-28
-**Dataset:** HuggingFace Sashank-810/crisisnet-dataset (Module_1/)
+**Dataset:** HuggingFace Sashank-810/crisisnet-dataset (Module_A/)
 **Universe:** 40 S&P 500 Energy companies, 2015–2025
 
 ---
@@ -510,7 +510,7 @@ This vector will be concatenated with X_nlp (Module B) and X_graph (Module C) fo
 
 ## 9. Model Artifacts
 
-All trained models are serialised in `Module_1/models/` for downstream use:
+All trained models are serialised in `Module_A/models/` for downstream use:
 
 | File | Format | Size | Description |
 |------|--------|------|-------------|

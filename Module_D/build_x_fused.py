@@ -33,7 +33,7 @@ import numpy as np
 REPO_ROOT    = Path(__file__).resolve().parent.parent
 MODULE_D     = REPO_ROOT / "Module_D"
 
-X_TS_PATH    = REPO_ROOT / "Module_1" / "results"  / "X_ts.parquet"
+X_TS_PATH    = REPO_ROOT / "Module_A" / "results"  / "X_ts.parquet"
 X_GRAPH_PATH = REPO_ROOT / "Module_C" / "results"  / "exports" / "X_graph.parquet"
 LABELS_PATH  = REPO_ROOT / "crisisnet-data" / "data" / "label_unified.parquet"
 COMPANY_PATH = REPO_ROOT / "crisisnet-data" / "data" / "company_list.csv"

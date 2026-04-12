@@ -8,7 +8,7 @@ Cox PH), evaluation, 19 publication-quality visualizations, and
 X_ts.parquet export for Module D fusion.
 
 Usage:
-    cd Module_1/notebooks
+    cd Module_A/notebooks
     python module1_pipeline.py
 """
 
@@ -41,13 +41,13 @@ warnings.filterwarnings('ignore')
 # ═══════════════════════════════════════════════════════════════════════
 # CONFIGURATION
 # ═══════════════════════════════════════════════════════════════════════
-PROJECT_ROOT = Path(__file__).resolve().parent.parent   # Module_1/
+PROJECT_ROOT = Path(__file__).resolve().parent.parent   # Module_A/
 REPO_ROOT    = PROJECT_ROOT.parent                      # CrisisNet-E0259-Project/
 CRISISNET_DATA = REPO_ROOT / "crisisnet-data"           # canonical dataset root
 DATA_DIR = PROJECT_ROOT / "data"
-MARKET_DIR = CRISISNET_DATA / "Module_1" / "market_data"
+MARKET_DIR = CRISISNET_DATA / "Module_A" / "market_data"
 FIN_DIR = MARKET_DIR / "financials"
-CREDIT_DIR = CRISISNET_DATA / "Module_1" / "credit_spreads"
+CREDIT_DIR = CRISISNET_DATA / "Module_A" / "credit_spreads"
 LABELS_DIR = CRISISNET_DATA / "Labels"
 RESULTS_DIR = PROJECT_ROOT / "results"
 VIZ_DIR = RESULTS_DIR / "visualizations"

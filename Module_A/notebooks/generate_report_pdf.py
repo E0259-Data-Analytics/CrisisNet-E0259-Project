@@ -32,7 +32,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RESULTS_DIR = PROJECT_ROOT / "results"
 VIZ_DIR = RESULTS_DIR / "visualizations"
 MODELS_DIR = PROJECT_ROOT / "models"
-OUTPUT_PDF = RESULTS_DIR / "Module_1_Detailed_Report.pdf"
+OUTPUT_PDF = RESULTS_DIR / "Module_A_Detailed_Report.pdf"
 
 # ─── Load results ───
 with open(RESULTS_DIR / "module1_results.json") as f:
@@ -1009,7 +1009,7 @@ xts_data = [
     ['Tickers', '40 S&P 500 Energy companies'],
     ['Temporal span', '2015 Q1 – 2025 Q1 (~44 quarters per ticker)'],
     ['Missing values', 'None (imputed with train medians)'],
-    ['File location', 'Module_1/results/X_ts.parquet'],
+    ['File location', 'Module_A/results/X_ts.parquet'],
 ]
 elements.append(make_table(xts_data, col_widths=[W*0.25, W*0.65]))
 elements.append(spacer())
