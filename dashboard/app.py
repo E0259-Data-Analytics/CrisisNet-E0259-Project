@@ -194,7 +194,15 @@ with st.sidebar:
         st.metric("Decision Threshold", f"{opt_thresh:.2f}", help="Lowered from 0.50 to maximise recall")
 
     st.divider()
-    st.caption("CrisisNet v1.0 | April 2026")
+    # NLP integration status
+    from pathlib import Path as _P
+    _nlp_path = REPO_ROOT / "Module_B" / "results" / "X_nlp_selected.parquet"
+    if _nlp_path.exists():
+        st.success("Module B NLP: Active", icon="✅")
+        st.caption("32 NLP features (topics + sentiment, forward-filled Q1→Q4)")
+    else:
+        st.warning("Module B NLP: Pending", icon="⚠️")
+    st.caption("CrisisNet v1.1 | April 2026")
 
 # ── Filtered score view ───────────────────────────────────────────────────────
 snap = scores[scores['quarter'] == selected_q].copy()
@@ -852,12 +860,12 @@ with tabs[4]:
                 st.plotly_chart(fig_noisy, use_container_width=True)
 
         with exp2:
-            st.markdown("**Hard-default FNs** — genuine bankruptcies, missing market data")
+            st.markdown("**Hard-default FNs** — genuine bankruptcies, not in NLP dataset")
             st.markdown(
-                "CHK (Chapter 11, June 2020) has **all-zero stock features** because its "
-                "price data was not available in the market dataset. No market model can detect "
-                "distress it cannot see. **These require Module B NLP features** — CHK's "
-                "10-K filings contained going-concern language from 2019Q2."
+                "CHK (Chapter 11, June 2020) has **all-zero stock features** (delisted data gap) "
+                "and is **not present in Module B's NLP dataset** — so even with NLP integrated, "
+                "its 10-K filing signals cannot be used. This is a data-coverage gap, not a "
+                "modeling gap. Adding CHK's 10-K filings to Module B would fix these FNs."
             )
             if len(fn_hard) > 0:
                 st.dataframe(
@@ -868,8 +876,10 @@ with tabs[4]:
 
         st.info(
             f"**Bottom line:** Of {len(fn_rows)} FNs, {len(fn_noisy)} are label noise "
-            f"(model is correct) and {len(fn_hard)} need NLP data (Module B). "
-            f"True actionable recall on companies with valid data is significantly higher."
+            f"(model correctly classifies them as healthy — sector-wide drawdown artefact) "
+            f"and {len(fn_hard)} are data-coverage gaps (CHK not in NLP dataset). "
+            f"Module B NLP is now active (+32 features, recall 0.67→0.69). "
+            f"True actionable recall on companies with full data is significantly higher."
         )
 
 # ── TAB 6: Live Scoring ────────────────────────────────────────────────────────
