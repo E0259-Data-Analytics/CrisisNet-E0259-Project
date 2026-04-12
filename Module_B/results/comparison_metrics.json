@@ -1,0 +1,41 @@
+{
+  "results": {
+    "basic": {
+      "x_fused_shape": [
+        1755,
+        240
+      ],
+      "nlp_feature_count": 22,
+      "cv_mean_auc": 0.8939,
+      "cv_mean_brier": 0.0839,
+      "test_auc": 0.8046,
+      "test_brier": 0.09,
+      "test_recall": 0.6833,
+      "test_precision": 0.5212,
+      "tp": 123,
+      "fp": 113,
+      "fn": 57,
+      "rows_in_nlp_file": 318,
+      "cols_in_nlp_file": 24
+    },
+    "finbert": {
+      "x_fused_shape": [
+        1755,
+        262
+      ],
+      "nlp_feature_count": 44,
+      "cv_mean_auc": 0.8927,
+      "cv_mean_brier": 0.0833,
+      "test_auc": 0.7986,
+      "test_brier": 0.091,
+      "test_recall": 0.6722,
+      "test_precision": 0.5261,
+      "tp": 121,
+      "fp": 109,
+      "fn": 59,
+      "rows_in_nlp_file": 311,
+      "cols_in_nlp_file": 46
+    }
+  },
+  "selected_for_dashboard": "basic"
+}

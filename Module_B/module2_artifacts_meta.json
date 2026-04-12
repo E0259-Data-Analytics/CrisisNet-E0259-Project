@@ -1,0 +1,8 @@
+{
+  "n_topics": 12,
+  "max_features": 6000,
+  "random_state": 42,
+  "finbert_model": "finbert_model",
+  "finbert_device": null,
+  "max_transcripts": null
+}

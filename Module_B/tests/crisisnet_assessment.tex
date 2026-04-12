@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\title{CrisisNet Feasibility Check (Data-Driven)}
+\author{Automated Scan via crisisnet\_checks.py}
+\date{2026-03-25}
+
+\begin{document}
+\maketitle
+
+\section*{Summary}
+The dataset is present across all three modules, with complete train/validation/test splits for prices and macro data. Quick signal checks on the training split show strong separation between distress events and non-distress dates using simple price-based features. A lightweight NLP baseline on 10-K risk factors shows only weak separation. Walk-forward validation (2019--2021) supports strong signal in 2019--2020 but is unstable in 2021 due to very few positives. Overall, the project is promising as a prototype, but the evaluation plan and labels must be improved before claiming generalizable performance.
+
+\section*{Data Availability (Key Facts)}
+\begin{itemize}
+  \item Prices (train): 1,763 rows, 40 tickers, 2015-01-02 to 2021-12-31; mean missing close \textasciitilde 16\%.
+  \item Macro (train): 4,550 rows, 22 series, 2005-01-01 to 2021-12-31; mean missing \textasciitilde 26.5\%.
+  \item 10-K extracted filings: 353 JSON files.
+  \item Earnings call Q\&A transcripts: single JSONL file, \textasciitilde 3.63 GB.
+  \item Supply-chain graph: 30 seed edges + 660 disclosure mentions.
+\end{itemize}
+
+\section*{Label Coverage}
+\begin{itemize}
+  \item Distress drawdowns (train): 75 events, 34 tickers; all tickers present in price data.
+  \item Energy defaults (train): 24 events; 22 tickers are outside the 40-ticker price universe.
+  \item Validation/test splits contain near-zero label events (1 distress event total; 0 defaults).
+\end{itemize}
+
+\section*{Quick Signal Test (Train Split)}
+We compared distress-start dates vs. randomly sampled non-distress dates for the same tickers (5 negatives per event). Results:
+\begin{itemize}
+  \item 30-day volatility AUC = 0.812 (pos mean 0.772; neg mean 0.532).
+  \item 30-day max drawdown AUC = 0.910 (pos mean -0.404; neg mean -0.188).
+\end{itemize}
+These are strong separations, but note the drawdown labels are mechanically derived from price drawdowns, so price-based feature performance is partially circular.
+
+\section*{NLP Baseline (10-K Risk Factors)}
+A simple keyword-rate baseline on Item 1A (Risk Factors) with a 12-month lookahead:
+\begin{itemize}
+  \item Samples: 308 filings (53 positives, 255 negatives).
+  \item Keyword-rate AUC = 0.598 (weak separation).
+  \item Negative-word rate AUC = 0.409 (worse than random).
+\end{itemize}
+This suggests the NLP signal needs more sophisticated modeling (e.g., FinBERT or topic dynamics) to contribute meaningfully.
+
+\section*{Walk-Forward Validation (2015--2021)}
+Using a simple composite risk score from price features:
+\begin{itemize}
+  \item 2019 validation AUC = 0.825 (893 positives, 7,675 negatives).
+  \item 2020 validation AUC = 0.840 (2,490 positives, 6,112 negatives).
+  \item 2021 validation AUC = 0.998 (only 22 positives; unstable).
+\end{itemize}
+The 2021 fold is not reliable due to very few positive events.
+
+\section*{Key Risks}
+\begin{itemize}
+  \item \textbf{Label sparsity in validation/test}: almost no events; hard to evaluate generalization.
+  \item \textbf{Label mismatch for defaults}: many default events are not in the 40-ticker universe.
+  \item \textbf{Circularity risk}: using price-based labels with price-based features inflates performance.
+  \item \textbf{Missingness in macro data}: \textasciitilde 26--31\% missing may require robust imputation.
+  \item \textbf{Weak NLP baseline}: simple keyword features do not separate distress well.
+\end{itemize}
+
+\section*{Recommendation}
+Proceed with a prototype, but only if the evaluation plan is adjusted:
+\begin{itemize}
+  \item Use distress-drawdown labels to validate module A mechanics, but treat results as baseline only.
+  \item Expand or align default labels to the 40-ticker universe, or add alternative distress labels for 2022--2025.
+  \item For generalization, use walk-forward cross-validation within 2015--2021 and reserve 2022+ for qualitative checks.
+  \item Upgrade NLP to FinBERT sentiment or topic-change metrics before relying on it as a signal.
+\end{itemize}
+
+\textbf{Decision:} \textbf{Proceed with caution.} The dataset is rich and the price-based baseline signals are strong, but label coverage and evaluation design must be fixed and the NLP signal must be strengthened for a defensible project.
+
+\end{document}

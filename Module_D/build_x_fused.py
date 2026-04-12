@@ -38,9 +38,9 @@ X_GRAPH_PATH = REPO_ROOT / "Module_C" / "results"  / "exports" / "X_graph.parque
 LABELS_PATH  = REPO_ROOT / "crisisnet-data" / "data" / "label_unified.parquet"
 COMPANY_PATH = REPO_ROOT / "crisisnet-data" / "data" / "company_list.csv"
 
-# Module B single-line toggle — uncomment to activate NLP features:
-# X_NLP_PATH = REPO_ROOT / "Module_B" / "results" / "X_nlp_finbert.parquet"
-X_NLP_PATH   = None
+X_NLP_SELECTED_PATH = REPO_ROOT / "Module_B" / "results" / "X_nlp_selected.parquet"
+X_NLP_FINBERT_PATH  = REPO_ROOT / "Module_B" / "results" / "X_nlp_finbert.parquet"
+X_NLP_PATH = X_NLP_SELECTED_PATH if X_NLP_SELECTED_PATH.exists() else X_NLP_FINBERT_PATH
 
 OUT_PATH     = MODULE_D / "X_fused.parquet"
 SKIP         = {'ticker', 'quarter', 'Date', 'distress_label', 'year'}
@@ -63,6 +63,8 @@ LAG_COLS = [
     'hy_oas', 'bbb_spread', 'ted_spread', 'oil_wti',
     'return_zscore_30d_mean', 'price_sma200_ratio_mean',
     'debt_to_equity', 'current_ratio', 'interest_coverage',
+    # NLP temporal signals — delta4q captures YoY tone deterioration
+    'nlp_tenk_score', 'nlp_tenk_score_4q_mean',
 ]
 
 # ── 1. Load X_ts ──────────────────────────────────────────────────────────────
@@ -97,7 +99,7 @@ if subsectors is None and COMPANY_PATH.exists():
 
 # ── 4. Load X_nlp (optional) ──────────────────────────────────────────────────
 X_nlp = None
-if X_NLP_PATH is not None:
+if X_NLP_PATH is not None and X_NLP_PATH.exists():
     print("[3/6] Loading X_nlp (Module B)…")
     X_nlp_raw = pd.read_parquet(X_NLP_PATH)
     X_nlp = X_nlp_raw.rename(
@@ -126,6 +128,19 @@ print("[5/6] Engineering recall-boosting features…")
 
 # Sort for time-ordered operations
 X_fused = X_fused.sort_values(['ticker', 'quarter']).reset_index(drop=True)
+
+# F0. Forward-fill NLP features within ticker (annual Q1 10-K signals → Q2/Q3/Q4)
+# Root cause of NLP not helping: 82% of rows had zero for all NLP features because
+# X_nlp_selected is Q1-only (annual 10-K filing quarter).  Without ffill, Q2/Q3/Q4
+# rows got zero-filled and the model never saw the NLP signal for those quarters.
+# After ffill, Q1 values propagate to Q2→Q3→Q4 until the next year's Q1 filing.
+if X_nlp is not None:
+    nlp_feat_cols = [c for c in X_fused.columns if c.startswith('nlp_')]
+    if nlp_feat_cols:
+        X_fused[nlp_feat_cols] = X_fused.groupby('ticker')[nlp_feat_cols].transform('ffill')
+        still_zero = (X_fused[nlp_feat_cols] == 0).all(axis=1).sum()
+        print(f"      NLP forward-fill: {len(nlp_feat_cols)} cols "
+              f"({still_zero} rows still zero — pre-first-filing quarters)")
 
 # F1. Forward-fill financial ratios within ticker (don't zero-fill missing data)
 for col in FFILL_COLS:

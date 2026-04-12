@@ -1,0 +1,3 @@
+Score column: calls_score_4q_mean
+Samples: 119 | Positives: 2 | Negatives: 117
+AUC: 0.184
