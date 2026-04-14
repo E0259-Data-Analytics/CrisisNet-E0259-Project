@@ -30,19 +30,24 @@ Key NLP features retained/used by the final model include `nlp_tenk_score_lag2q`
 | Test recall | 0.7000 |
 | Test precision | 0.4884 |
 | Test Brier score | 0.0766 |
-| Original Altman Z ROC-AUC | 0.5932 |
-| Original Altman Z PR-AUC | 0.1867 |
+| Original Altman Z ROC-AUC | 0.6359 on 198 covered test rows |
+| Original Altman Z PR-AUC | 0.0264 on 198 covered test rows |
 | LR baseline ROC-AUC | 0.8402 |
 | LR baseline PR-AUC | 0.6912 |
 
 The original Altman Z-score path is restored in `build_x_fused.py`: when Module A exports zeroed Altman columns, fusion recomputes the original 1968 Altman score and X1-X5 components from raw quarterly financial statements under `crisisnet-data/Module_1/market_data/financials` or `crisisnet-data/Module_A/market_data/financials`. This restored nonzero Altman values for 198 rows in the current run.
 
+Important coverage caveat: Altman coverage is `0/610` train rows and `198/1145` test rows, with only 3 positives in the covered test subset. Therefore:
+- `zscore_only` is evaluated only on covered rows, not on zero-filled missing rows.
+- `zscore_5factors` is marked unavailable because there is no covered train data for fitting.
+- The `zscore_only` recall of 1.0000 is not strong evidence; it is based on only 3 covered positives and has very poor F2/PR-AUC.
+
 ## Corrected Ablation
 
 | Configuration | Features | CV AUC | ROC-AUC | PR-AUC | F2 | Recall | Brier |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| zscore_only | 1 | N/A | 0.5932 | 0.1867 | 0.4929 | 1.0000 | 0.5346 |
-| zscore_5factors | 6 | 0.5000 | 0.5000 | 0.1572 | 0.4826 | 1.0000 | 0.1328 |
+| zscore_only | 1 | N/A | 0.6359 | 0.0264 | 0.0877 | 1.0000 | 0.3744 |
+| zscore_5factors | 6 | N/A | N/A | N/A | N/A | N/A | N/A |
 | module_a_only | 187 | 0.8801 | 0.7890 | 0.6943 | 0.5967 | 0.6889 | 0.1173 |
 | a_plus_b | 257 | 0.8965 | 0.8060 | 0.7107 | 0.6175 | 0.6889 | 0.0935 |
 | a_plus_c | 209 | 0.8949 | 0.8086 | 0.7072 | 0.6244 | 0.6944 | 0.0930 |

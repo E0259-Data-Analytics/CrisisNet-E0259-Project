@@ -73,6 +73,11 @@ def zscore_to_prob(z):
 ZSCORE_5 = ['altman_z', 'X1_wc_ta', 'X2_re_ta', 'X3_ebit_ta', 'X4_mcap_tl', 'X5_rev_ta']
 # Filter to those that actually exist in feat_cols
 ZSCORE_5 = [c for c in ZSCORE_5 if c in feat_cols]
+altman_train_mask = (train['altman_z'].fillna(0) != 0).values if 'altman_z' in train.columns else np.zeros(len(train), dtype=bool)
+altman_test_mask = (test['altman_z'].fillna(0) != 0).values if 'altman_z' in test.columns else np.zeros(len(test), dtype=bool)
+print(f"Original Altman coverage: train={int(altman_train_mask.sum())}/{len(train)}, "
+      f"test={int(altman_test_mask.sum())}/{len(test)} "
+      f"(test positives={int(y_test[altman_test_mask].sum())})")
 
 configs = {
     'zscore_only':     None,   # special case — sigmoid, no ML
@@ -132,13 +137,20 @@ print(f"\n  {'Config':<24s} {'n_feat':>6s}  {'CV AUC':>8s}  {'Test AUC':>9s}  {'
 print("  " + "-" * 85)
 
 for config_name, cols in configs.items():
+    eval_mask = np.ones(len(test), dtype=bool)
     if config_name == 'zscore_only':
-        # Pure sigmoid — NOTE: altman_z is all-zero (XBRL data unavailable).
-        probs  = zscore_to_prob(test['altman_z'].values if 'altman_z' in test.columns
-                                else np.full(len(test), 2.4))
+        # Pure sigmoid; evaluate only rows with restored nonzero Altman coverage.
+        eval_mask = altman_test_mask
+        probs  = zscore_to_prob(test['altman_z'].values)
         preds  = (probs > 0.5).astype(int)
         cv_val = 'N/A'
         n_feat = 1
+    elif config_name == 'zscore_5factors' and altman_train_mask.sum() == 0:
+        eval_mask = np.zeros(len(test), dtype=bool)
+        probs  = np.full(len(test), np.nan)
+        preds  = np.zeros(len(test), dtype=int)
+        cv_val = 'N/A'
+        n_feat = len(cols)
     else:
         cols   = [c for c in cols if c in train.columns]
         n_feat = len(cols)
@@ -155,12 +167,15 @@ for config_name, cols in configs.items():
         probs = m_final.predict_proba(test[cols].values)[:, 1]
         preds = (probs > ABLATION_THRESHOLD).astype(int)
 
-    if y_test.sum() > 0 and y_test.sum() < len(y_test):
-        test_auc = round(roc_auc_score(y_test, probs), 4)
-        pr_auc   = round(average_precision_score(y_test, probs), 4)
-        brier    = round(brier_score_loss(y_test, probs), 4)
-        f2_val   = round(fbeta_score(y_test, preds, beta=2), 4)
-        rec_val  = round(recall_score(y_test, preds), 4)
+    y_eval = y_test[eval_mask]
+    p_eval = probs[eval_mask]
+    d_eval = preds[eval_mask]
+    if len(y_eval) > 0 and y_eval.sum() > 0 and y_eval.sum() < len(y_eval) and not np.isnan(p_eval).all():
+        test_auc = round(roc_auc_score(y_eval, p_eval), 4)
+        pr_auc   = round(average_precision_score(y_eval, p_eval), 4)
+        brier    = round(brier_score_loss(y_eval, p_eval), 4)
+        f2_val   = round(fbeta_score(y_eval, d_eval, beta=2), 4)
+        rec_val  = round(recall_score(y_eval, d_eval), 4)
     else:
         test_auc, pr_auc, brier, f2_val, rec_val = [float('nan')] * 5
 
@@ -173,6 +188,7 @@ for config_name, cols in configs.items():
         'f2_score':   f2_val,
         'recall':     rec_val,
         'brier':      brier,
+        'n_eval':     int(len(y_eval)),
         'expected':   expected[config_name],
         'rq':         rq_map[config_name],
     }

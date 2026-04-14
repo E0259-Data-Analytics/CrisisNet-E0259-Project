@@ -277,11 +277,14 @@ lr.fit(Xtr_sc, y_train)
 lr_probs  = lr.predict_proba(Xte_sc)[:, 1]
 lr_preds  = (lr_probs > 0.5).astype(int)
 
-if 'altman_z' in test.columns and (test['altman_z'].fillna(0) != 0).sum() > 0:
+altman_eval_mask = (test['altman_z'].fillna(0) != 0).values if 'altman_z' in test.columns else np.zeros(len(test), dtype=bool)
+if altman_eval_mask.sum() > 0:
     altman_probs = zscore_to_prob(test['altman_z'].values)
+    print(f"      Original Altman coverage: {int(altman_eval_mask.sum())}/{len(test)} test rows "
+          f"(positives={int(y_test[altman_eval_mask].sum())})")
 else:
     altman_probs = np.full(len(test), y_train.mean())
-    print("      WARNING: original Altman Z unavailable/zeroed; baseline falls back to train prevalence")
+    print("      WARNING: original Altman Z unavailable/zeroed; baseline excluded")
 altman_preds = (altman_probs > 0.5).astype(int)
 
 fusion_probs = model.predict_proba(test[feat_cols].values)[:, 1]
@@ -289,27 +292,30 @@ fusion_preds = (fusion_probs > opt_threshold).astype(int)
 
 results = {}
 comparisons = [
-    ('Original Altman Z-Score',        altman_probs, altman_preds, '#3498db'),
-    ('Logistic Regression (balanced)', lr_probs,     lr_preds,     '#e74c3c'),
-    ('CrisisNet Fusion',               fusion_probs, fusion_preds, '#2ecc71'),
+    ('Original Altman Z-Score',        altman_probs, altman_preds, '#3498db', altman_eval_mask),
+    ('Logistic Regression (balanced)', lr_probs,     lr_preds,     '#e74c3c', np.ones(len(test), dtype=bool)),
+    ('CrisisNet Fusion',               fusion_probs, fusion_preds, '#2ecc71', np.ones(len(test), dtype=bool)),
 ]
 
 fig, ax = plt.subplots(figsize=(10, 8))
 ax.plot([0, 1], [0, 1], 'k--', alpha=0.5, label='Random (AUC=0.500)')
 
-for name, probs, preds, color in comparisons:
-    if y_test.sum() > 0 and y_test.sum() < len(y_test):
-        auc      = roc_auc_score(y_test, probs)
-        prauc    = average_precision_score(y_test, probs)
-        brier    = brier_score_loss(y_test, probs)
-        fpr, tpr, _ = roc_curve(y_test, probs)
+for name, probs, preds, color, eval_mask in comparisons:
+    y_eval = y_test[eval_mask]
+    probs_eval = probs[eval_mask]
+    if len(y_eval) > 0 and y_eval.sum() > 0 and y_eval.sum() < len(y_eval):
+        auc      = roc_auc_score(y_eval, probs_eval)
+        prauc    = average_precision_score(y_eval, probs_eval)
+        brier    = brier_score_loss(y_eval, probs_eval)
+        fpr, tpr, _ = roc_curve(y_eval, probs_eval)
         ax.plot(fpr, tpr, color=color, linewidth=2.5,
                 label=f'{name}  (ROC-AUC={auc:.3f}, PR-AUC={prauc:.3f})')
         results[name] = {'ROC_AUC': round(auc, 4), 'PR_AUC': round(prauc, 4),
-                         'Brier': round(brier, 4)}
-        print(f"  {name:<38s} ROC-AUC={auc:.4f}  PR-AUC={prauc:.4f}  Brier={brier:.4f}")
+                         'Brier': round(brier, 4), 'n_eval': int(len(y_eval))}
+        print(f"  {name:<38s} ROC-AUC={auc:.4f}  PR-AUC={prauc:.4f}  "
+              f"Brier={brier:.4f}  n={len(y_eval)}")
     else:
-        print(f"  {name}: not enough test labels for ROC")
+        print(f"  {name}: not enough covered test labels for ROC (n={len(y_eval)}, pos={int(y_eval.sum())})")
 
 ax.set_xlabel('False Positive Rate', fontsize=13)
 ax.set_ylabel('True Positive Rate', fontsize=13)

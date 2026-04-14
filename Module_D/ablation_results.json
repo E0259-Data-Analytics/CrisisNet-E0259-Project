@@ -2,22 +2,24 @@
   "zscore_only": {
     "n_features": 1,
     "cv_auc": "N/A",
-    "test_auc": 0.5932,
-    "pr_auc": 0.1867,
-    "f2_score": 0.4929,
+    "test_auc": 0.6359,
+    "pr_auc": 0.0264,
+    "f2_score": 0.0877,
     "recall": 1.0,
-    "brier": 0.5346,
+    "brier": 0.3744,
+    "n_eval": 198,
     "expected": "~0.50",
     "rq": "RQ1 baseline"
   },
   "zscore_5factors": {
     "n_features": 6,
-    "cv_auc": 0.5,
-    "test_auc": 0.5,
-    "pr_auc": 0.1572,
-    "f2_score": 0.4826,
-    "recall": 1.0,
-    "brier": 0.1328,
+    "cv_auc": "N/A",
+    "test_auc": NaN,
+    "pr_auc": NaN,
+    "f2_score": NaN,
+    "recall": NaN,
+    "brier": NaN,
+    "n_eval": 0,
     "expected": "~0.55",
     "rq": "Z sub-factors vs. full Z"
   },
@@ -29,6 +31,7 @@
     "f2_score": 0.5967,
     "recall": 0.6889,
     "brier": 0.1173,
+    "n_eval": 1145,
     "expected": "~0.88",
     "rq": "Module A standalone"
   },
@@ -40,6 +43,7 @@
     "f2_score": 0.6175,
     "recall": 0.6889,
     "brier": 0.0935,
+    "n_eval": 1145,
     "expected": "~0.89\u20130.91",
     "rq": "RQ3: NLP marginal value"
   },
@@ -51,6 +55,7 @@
     "f2_score": 0.6244,
     "recall": 0.6944,
     "brier": 0.093,
+    "n_eval": 1145,
     "expected": "~0.88\u20130.91",
     "rq": "RQ2: Network marginal value"
   },
@@ -62,6 +67,7 @@
     "f2_score": 0.63,
     "recall": 0.6944,
     "brier": 0.0772,
+    "n_eval": 1145,
     "expected": "~0.90\u20130.93",
     "rq": "RQ1: Final vs Z-Score"
   }
