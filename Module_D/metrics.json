@@ -1,52 +1,52 @@
 {
   "Original Altman Z-Score": {
-    "ROC_AUC": 0.7145,
-    "PR_AUC": 0.3812,
-    "Brier": 0.4065,
-    "n_eval": 505
+    "ROC_AUC": 0.6888,
+    "PR_AUC": 0.265,
+    "Brier": 0.4326,
+    "n_eval": 561
   },
   "Logistic Regression (balanced)": {
-    "ROC_AUC": 0.7483,
-    "PR_AUC": 0.5637,
-    "Brier": 0.2273,
+    "ROC_AUC": 0.7938,
+    "PR_AUC": 0.6047,
+    "Brier": 0.1598,
     "n_eval": 1145
   },
   "CrisisNet Fusion": {
-    "ROC_AUC": 0.8162,
-    "PR_AUC": 0.7142,
-    "Brier": 0.0811,
+    "ROC_AUC": 0.8188,
+    "PR_AUC": 0.7105,
+    "Brier": 0.0807,
     "n_eval": 1145,
     "ROC_AUC_CI": [
-      0.7688,
-      0.8581
+      0.7736,
+      0.8588
     ],
     "PR_AUC_CI": [
-      0.6471,
-      0.7751
+      0.6422,
+      0.77
     ],
-    "F2_score": 0.6437,
+    "F2_score": 0.6443,
     "Recall": 0.6944,
-    "Precision": 0.498
+    "Precision": 0.5
   },
   "per_period": {
     "crisis_2019_2020": {
       "n": 312,
       "positives": 174,
-      "ROC_AUC": 0.7915,
-      "F2": 0.7041,
+      "ROC_AUC": 0.785,
+      "F2": 0.7033,
       "Recall": 0.6839
     },
     "post_crisis_2021_plus": {
       "n": 833,
       "positives": 6,
-      "ROC_AUC": 0.9744,
-      "F2": 0.2381,
+      "ROC_AUC": 0.9615,
+      "F2": 0.2419,
       "Recall": 1.0
     }
   },
   "cv_walk_forward": {
-    "mean_AUC": 0.8988,
-    "mean_Brier": 0.0843,
+    "mean_AUC": 0.8929,
+    "mean_Brier": 0.0804,
     "n_folds": 5
   }
 }

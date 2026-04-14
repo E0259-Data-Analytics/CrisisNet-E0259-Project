@@ -27,8 +27,12 @@ Usage:
 
 from pathlib import Path
 import json
+import warnings
 import pandas as pd
 import numpy as np
+from pandas.errors import PerformanceWarning
+
+warnings.filterwarnings('ignore', category=PerformanceWarning)
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 REPO_ROOT    = Path(__file__).resolve().parent.parent
@@ -394,7 +398,7 @@ altman_cols = ['altman_z', 'X1_wc_ta', 'X2_re_ta', 'X3_ebit_ta', 'X4_mcap_tl', '
 if all(c in X_fused.columns for c in altman_cols):
     altman_nonzero = int((X_fused['altman_z'].fillna(0) != 0).sum())
     if altman_nonzero == 0:
-        print("      Altman Z is zeroed in X_ts; recomputing original score from raw financials…")
+        print("      Altman Z is zeroed in X_ts; recomputing original score from SEC XBRL/company financials…")
         altman_df = _build_original_altman_features(X_fused)
         if altman_df is not None:
             X_fused = X_fused.merge(
@@ -408,7 +412,7 @@ if all(c in X_fused.columns for c in altman_cols):
             restored = int((X_fused['altman_z'].fillna(0) != 0).sum())
             print(f"      Original Altman Z restored for {restored} rows")
         else:
-            print("      WARNING: raw financials not found; Altman Z remains zeroed")
+            print("      WARNING: SEC XBRL/company financials not found; Altman Z remains zeroed")
 
 # ── 6. Feature engineering for recall ─────────────────────────────────────────
 print("[5/6] Engineering recall-boosting features…")

@@ -3,259 +3,255 @@
     "volatility_30d",
     "mom_120d_last",
     "price_sma50_ratio_last",
-    "price_sma200_ratio_mean",
     "graph_community_isolation",
-    "log_return_skew",
-    "return_zscore_30d_mean_delta1q",
-    "bb_pct_min",
-    "mom_20d_last",
-    "momentum_60d",
-    "X2_re_ta",
-    "graph_eigenvector_centrality",
-    "volume_ratio",
-    "mom_250d_last",
-    "X4_mcap_tl",
     "return_zscore_30d_mean",
-    "return_zscore_30d_mean_lag1q",
-    "graph_louvain_community_id",
-    "X5_rev_ta",
-    "intraday_range",
-    "return_zscore_30d_mean_lag2q",
-    "X1_wc_ta",
-    "sector_distress_rate_lag1q",
+    "price_sma200_ratio_mean",
+    "return_zscore_30d_mean_delta1q",
+    "graph_eigenvector_centrality",
+    "momentum_60d",
+    "mom_250d_last",
     "vol_60d_last",
-    "graph_systemic_importance_score",
-    "natgas_price",
-    "X3_ebit_ta",
-    "volatility_30d_delta1q",
-    "volatility_30d_vs_sector",
-    "vol_ratio_20_mean",
-    "close_price_vs_sector",
-    "vol_60d_last_lag1q",
-    "vol_60d_mean_lag1q",
-    "log_return_mean",
-    "graph_community_size",
+    "return_zscore_30d_mean_lag1q",
+    "X2_re_ta",
+    "X4_mcap_tl",
+    "mom_20d_last",
+    "bb_pct_min",
+    "graph_louvain_community_id",
     "obv_slope_20_mean",
+    "volume_ratio",
+    "volatility_30d_vs_sector",
+    "graph_systemic_importance_score",
+    "sector_distress_rate_lag1q",
+    "X1_wc_ta",
+    "X5_rev_ta",
+    "natgas_price",
+    "volatility_30d_delta1q",
+    "log_return_skew",
+    "close_price_vs_sector",
+    "X3_ebit_ta",
+    "return_zscore_30d_mean_lag2q",
+    "nlp_readability_fog_approx_delta4q",
     "max_drawdown_6m_vs_sector",
-    "momentum_60d_lag4q",
-    "price_sma200_ratio_mean_lag4q",
-    "momentum_60d_delta1q",
+    "log_return_mean",
+    "intraday_range",
     "obv_slope_20_last",
-    "momentum_90d",
     "volatility_30d_lag1q",
     "bb_width_max",
-    "log_return_max",
-    "price_sma200_ratio_mean_delta1q",
-    "nlp_readability_fog_approx_delta4q",
-    "vol_60d_last_delta1q",
-    "vol_60d_mean_delta1q",
-    "momentum_60d_lag1q",
-    "close_price",
-    "vol_30d_max",
-    "graph_contagion_out",
+    "vol_60d_mean_lag1q",
     "return_zscore_30d_min",
-    "altman_z_delta1q",
-    "max_drawdown_6m_lag2q",
-    "bbb_spread_lag2q",
-    "close_mean",
-    "return_zscore_30d_max",
-    "rsi_14_min",
-    "close_price_lag1q",
+    "vol_30d_max",
+    "vol_ratio_20_mean",
+    "momentum_60d_lag4q",
+    "close_price",
+    "log_return_max",
     "vol_30d_mean",
-    "log_return_min",
-    "close_std",
-    "graph_pagerank",
-    "rsi_14_last",
-    "return_zscore_30d_std",
-    "vol_60d_mean",
-    "log_return_std",
-    "close_price_lag2q",
+    "vol_60d_last_delta1q",
+    "graph_community_size",
+    "price_sma200_ratio_mean_lag4q",
+    "altman_z_delta1q",
     "macd_hist_mean",
-    "rsi_14_mean",
-    "vol_ratio_10_60_max",
+    "vol_60d_last_lag1q",
+    "momentum_90d",
+    "vol_60d_mean",
+    "vol_60d_mean_delta1q",
+    "close_price_trend4q",
+    "close_price_lag1q",
+    "graph_pagerank",
+    "close_mean",
+    "price_sma200_ratio_mean_delta1q",
+    "price_sma200_ratio_mean_lag1q",
+    "rsi_14_last",
+    "bbb_spread_lag2q",
     "macd_hist_last",
-    "sma50_sma200_cross_last",
+    "log_return_min",
     "vol_30d_last",
-    "oil_wti_lag1q",
+    "momentum_60d_delta1q",
+    "sma50_sma200_cross_last",
+    "nlp_topic_4",
+    "rsi_14_mean",
+    "return_zscore_30d_std",
+    "close_price_lag2q",
+    "volatility_30d_lag2q",
+    "close_std",
+    "log_return_std",
+    "vol_ratio_10_60_max",
+    "momentum_60d_lag1q",
+    "vol_ratio_20_max",
+    "hy_oas_lag4q",
+    "return_zscore_30d_mean_lag4q",
+    "return_zscore_30d_max",
+    "max_drawdown_6m_lag2q",
+    "nlp_tenk_score_lag1q",
+    "rsi_14_min",
     "nlp_yoy_cosine_dist",
+    "ted_spread_lag2q",
+    "nlp_topic_0",
+    "oil_wti_delta1q",
+    "graph_contagion_out",
+    "graph_max_contagion_in",
+    "yield_slope",
+    "bb_width_mean",
+    "vol_ratio_10_60_mean",
+    "nlp_yoy_cosine_sim",
+    "oil_wti_lag1q",
     "nlp_tenk_score_lag2q",
     "max_drawdown_6m_lag1q",
-    "nlp_topic_0",
-    "price_sma200_ratio_mean_lag1q",
-    "vol_ratio_20_max",
-    "nlp_yoy_cosine_sim",
-    "close_price_trend4q",
     "atr_pct_mean",
-    "nlp_topic_4",
-    "hy_oas_lag4q",
-    "momentum_60d_delta4q",
-    "return_zscore_30d_mean_lag4q",
+    "hy_oas_trend4q",
     "price_sma50_ratio_mean",
     "max_drawdown_6m_trend4q",
-    "bb_width_mean",
-    "nlp_tenk_score_lag1q",
-    "volatility_30d_lag2q",
-    "vol_ratio_10_60_mean",
-    "close_price_delta4q",
-    "nlp_risk_factor_count_yoy_delta",
-    "yield_slope",
-    "ted_spread_lag2q",
-    "oil_wti_delta1q",
-    "close_price_lag4q",
+    "max_drawdown_6m_lag4q",
     "mom_60d_last",
-    "nlp_tenk_score_4q_mean_delta4q",
-    "vol_60d_last_lag4q",
-    "price_sma200_ratio_mean_lag2q",
+    "nlp_risk_factor_count_yoy_delta",
+    "vol_60d_last_lag2q",
+    "graph_contagion_vulnerability",
+    "nlp_tenk_neg",
     "nlp_readability_avg_sent_len",
-    "oil_wti",
-    "vix_last",
+    "oil_wti_delta4q",
     "momentum_60d_lag2q",
+    "nlp_topic_1",
+    "graph_debtrank_exposure",
+    "nlp_readability_fog_approx",
     "price_sma200_ratio_last",
-    "nlp_distress_phrase_rate",
-    "graph_max_contagion_in",
-    "nlp_tenk_score_4q_mean_lag2q",
-    "atr_pct_max",
+    "close_price_delta4q",
+    "max_drawdown_6m_delta1q",
+    "close_price_lag4q",
     "graph_systemic_risk_contribution",
     "bb_pct_mean",
-    "nlp_tenk_pos",
-    "graph_debtrank_exposure",
-    "oil_wti_last"
+    "price_sma200_ratio_mean_lag2q",
+    "nlp_tenk_score_4q_mean_lag2q"
   ],
   "n_selected": 120,
   "n_nlp": 13,
-  "n_graph": 10,
-  "n_ts_macro": 97,
+  "n_graph": 11,
+  "n_ts_macro": 96,
   "feature_importances": [
     {
       "feature": "volatility_30d",
-      "importance": 126
+      "importance": 123
     },
     {
       "feature": "mom_120d_last",
-      "importance": 113
+      "importance": 110
     },
     {
       "feature": "price_sma50_ratio_last",
-      "importance": 108
-    },
-    {
-      "feature": "price_sma200_ratio_mean",
-      "importance": 108
+      "importance": 104
     },
     {
       "feature": "graph_community_isolation",
-      "importance": 104
+      "importance": 97
     },
     {
-      "feature": "log_return_skew",
-      "importance": 104
+      "feature": "return_zscore_30d_mean",
+      "importance": 95
     },
     {
-      "feature": "return_zscore_30d_mean_delta1q",
-      "importance": 100
-    },
-    {
-      "feature": "bb_pct_min",
-      "importance": 99
-    },
-    {
-      "feature": "mom_20d_last",
+      "feature": "price_sma200_ratio_mean",
       "importance": 94
     },
     {
-      "feature": "momentum_60d",
-      "importance": 93
-    },
-    {
-      "feature": "X2_re_ta",
-      "importance": 93
+      "feature": "return_zscore_30d_mean_delta1q",
+      "importance": 94
     },
     {
       "feature": "graph_eigenvector_centrality",
-      "importance": 85
+      "importance": 93
     },
     {
-      "feature": "volume_ratio",
-      "importance": 82
+      "feature": "momentum_60d",
+      "importance": 91
     },
     {
       "feature": "mom_250d_last",
+      "importance": 86
+    },
+    {
+      "feature": "vol_60d_last",
+      "importance": 83
+    },
+    {
+      "feature": "return_zscore_30d_mean_lag1q",
+      "importance": 83
+    },
+    {
+      "feature": "X2_re_ta",
       "importance": 82
     },
     {
       "feature": "X4_mcap_tl",
-      "importance": 75
+      "importance": 81
     },
     {
-      "feature": "return_zscore_30d_mean",
-      "importance": 73
+      "feature": "mom_20d_last",
+      "importance": 81
     },
     {
-      "feature": "return_zscore_30d_mean_lag1q",
-      "importance": 72
+      "feature": "bb_pct_min",
+      "importance": 79
     },
     {
       "feature": "graph_louvain_community_id",
+      "importance": 79
+    },
+    {
+      "feature": "obv_slope_20_mean",
+      "importance": 74
+    },
+    {
+      "feature": "volume_ratio",
+      "importance": 73
+    },
+    {
+      "feature": "volatility_30d_vs_sector",
       "importance": 71
     },
     {
-      "feature": "X5_rev_ta",
-      "importance": 70
-    },
-    {
-      "feature": "intraday_range",
-      "importance": 69
-    },
-    {
-      "feature": "return_zscore_30d_mean_lag2q",
-      "importance": 67
-    },
-    {
-      "feature": "X1_wc_ta",
-      "importance": 67
+      "feature": "graph_systemic_importance_score",
+      "importance": 71
     },
     {
       "feature": "sector_distress_rate_lag1q",
+      "importance": 68
+    },
+    {
+      "feature": "X1_wc_ta",
       "importance": 66
     },
     {
-      "feature": "vol_60d_last",
-      "importance": 65
-    },
-    {
-      "feature": "graph_systemic_importance_score",
-      "importance": 63
+      "feature": "X5_rev_ta",
+      "importance": 64
     },
     {
       "feature": "natgas_price",
-      "importance": 60
+      "importance": 63
+    },
+    {
+      "feature": "volatility_30d_delta1q",
+      "importance": 63
+    },
+    {
+      "feature": "log_return_skew",
+      "importance": 62
+    },
+    {
+      "feature": "close_price_vs_sector",
+      "importance": 62
     },
     {
       "feature": "X3_ebit_ta",
       "importance": 60
     },
     {
-      "feature": "volatility_30d_delta1q",
+      "feature": "return_zscore_30d_mean_lag2q",
       "importance": 59
     },
     {
-      "feature": "volatility_30d_vs_sector",
-      "importance": 59
-    },
-    {
-      "feature": "vol_ratio_20_mean",
+      "feature": "nlp_readability_fog_approx_delta4q",
       "importance": 57
     },
     {
-      "feature": "close_price_vs_sector",
-      "importance": 56
-    },
-    {
-      "feature": "vol_60d_last_lag1q",
-      "importance": 56
-    },
-    {
-      "feature": "vol_60d_mean_lag1q",
+      "feature": "max_drawdown_6m_vs_sector",
       "importance": 55
     },
     {
@@ -263,291 +259,295 @@
       "importance": 54
     },
     {
-      "feature": "graph_community_size",
-      "importance": 53
-    },
-    {
-      "feature": "obv_slope_20_mean",
-      "importance": 51
-    },
-    {
-      "feature": "max_drawdown_6m_vs_sector",
-      "importance": 51
-    },
-    {
-      "feature": "momentum_60d_lag4q",
-      "importance": 50
-    },
-    {
-      "feature": "price_sma200_ratio_mean_lag4q",
-      "importance": 50
-    },
-    {
-      "feature": "momentum_60d_delta1q",
-      "importance": 49
+      "feature": "intraday_range",
+      "importance": 54
     },
     {
       "feature": "obv_slope_20_last",
-      "importance": 48
-    },
-    {
-      "feature": "momentum_90d",
-      "importance": 47
+      "importance": 53
     },
     {
       "feature": "volatility_30d_lag1q",
-      "importance": 46
+      "importance": 51
     },
     {
       "feature": "bb_width_max",
-      "importance": 45
+      "importance": 51
     },
     {
-      "feature": "log_return_max",
-      "importance": 45
-    },
-    {
-      "feature": "price_sma200_ratio_mean_delta1q",
-      "importance": 44
-    },
-    {
-      "feature": "nlp_readability_fog_approx_delta4q",
-      "importance": 44
-    },
-    {
-      "feature": "vol_60d_last_delta1q",
-      "importance": 44
-    },
-    {
-      "feature": "vol_60d_mean_delta1q",
-      "importance": 43
-    },
-    {
-      "feature": "momentum_60d_lag1q",
-      "importance": 42
-    },
-    {
-      "feature": "close_price",
-      "importance": 42
-    },
-    {
-      "feature": "vol_30d_max",
-      "importance": 42
-    },
-    {
-      "feature": "graph_contagion_out",
-      "importance": 41
+      "feature": "vol_60d_mean_lag1q",
+      "importance": 51
     },
     {
       "feature": "return_zscore_30d_min",
-      "importance": 39
+      "importance": 48
+    },
+    {
+      "feature": "vol_30d_max",
+      "importance": 48
+    },
+    {
+      "feature": "vol_ratio_20_mean",
+      "importance": 48
+    },
+    {
+      "feature": "momentum_60d_lag4q",
+      "importance": 47
+    },
+    {
+      "feature": "close_price",
+      "importance": 47
+    },
+    {
+      "feature": "log_return_max",
+      "importance": 47
+    },
+    {
+      "feature": "vol_30d_mean",
+      "importance": 47
+    },
+    {
+      "feature": "vol_60d_last_delta1q",
+      "importance": 46
+    },
+    {
+      "feature": "graph_community_size",
+      "importance": 45
+    },
+    {
+      "feature": "price_sma200_ratio_mean_lag4q",
+      "importance": 44
     },
     {
       "feature": "altman_z_delta1q",
+      "importance": 44
+    },
+    {
+      "feature": "macd_hist_mean",
+      "importance": 44
+    },
+    {
+      "feature": "vol_60d_last_lag1q",
+      "importance": 43
+    },
+    {
+      "feature": "momentum_90d",
+      "importance": 42
+    },
+    {
+      "feature": "vol_60d_mean",
+      "importance": 40
+    },
+    {
+      "feature": "vol_60d_mean_delta1q",
       "importance": 39
     },
     {
-      "feature": "max_drawdown_6m_lag2q",
+      "feature": "close_price_trend4q",
       "importance": 39
     },
     {
-      "feature": "bbb_spread_lag2q",
+      "feature": "close_price_lag1q",
       "importance": 38
+    },
+    {
+      "feature": "graph_pagerank",
+      "importance": 37
     },
     {
       "feature": "close_mean",
       "importance": 37
     },
     {
-      "feature": "return_zscore_30d_max",
-      "importance": 35
+      "feature": "price_sma200_ratio_mean_delta1q",
+      "importance": 37
     },
     {
-      "feature": "rsi_14_min",
-      "importance": 35
-    },
-    {
-      "feature": "close_price_lag1q",
-      "importance": 34
-    },
-    {
-      "feature": "vol_30d_mean",
-      "importance": 34
-    },
-    {
-      "feature": "log_return_min",
-      "importance": 33
-    },
-    {
-      "feature": "close_std",
-      "importance": 33
-    },
-    {
-      "feature": "graph_pagerank",
-      "importance": 32
+      "feature": "price_sma200_ratio_mean_lag1q",
+      "importance": 36
     },
     {
       "feature": "rsi_14_last",
-      "importance": 32
+      "importance": 35
+    },
+    {
+      "feature": "bbb_spread_lag2q",
+      "importance": 35
+    },
+    {
+      "feature": "macd_hist_last",
+      "importance": 35
+    },
+    {
+      "feature": "log_return_min",
+      "importance": 34
+    },
+    {
+      "feature": "vol_30d_last",
+      "importance": 34
+    },
+    {
+      "feature": "momentum_60d_delta1q",
+      "importance": 33
+    },
+    {
+      "feature": "sma50_sma200_cross_last",
+      "importance": 33
+    },
+    {
+      "feature": "nlp_topic_4",
+      "importance": 33
+    },
+    {
+      "feature": "rsi_14_mean",
+      "importance": 33
     },
     {
       "feature": "return_zscore_30d_std",
+      "importance": 32
+    },
+    {
+      "feature": "close_price_lag2q",
+      "importance": 32
+    },
+    {
+      "feature": "volatility_30d_lag2q",
       "importance": 31
     },
     {
-      "feature": "vol_60d_mean",
+      "feature": "close_std",
       "importance": 30
     },
     {
       "feature": "log_return_std",
-      "importance": 30
-    },
-    {
-      "feature": "close_price_lag2q",
-      "importance": 30
-    },
-    {
-      "feature": "macd_hist_mean",
-      "importance": 30
-    },
-    {
-      "feature": "rsi_14_mean",
-      "importance": 30
+      "importance": 29
     },
     {
       "feature": "vol_ratio_10_60_max",
-      "importance": 30
-    },
-    {
-      "feature": "macd_hist_last",
-      "importance": 29
-    },
-    {
-      "feature": "sma50_sma200_cross_last",
-      "importance": 29
-    },
-    {
-      "feature": "vol_30d_last",
       "importance": 28
     },
     {
-      "feature": "oil_wti_lag1q",
+      "feature": "momentum_60d_lag1q",
       "importance": 28
-    },
-    {
-      "feature": "nlp_yoy_cosine_dist",
-      "importance": 27
-    },
-    {
-      "feature": "nlp_tenk_score_lag2q",
-      "importance": 26
-    },
-    {
-      "feature": "max_drawdown_6m_lag1q",
-      "importance": 26
-    },
-    {
-      "feature": "nlp_topic_0",
-      "importance": 26
-    },
-    {
-      "feature": "price_sma200_ratio_mean_lag1q",
-      "importance": 26
     },
     {
       "feature": "vol_ratio_20_max",
-      "importance": 25
-    },
-    {
-      "feature": "nlp_yoy_cosine_sim",
-      "importance": 25
-    },
-    {
-      "feature": "close_price_trend4q",
-      "importance": 24
-    },
-    {
-      "feature": "atr_pct_mean",
-      "importance": 24
-    },
-    {
-      "feature": "nlp_topic_4",
-      "importance": 24
+      "importance": 27
     },
     {
       "feature": "hy_oas_lag4q",
-      "importance": 23
-    },
-    {
-      "feature": "momentum_60d_delta4q",
-      "importance": 23
+      "importance": 26
     },
     {
       "feature": "return_zscore_30d_mean_lag4q",
+      "importance": 25
+    },
+    {
+      "feature": "return_zscore_30d_max",
+      "importance": 25
+    },
+    {
+      "feature": "max_drawdown_6m_lag2q",
+      "importance": 24
+    },
+    {
+      "feature": "nlp_tenk_score_lag1q",
+      "importance": 24
+    },
+    {
+      "feature": "rsi_14_min",
+      "importance": 23
+    },
+    {
+      "feature": "nlp_yoy_cosine_dist",
+      "importance": 23
+    },
+    {
+      "feature": "ted_spread_lag2q",
+      "importance": 23
+    },
+    {
+      "feature": "nlp_topic_0",
+      "importance": 22
+    },
+    {
+      "feature": "oil_wti_delta1q",
+      "importance": 22
+    },
+    {
+      "feature": "graph_contagion_out",
+      "importance": 22
+    },
+    {
+      "feature": "graph_max_contagion_in",
       "importance": 21
     },
     {
-      "feature": "price_sma50_ratio_mean",
-      "importance": 21
-    },
-    {
-      "feature": "max_drawdown_6m_trend4q",
+      "feature": "yield_slope",
       "importance": 21
     },
     {
       "feature": "bb_width_mean",
-      "importance": 20
-    },
-    {
-      "feature": "nlp_tenk_score_lag1q",
-      "importance": 20
-    },
-    {
-      "feature": "volatility_30d_lag2q",
-      "importance": 20
+      "importance": 21
     },
     {
       "feature": "vol_ratio_10_60_mean",
+      "importance": 21
+    },
+    {
+      "feature": "nlp_yoy_cosine_sim",
+      "importance": 21
+    },
+    {
+      "feature": "oil_wti_lag1q",
+      "importance": 21
+    },
+    {
+      "feature": "nlp_tenk_score_lag2q",
+      "importance": 20
+    },
+    {
+      "feature": "max_drawdown_6m_lag1q",
+      "importance": 20
+    },
+    {
+      "feature": "atr_pct_mean",
+      "importance": 20
+    },
+    {
+      "feature": "hy_oas_trend4q",
       "importance": 19
     },
     {
-      "feature": "close_price_delta4q",
+      "feature": "price_sma50_ratio_mean",
       "importance": 19
     },
     {
-      "feature": "nlp_risk_factor_count_yoy_delta",
+      "feature": "max_drawdown_6m_trend4q",
       "importance": 19
     },
     {
-      "feature": "yield_slope",
-      "importance": 18
-    },
-    {
-      "feature": "ted_spread_lag2q",
-      "importance": 18
-    },
-    {
-      "feature": "oil_wti_delta1q",
-      "importance": 18
-    },
-    {
-      "feature": "close_price_lag4q",
-      "importance": 18
+      "feature": "max_drawdown_6m_lag4q",
+      "importance": 19
     },
     {
       "feature": "mom_60d_last",
+      "importance": 18
+    },
+    {
+      "feature": "nlp_risk_factor_count_yoy_delta",
+      "importance": 18
+    },
+    {
+      "feature": "vol_60d_last_lag2q",
       "importance": 17
     },
     {
-      "feature": "nlp_tenk_score_4q_mean_delta4q",
-      "importance": 16
+      "feature": "graph_contagion_vulnerability",
+      "importance": 17
     },
     {
-      "feature": "vol_60d_last_lag4q",
-      "importance": 16
-    },
-    {
-      "feature": "price_sma200_ratio_mean_lag2q",
+      "feature": "nlp_tenk_neg",
       "importance": 16
     },
     {
@@ -555,11 +555,7 @@
       "importance": 16
     },
     {
-      "feature": "oil_wti",
-      "importance": 15
-    },
-    {
-      "feature": "vix_last",
+      "feature": "oil_wti_delta4q",
       "importance": 15
     },
     {
@@ -567,167 +563,135 @@
       "importance": 15
     },
     {
+      "feature": "nlp_topic_1",
+      "importance": 15
+    },
+    {
+      "feature": "graph_debtrank_exposure",
+      "importance": 14
+    },
+    {
+      "feature": "nlp_readability_fog_approx",
+      "importance": 14
+    },
+    {
       "feature": "price_sma200_ratio_last",
       "importance": 14
     },
     {
-      "feature": "nlp_distress_phrase_rate",
+      "feature": "close_price_delta4q",
       "importance": 14
     },
     {
-      "feature": "graph_max_contagion_in",
-      "importance": 14
+      "feature": "max_drawdown_6m_delta1q",
+      "importance": 13
     },
     {
-      "feature": "nlp_tenk_score_4q_mean_lag2q",
-      "importance": 14
-    },
-    {
-      "feature": "atr_pct_max",
-      "importance": 12
+      "feature": "close_price_lag4q",
+      "importance": 13
     },
     {
       "feature": "graph_systemic_risk_contribution",
-      "importance": 12
+      "importance": 13
     },
     {
       "feature": "bb_pct_mean",
+      "importance": 13
+    },
+    {
+      "feature": "price_sma200_ratio_mean_lag2q",
+      "importance": 12
+    },
+    {
+      "feature": "nlp_tenk_score_4q_mean_lag2q",
+      "importance": 12
+    },
+    {
+      "feature": "volatility_30d_lag4q",
+      "importance": 12
+    },
+    {
+      "feature": "nlp_distress_phrase_rate",
+      "importance": 12
+    },
+    {
+      "feature": "max_drawdown_6m_delta4q",
       "importance": 11
     },
     {
-      "feature": "nlp_tenk_pos",
+      "feature": "nlp_topic_10",
       "importance": 11
     },
     {
-      "feature": "graph_debtrank_exposure",
+      "feature": "oil_wti",
       "importance": 11
     },
     {
-      "feature": "oil_wti_last",
+      "feature": "close_price_delta1q",
       "importance": 10
     },
     {
-      "feature": "nlp_readability_fog_approx_lag2q",
+      "feature": "return_zscore_30d_mean_delta4q",
       "importance": 10
     },
     {
-      "feature": "hy_oas_trend4q",
-      "importance": 10
-    },
-    {
-      "feature": "nlp_topic_1",
-      "importance": 10
-    },
-    {
-      "feature": "max_drawdown_6m_lag4q",
+      "feature": "close_last",
       "importance": 10
     },
     {
       "feature": "hy_oas_lag2q",
-      "importance": 10
-    },
-    {
-      "feature": "nlp_topic_11",
       "importance": 9
     },
     {
-      "feature": "vol_60d_last_lag2q",
+      "feature": "vol_60d_mean_lag4q",
       "importance": 9
     },
     {
-      "feature": "close_price_delta1q",
+      "feature": "vol_60d_mean_lag2q",
       "importance": 9
     },
     {
-      "feature": "return_zscore_30d_mean_delta4q",
+      "feature": "altman_z_trend4q",
       "importance": 9
     },
     {
-      "feature": "close_last",
-      "importance": 9
-    },
-    {
-      "feature": "oil_wti_delta4q",
-      "importance": 9
+      "feature": "vol_60d_last_lag4q",
+      "importance": 8
     },
     {
       "feature": "oil_wti_lag4q",
       "importance": 8
     },
     {
-      "feature": "nlp_risk_factor_paragraph_count",
+      "feature": "momentum_60d_delta4q",
       "importance": 8
     },
     {
-      "feature": "hy_oas",
-      "importance": 7
-    },
-    {
-      "feature": "vol_60d_mean_delta4q",
-      "importance": 7
-    },
-    {
-      "feature": "nlp_tenk_score_delta",
-      "importance": 7
-    },
-    {
-      "feature": "oil_brent",
-      "importance": 7
-    },
-    {
-      "feature": "graph_out_degree_centrality",
-      "importance": 7
-    },
-    {
-      "feature": "graph_contagion_vulnerability",
-      "importance": 7
-    },
-    {
-      "feature": "nlp_topic_10",
-      "importance": 7
-    },
-    {
-      "feature": "bbb_spread_delta4q",
-      "importance": 7
-    },
-    {
-      "feature": "volatility_30d_trend4q",
-      "importance": 7
-    },
-    {
-      "feature": "max_drawdown_6m_delta1q",
-      "importance": 6
-    },
-    {
-      "feature": "nlp_tenk_neg",
-      "importance": 6
+      "feature": "oil_wti_lag2q",
+      "importance": 8
     },
     {
       "feature": "nlp_topic_5",
-      "importance": 6
-    },
-    {
-      "feature": "oil_wti_momentum4q",
-      "importance": 6
+      "importance": 7
     },
     {
       "feature": "nlp_distress_phrase_rate_delta4q",
+      "importance": 7
+    },
+    {
+      "feature": "nlp_topic_kl_shift_lag1q",
       "importance": 6
     },
     {
-      "feature": "regime_stress_frac",
+      "feature": "nlp_tenk_score_delta",
       "importance": 6
     },
     {
-      "feature": "bbb_spread_lag1q",
+      "feature": "bbb_spread_delta4q",
       "importance": 6
     },
     {
-      "feature": "vol_60d_mean_lag2q",
-      "importance": 6
-    },
-    {
-      "feature": "oil_wti_lag2q",
+      "feature": "price_sma200_ratio_mean_delta4q",
       "importance": 6
     },
     {
@@ -735,11 +699,51 @@
       "importance": 6
     },
     {
-      "feature": "altman_z_lag2q",
+      "feature": "nlp_risk_factor_paragraph_count",
+      "importance": 6
+    },
+    {
+      "feature": "volatility_30d_trend4q",
+      "importance": 6
+    },
+    {
+      "feature": "nlp_topic_11",
+      "importance": 6
+    },
+    {
+      "feature": "nlp_tenk_pos",
+      "importance": 6
+    },
+    {
+      "feature": "nlp_topic_3",
+      "importance": 6
+    },
+    {
+      "feature": "vix_last",
+      "importance": 6
+    },
+    {
+      "feature": "nlp_tenk_score_4q_mean_delta4q",
+      "importance": 6
+    },
+    {
+      "feature": "nlp_topic_9",
       "importance": 5
     },
     {
-      "feature": "vol_60d_last_delta4q",
+      "feature": "nlp_readability_word_count_yoy_delta",
+      "importance": 5
+    },
+    {
+      "feature": "graph_n_exposed_neighbours",
+      "importance": 5
+    },
+    {
+      "feature": "oil_wti_last",
+      "importance": 5
+    },
+    {
+      "feature": "oil_brent",
       "importance": 5
     },
     {
@@ -747,39 +751,79 @@
       "importance": 5
     },
     {
-      "feature": "max_drawdown_6m_delta4q",
-      "importance": 5
-    },
-    {
-      "feature": "nlp_readability_complex_pct",
-      "importance": 5
-    },
-    {
-      "feature": "nlp_readability_fog_approx",
+      "feature": "hy_oas_lag1q",
       "importance": 4
     },
     {
-      "feature": "nlp_topic_2",
+      "feature": "vol_60d_last_delta4q",
+      "importance": 4
+    },
+    {
+      "feature": "bbb_spread_lag4q",
+      "importance": 4
+    },
+    {
+      "feature": "regime_stress_frac",
+      "importance": 4
+    },
+    {
+      "feature": "vix_mean_momentum4q",
+      "importance": 4
+    },
+    {
+      "feature": "atr_pct_max",
+      "importance": 4
+    },
+    {
+      "feature": "hy_oas",
+      "importance": 4
+    },
+    {
+      "feature": "nlp_readability_complex_pct",
+      "importance": 4
+    },
+    {
+      "feature": "nlp_topic_6",
       "importance": 4
     },
     {
       "feature": "nlp_tenk_score_4q_mean_lag1q",
-      "importance": 4
+      "importance": 3
+    },
+    {
+      "feature": "ted_spread",
+      "importance": 3
     },
     {
       "feature": "yield_slope_last",
-      "importance": 4
+      "importance": 3
+    },
+    {
+      "feature": "nlp_topic_kl_shift",
+      "importance": 3
     },
     {
       "feature": "bbb_spread_delta1q",
-      "importance": 4
+      "importance": 3
     },
     {
-      "feature": "volatility_30d_lag4q",
-      "importance": 4
+      "feature": "ted_spread_lag4q",
+      "importance": 3
     },
     {
-      "feature": "nlp_readability_word_count_yoy_delta",
+      "feature": "nlp_tenk_score",
+      "importance": 3
+    },
+    {
+      "feature": "nlp_topic_2",
+      "importance": 3
+    },
+    {
+      "feature": "bbb_spread",
+      "importance": 3
+    },
+    {
+      "feature": "nlp_readability_fog_approx_lag1q",
       "importance": 3
     },
     {
@@ -787,67 +831,7 @@
       "importance": 3
     },
     {
-      "feature": "graph_n_communities",
-      "importance": 3
-    },
-    {
-      "feature": "nlp_distress_phrase_rate_lag1q",
-      "importance": 3
-    },
-    {
-      "feature": "volatility_30d_delta4q",
-      "importance": 3
-    },
-    {
-      "feature": "price_sma200_ratio_mean_delta4q",
-      "importance": 3
-    },
-    {
-      "feature": "vix_mean",
-      "importance": 3
-    },
-    {
-      "feature": "treasury_10y",
-      "importance": 3
-    },
-    {
-      "feature": "nlp_tenk_score_4q_mean",
-      "importance": 3
-    },
-    {
-      "feature": "graph_n_exposed_neighbours",
-      "importance": 3
-    },
-    {
-      "feature": "nlp_readability_fog_approx_lag1q",
-      "importance": 2
-    },
-    {
-      "feature": "bbb_spread_lag4q",
-      "importance": 2
-    },
-    {
-      "feature": "vix_mean_momentum4q",
-      "importance": 2
-    },
-    {
-      "feature": "nlp_distress_phrase_rate_lag4q",
-      "importance": 2
-    },
-    {
-      "feature": "altman_z_lag1q",
-      "importance": 2
-    },
-    {
-      "feature": "nlp_tenk_uncertainty_4q_mean",
-      "importance": 2
-    },
-    {
-      "feature": "nlp_tenk_score",
-      "importance": 2
-    },
-    {
-      "feature": "altman_z_trend4q",
+      "feature": "graph_fragmentation_index",
       "importance": 2
     },
     {
@@ -855,23 +839,59 @@
       "importance": 2
     },
     {
+      "feature": "nlp_distress_phrase_count",
+      "importance": 2
+    },
+    {
       "feature": "nlp_tenk_score_delta4q",
       "importance": 2
     },
     {
-      "feature": "graph_betweenness_centrality",
-      "importance": 1
-    },
-    {
-      "feature": "graph_out_degree",
-      "importance": 1
-    },
-    {
-      "feature": "hy_oas_last",
-      "importance": 1
+      "feature": "nlp_distress_phrase_rate_lag4q",
+      "importance": 2
     },
     {
       "feature": "oil_momentum",
+      "importance": 2
+    },
+    {
+      "feature": "treasury_10y",
+      "importance": 2
+    },
+    {
+      "feature": "altman_z_lag1q",
+      "importance": 2
+    },
+    {
+      "feature": "ted_spread_delta1q",
+      "importance": 2
+    },
+    {
+      "feature": "oil_wti_momentum4q",
+      "importance": 2
+    },
+    {
+      "feature": "nlp_tenk_score_lag4q",
+      "importance": 2
+    },
+    {
+      "feature": "altman_z_lag4q",
+      "importance": 2
+    },
+    {
+      "feature": "graph_out_degree",
+      "importance": 2
+    },
+    {
+      "feature": "graph_betweenness_centrality",
+      "importance": 2
+    },
+    {
+      "feature": "nlp_distress_x_vol",
+      "importance": 2
+    },
+    {
+      "feature": "nlp_topic_kl_shift_delta4q",
       "importance": 1
     },
     {
@@ -879,55 +899,23 @@
       "importance": 1
     },
     {
-      "feature": "vol_60d_mean_lag4q",
+      "feature": "graph_n_distressed_in_community",
       "importance": 1
     },
     {
-      "feature": "graph_in_degree_centrality",
+      "feature": "graph_out_degree_centrality",
       "importance": 1
     },
     {
-      "feature": "nlp_topic_kl_shift",
+      "feature": "vol_60d_mean_delta4q",
       "importance": 1
     },
     {
-      "feature": "ted_spread_momentum4q",
+      "feature": "hy_oas_delta4q",
       "importance": 1
     },
     {
-      "feature": "ted_spread_lag4q",
-      "importance": 1
-    },
-    {
-      "feature": "nlp_tenk_score_4q_mean_lag4q",
-      "importance": 1
-    },
-    {
-      "feature": "nlp_tenk_uncertainty_rate",
-      "importance": 1
-    },
-    {
-      "feature": "hy_oas_lag1q",
-      "importance": 1
-    },
-    {
-      "feature": "ted_spread",
-      "importance": 1
-    },
-    {
-      "feature": "fed_funds",
-      "importance": 1
-    },
-    {
-      "feature": "unemployment",
-      "importance": 1
-    },
-    {
-      "feature": "nlp_tenk_neu",
-      "importance": 1
-    },
-    {
-      "feature": "nlp_topic_6",
+      "feature": "nlp_tenk_score_4q_mean",
       "importance": 1
     },
     {
@@ -935,16 +923,36 @@
       "importance": 1
     },
     {
+      "feature": "volatility_30d_delta4q",
+      "importance": 1
+    },
+    {
+      "feature": "graph_in_degree_centrality",
+      "importance": 1
+    },
+    {
+      "feature": "fed_funds",
+      "importance": 1
+    },
+    {
+      "feature": "nlp_distress_phrase_rate_lag2q",
+      "importance": 1
+    },
+    {
+      "feature": "nlp_tenk_neu",
+      "importance": 1
+    },
+    {
+      "feature": "nlp_readability_word_count",
+      "importance": 1
+    },
+    {
+      "feature": "graph_louvain_modularity_Q",
+      "importance": 1
+    },
+    {
       "feature": "altman_z_vs_sector",
       "importance": 1
-    },
-    {
-      "feature": "graph_fragmentation_index",
-      "importance": 1
-    },
-    {
-      "feature": "current_ratio",
-      "importance": 0
     },
     {
       "feature": "altman_z",
@@ -955,7 +963,11 @@
       "importance": 0
     },
     {
-      "feature": "debt_to_assets",
+      "feature": "interest_coverage",
+      "importance": 0
+    },
+    {
+      "feature": "current_ratio",
       "importance": 0
     },
     {
@@ -963,7 +975,7 @@
       "importance": 0
     },
     {
-      "feature": "interest_coverage",
+      "feature": "nlp_readability_fog_approx_delta1q",
       "importance": 0
     },
     {
@@ -971,23 +983,7 @@
       "importance": 0
     },
     {
-      "feature": "free_cashflow",
-      "importance": 0
-    },
-    {
-      "feature": "nlp_readability_fog_approx_delta1q",
-      "importance": 0
-    },
-    {
-      "feature": "graph_louvain_modularity_Q",
-      "importance": 0
-    },
-    {
       "feature": "merton_dd_vs_sector",
-      "importance": 0
-    },
-    {
-      "feature": "nlp_distress_phrase_count",
       "importance": 0
     },
     {
@@ -999,11 +995,15 @@
       "importance": 0
     },
     {
-      "feature": "nlp_calls_pos",
+      "feature": "nlp_calls_neu",
       "importance": 0
     },
     {
-      "feature": "nlp_calls_neu",
+      "feature": "nlp_tenk_uncertainty_rate",
+      "importance": 0
+    },
+    {
+      "feature": "nlp_calls_pos",
       "importance": 0
     },
     {
@@ -1011,19 +1011,15 @@
       "importance": 0
     },
     {
-      "feature": "nlp_readability_word_count",
-      "importance": 0
-    },
-    {
       "feature": "nlp_calls_score",
       "importance": 0
     },
     {
-      "feature": "nlp_topic_3",
+      "feature": "graph_n_communities",
       "importance": 0
     },
     {
-      "feature": "nlp_topic_9",
+      "feature": "nlp_readability_fog_approx_lag2q",
       "importance": 0
     },
     {
@@ -1031,23 +1027,39 @@
       "importance": 0
     },
     {
-      "feature": "hy_oas_delta4q",
+      "feature": "free_cashflow",
       "importance": 0
     },
     {
-      "feature": "altman_z_delta4q",
+      "feature": "debt_to_assets",
       "importance": 0
     },
     {
-      "feature": "bbb_spread",
+      "feature": "bbb_spread_lag1q",
       "importance": 0
     },
     {
-      "feature": "baa_spread",
+      "feature": "merton_dd_delta4q",
       "importance": 0
     },
     {
-      "feature": "merton_dd_lag1q",
+      "feature": "ted_spread_lag1q",
+      "importance": 0
+    },
+    {
+      "feature": "ted_spread_delta4q",
+      "importance": 0
+    },
+    {
+      "feature": "nlp_neg_x_hy_oas",
+      "importance": 0
+    },
+    {
+      "feature": "nlp_tenk_uncertainty_4q_mean",
+      "importance": 0
+    },
+    {
+      "feature": "nlp_calls_uncertainty_4q_mean",
       "importance": 0
     },
     {
@@ -1055,7 +1067,39 @@
       "importance": 0
     },
     {
-      "feature": "graph_n_distressed_in_community",
+      "feature": "nlp_calls_score_4q_mean",
+      "importance": 0
+    },
+    {
+      "feature": "nlp_risk_factor_jaccard_dist",
+      "importance": 0
+    },
+    {
+      "feature": "merton_dd_lag4q",
+      "importance": 0
+    },
+    {
+      "feature": "merton_dd_delta1q",
+      "importance": 0
+    },
+    {
+      "feature": "merton_dd_lag2q",
+      "importance": 0
+    },
+    {
+      "feature": "merton_dd_lag1q",
+      "importance": 0
+    },
+    {
+      "feature": "altman_z_delta4q",
+      "importance": 0
+    },
+    {
+      "feature": "altman_z_lag2q",
+      "importance": 0
+    },
+    {
+      "feature": "graph_clustering_coefficient",
       "importance": 0
     },
     {
@@ -1067,63 +1111,19 @@
       "importance": 0
     },
     {
-      "feature": "nlp_risk_factor_jaccard_dist",
-      "importance": 0
-    },
-    {
-      "feature": "altman_z_lag4q",
-      "importance": 0
-    },
-    {
-      "feature": "merton_dd_lag2q",
-      "importance": 0
-    },
-    {
-      "feature": "merton_dd_delta4q",
-      "importance": 0
-    },
-    {
-      "feature": "merton_dd_delta1q",
-      "importance": 0
-    },
-    {
-      "feature": "merton_dd_lag4q",
-      "importance": 0
-    },
-    {
       "feature": "graph_in_degree",
       "importance": 0
     },
     {
-      "feature": "graph_clustering_coefficient",
+      "feature": "vix_mean",
       "importance": 0
     },
     {
-      "feature": "nlp_calls_score_4q_mean",
-      "importance": 0
-    },
-    {
-      "feature": "nlp_neg_x_hy_oas",
-      "importance": 0
-    },
-    {
-      "feature": "nlp_calls_uncertainty_4q_mean",
-      "importance": 0
-    },
-    {
-      "feature": "nlp_distress_x_vol",
+      "feature": "hy_oas_last",
       "importance": 0
     },
     {
       "feature": "current_ratio_lag2q",
-      "importance": 0
-    },
-    {
-      "feature": "current_ratio_lag1q",
-      "importance": 0
-    },
-    {
-      "feature": "debt_to_equity_delta4q",
       "importance": 0
     },
     {
@@ -1135,11 +1135,11 @@
       "importance": 0
     },
     {
-      "feature": "asset_volatility",
+      "feature": "current_ratio_lag1q",
       "importance": 0
     },
     {
-      "feature": "merton_dd",
+      "feature": "debt_to_equity_delta4q",
       "importance": 0
     },
     {
@@ -1159,19 +1159,19 @@
       "importance": 0
     },
     {
-      "feature": "ted_spread_delta1q",
+      "feature": "baa_spread",
       "importance": 0
     },
     {
-      "feature": "ted_spread_lag1q",
+      "feature": "unemployment",
       "importance": 0
     },
     {
-      "feature": "ted_spread_delta4q",
+      "feature": "asset_volatility",
       "importance": 0
     },
     {
-      "feature": "current_ratio_delta4q",
+      "feature": "merton_dd",
       "importance": 0
     },
     {
@@ -1183,7 +1183,7 @@
       "importance": 0
     },
     {
-      "feature": "nlp_tenk_score_lag4q",
+      "feature": "nlp_tenk_score_4q_mean_lag4q",
       "importance": 0
     },
     {
@@ -1215,11 +1215,11 @@
       "importance": 0
     },
     {
-      "feature": "nlp_topic_kl_shift_lag1q",
+      "feature": "current_ratio_delta4q",
       "importance": 0
     },
     {
-      "feature": "nlp_distress_phrase_rate_lag2q",
+      "feature": "nlp_distress_phrase_rate_lag1q",
       "importance": 0
     },
     {
@@ -1231,11 +1231,11 @@
       "importance": 0
     },
     {
-      "feature": "nlp_topic_kl_shift_delta4q",
+      "feature": "hy_oas_momentum4q",
       "importance": 0
     },
     {
-      "feature": "hy_oas_momentum4q",
+      "feature": "ted_spread_momentum4q",
       "importance": 0
     },
     {
@@ -1246,20 +1246,20 @@
   "selection_results": [
     {
       "n": 80,
-      "auc": 0.8167,
-      "f2": 0.6339,
-      "recall": 0.6944
+      "auc": 0.81,
+      "f2": 0.6132,
+      "recall": 0.6833
     },
     {
       "n": 100,
-      "auc": 0.8191,
-      "f2": 0.643,
-      "recall": 0.6944
+      "auc": 0.8278,
+      "f2": 0.6425,
+      "recall": 0.6889
     },
     {
       "n": 120,
-      "auc": 0.8162,
-      "f2": 0.6437,
+      "auc": 0.8188,
+      "f2": 0.6443,
       "recall": 0.6944
     }
   ]
