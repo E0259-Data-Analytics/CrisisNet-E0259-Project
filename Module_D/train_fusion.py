@@ -34,10 +34,39 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import shap
-from sklearn.metrics import roc_auc_score, brier_score_loss, roc_curve
+from sklearn.calibration import calibration_curve
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import (roc_auc_score, brier_score_loss, roc_curve,
+                             average_precision_score, precision_recall_curve,
+                             classification_report, fbeta_score,
+                             recall_score, precision_score)
 from sklearn.model_selection import TimeSeriesSplit
+from sklearn.preprocessing import StandardScaler
 
 warnings.filterwarnings('ignore')
+
+
+def bootstrap_ci(y_true, y_score, metric_fn, n_boot=2000, ci=0.95, seed=42):
+    """Bootstrap confidence interval for any metric_fn(y_true, y_score)."""
+    rng = np.random.RandomState(seed)
+    n   = len(y_true)
+    scores = []
+    for _ in range(n_boot):
+        idx = rng.choice(n, n, replace=True)
+        yt, ys = y_true[idx], y_score[idx]
+        if yt.sum() == 0 or yt.sum() == len(yt):
+            continue
+        scores.append(metric_fn(yt, ys))
+    scores = sorted(scores)
+    lo = scores[int((1 - ci) / 2 * len(scores))]
+    hi = scores[int((1 + ci) / 2 * len(scores))]
+    return lo, hi
+
+
+def zscore_to_prob(z):
+    """Original Altman Z-Score mapped monotonically to distress probability."""
+    z = np.nan_to_num(z, nan=2.4)
+    return 1.0 / (1.0 + np.exp(0.8 * (z - 2.0)))
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 MODULE_D   = Path(__file__).resolve().parent
@@ -49,11 +78,34 @@ X = pd.read_parquet(X_FUSED_PATH)
 X['year'] = X['quarter'].str[:4].astype(int)
 
 META = {'ticker', 'quarter', 'Date', 'distress_label', 'year'}
+
+# ── Contemporaneous leaky features ────────────────────────────────────────────
+# The distress_label is partly derived from >50% drawdown events.
+# max_drawdown_6m / drawdown_mean / drawdown_min measure the CURRENT quarter's
+# drawdown — they capture the same event that defines the label.
+# Correlation with label: max_drawdown_6m r=−0.62, drawdown_min r=−0.60.
+# Keeping them inflates AUC by ~0.05 (SHAP rank #1, mean |SHAP|=0.90).
+# Lagged versions (lag1q, lag2q, lag4q) use only past information → kept.
+LEAKY_COLS = {'max_drawdown_6m', 'drawdown_mean', 'drawdown_min'}
+
 # Only keep numeric feature columns (drop string categoricals like community labels)
 feat_cols = [c for c in X.columns
-             if c not in META and pd.api.types.is_numeric_dtype(X[c])]
-print(f"      {X.shape[0]} rows  ×  {len(feat_cols)} features")
+             if c not in META
+             and c not in LEAKY_COLS
+             and pd.api.types.is_numeric_dtype(X[c])]
+print(f"      {X.shape[0]} rows  ×  {len(feat_cols)} features  "
+      f"(excluded {len(LEAKY_COLS)} contemporaneous drawdown cols)")
 print(f"      Distress events (total): {X['distress_label'].sum()}")
+
+# ── Optional: Use feature-selected subset for tighter model ───────────────────
+USE_FEATURE_SELECTION = True
+SELECTED_PATH = MODULE_D / 'selected_features.json'
+if USE_FEATURE_SELECTION and SELECTED_PATH.exists():
+    with open(SELECTED_PATH) as _sf:
+        _sel = json.load(_sf)['selected_features']
+    feat_cols_selected = [c for c in _sel if c in feat_cols]
+    print(f"      Feature selection loaded: {len(feat_cols)} → {len(feat_cols_selected)} features")
+    feat_cols = feat_cols_selected
 
 # ── 2. Temporal split ─────────────────────────────────────────────────────────
 # Train: 2015-2018  (early oil-crash distress, ~85 events)
@@ -69,6 +121,11 @@ y_test  = test['distress_label'].values
 
 print(f"      Train: {len(train)} rows  |  positives: {y_train.sum()}")
 print(f"      Test:  {len(test)} rows  |  positives: {y_test.sum()}")
+print(f"\n      *** Test-set positives by year (concentration disclosure) ***")
+print(test.groupby('year')['distress_label'].agg(['sum','count'])
+      .rename(columns={'sum':'positives','count':'total'}).to_string())
+print(f"      NOTE: 174/{y_test.sum()} test positives are in 2019-2020 (COVID/oil crash)")
+print(f"      The 2023-2025 window contributes only {test[test['year']>=2023]['distress_label'].sum()} positives.")
 
 # Class-weight scale for imbalance.
 # For an early-warning system, missing a default (FN) is far more costly
@@ -199,25 +256,42 @@ print(f"\n  Classification report (threshold={opt_threshold:.3f}):")
 print(_cr(test_out['distress_label'], test_out['predicted_label'],
           target_names=['Healthy', 'Distress']))
 
-# ── 7. Altman Z-Score baseline comparison ─────────────────────────────────────
-print("[7/7] Altman Z-Score baseline vs CrisisNet Fusion…")
+# ── F2-score and Recall (PRIMARY metrics for early-warning system) ─────────────
+f2        = fbeta_score(y_test, fusion_preds, beta=2)
+recall    = recall_score(y_test, fusion_preds)
+precision = precision_score(y_test, fusion_preds, zero_division=0)
+print(f"\n  *** Early-Warning Metrics (threshold={opt_threshold:.3f}) ***")
+print(f"  F2-score  (recall×2 weighted) : {f2:.4f}")
+print(f"  Recall                         : {recall:.4f}")
+print(f"  Precision                      : {precision:.4f}")
 
-def zscore_to_prob(z):
-    """Convert Altman Z-Score to P(distress) via sigmoid centred at 1.81."""
-    z = np.nan_to_num(z, nan=2.4)   # NaN → grey-zone mid-point → low risk
-    return 1.0 / (1.0 + np.exp(0.8 * (z - 2.0)))
+# ── 7. Baselines + CrisisNet Fusion comparison ────────────────────────────────
+print("[7/7] Original Altman + Logistic Regression baselines vs CrisisNet Fusion…")
 
-z_scores     = test['altman_z'].values if 'altman_z' in test.columns else np.full(len(test), 2.4)
-z_probs      = zscore_to_prob(z_scores)
-z_preds      = (z_scores < 1.81).astype(int)
+# LR baseline: trained on the same split, same features, class-balanced
+scaler    = StandardScaler()
+Xtr_sc    = scaler.fit_transform(train[feat_cols].values)
+Xte_sc    = scaler.transform(test[feat_cols].values)
+lr        = LogisticRegression(class_weight='balanced', max_iter=1000, random_state=42)
+lr.fit(Xtr_sc, y_train)
+lr_probs  = lr.predict_proba(Xte_sc)[:, 1]
+lr_preds  = (lr_probs > 0.5).astype(int)
+
+if 'altman_z' in test.columns and (test['altman_z'].fillna(0) != 0).sum() > 0:
+    altman_probs = zscore_to_prob(test['altman_z'].values)
+else:
+    altman_probs = np.full(len(test), y_train.mean())
+    print("      WARNING: original Altman Z unavailable/zeroed; baseline falls back to train prevalence")
+altman_preds = (altman_probs > 0.5).astype(int)
 
 fusion_probs = model.predict_proba(test[feat_cols].values)[:, 1]
 fusion_preds = (fusion_probs > opt_threshold).astype(int)
 
 results = {}
 comparisons = [
-    ('Altman Z-Score (1968)', z_probs,      z_preds,      '#e74c3c'),
-    ('CrisisNet Fusion',      fusion_probs, fusion_preds, '#2ecc71'),
+    ('Original Altman Z-Score',        altman_probs, altman_preds, '#3498db'),
+    ('Logistic Regression (balanced)', lr_probs,     lr_preds,     '#e74c3c'),
+    ('CrisisNet Fusion',               fusion_probs, fusion_preds, '#2ecc71'),
 ]
 
 fig, ax = plt.subplots(figsize=(10, 8))
@@ -225,24 +299,107 @@ ax.plot([0, 1], [0, 1], 'k--', alpha=0.5, label='Random (AUC=0.500)')
 
 for name, probs, preds, color in comparisons:
     if y_test.sum() > 0 and y_test.sum() < len(y_test):
-        auc   = roc_auc_score(y_test, probs)
-        brier = brier_score_loss(y_test, probs)
+        auc      = roc_auc_score(y_test, probs)
+        prauc    = average_precision_score(y_test, probs)
+        brier    = brier_score_loss(y_test, probs)
         fpr, tpr, _ = roc_curve(y_test, probs)
         ax.plot(fpr, tpr, color=color, linewidth=2.5,
-                label=f'{name}  (AUC={auc:.3f})')
-        results[name] = {'AUC': round(auc, 4), 'Brier': round(brier, 4)}
-        print(f"  {name:<30s} AUC={auc:.4f}  Brier={brier:.4f}")
+                label=f'{name}  (ROC-AUC={auc:.3f}, PR-AUC={prauc:.3f})')
+        results[name] = {'ROC_AUC': round(auc, 4), 'PR_AUC': round(prauc, 4),
+                         'Brier': round(brier, 4)}
+        print(f"  {name:<38s} ROC-AUC={auc:.4f}  PR-AUC={prauc:.4f}  Brier={brier:.4f}")
     else:
         print(f"  {name}: not enough test labels for ROC")
 
 ax.set_xlabel('False Positive Rate', fontsize=13)
 ax.set_ylabel('True Positive Rate', fontsize=13)
-ax.set_title('CrisisNet Fusion vs Altman Z-Score — ROC Comparison', fontsize=14)
+ax.set_title('CrisisNet Fusion vs Original Altman and LR Baselines — ROC Comparison', fontsize=14)
 ax.legend(fontsize=12)
 plt.tight_layout()
 plt.savefig(MODULE_D / 'roc_fusion_vs_zscore.png', dpi=300)
 plt.close()
 print(f"      ROC plot saved → {MODULE_D / 'roc_fusion_vs_zscore.png'}")
+
+# ── Bootstrap 95% CIs ─────────────────────────────────────────────────────────
+print("\n  *** 95% Bootstrap Confidence Intervals (2000 resamples) ***")
+if 'CrisisNet Fusion' in results:
+    roc_lo, roc_hi = bootstrap_ci(y_test, fusion_probs, roc_auc_score)
+    pr_lo,  pr_hi  = bootstrap_ci(y_test, fusion_probs, average_precision_score)
+    print(f"  ROC-AUC : {results['CrisisNet Fusion']['ROC_AUC']:.4f}  [{roc_lo:.4f}, {roc_hi:.4f}]")
+    print(f"  PR-AUC  : {results['CrisisNet Fusion']['PR_AUC']:.4f}  [{pr_lo:.4f},  {pr_hi:.4f}]")
+    results['CrisisNet Fusion']['ROC_AUC_CI'] = [round(roc_lo, 4), round(roc_hi, 4)]
+    results['CrisisNet Fusion']['PR_AUC_CI']  = [round(pr_lo,  4), round(pr_hi,  4)]
+    results['CrisisNet Fusion']['F2_score']   = round(f2, 4)
+    results['CrisisNet Fusion']['Recall']     = round(recall, 4)
+    results['CrisisNet Fusion']['Precision']  = round(precision, 4)
+
+# ── Per-period breakdown (2019-2020 crisis vs 2021+) ──────────────────────────
+print("\n  *** Per-Period Metrics ***")
+results['per_period'] = {}
+for period_name, mask, key in [
+    ("2019-2020 (crisis)",   test['year'].isin([2019, 2020]), 'crisis_2019_2020'),
+    ("2021-2025 (post)",     test['year'] >= 2021,            'post_crisis_2021_plus'),
+]:
+    yt  = y_test[mask.values]
+    yp  = fusion_probs[mask.values]
+    yd  = fusion_preds[mask.values]
+    d   = {'n': int(len(yt)), 'positives': int(yt.sum())}
+    if yt.sum() > 0 and yt.sum() < len(yt):
+        d['ROC_AUC'] = round(roc_auc_score(yt, yp), 4)
+        d['F2']      = round(fbeta_score(yt, yd, beta=2), 4)
+        d['Recall']  = round(recall_score(yt, yd), 4)
+        print(f"  {period_name:<24s} ROC-AUC={d['ROC_AUC']:.4f}  "
+              f"Recall={d['Recall']:.4f}  F2={d['F2']:.4f}  "
+              f"(n={d['n']}, pos={d['positives']})")
+    else:
+        print(f"  {period_name:<24s} insufficient positives (n={len(yt)}, pos={yt.sum()})")
+    results['per_period'][key] = d
+
+# ── Calibration curve ─────────────────────────────────────────────────────────
+fig_cal, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+prob_true, prob_pred = calibration_curve(y_test, fusion_probs, n_bins=10, strategy='quantile')
+ax1.plot(prob_pred, prob_true, 'o-', color='#2ecc71', linewidth=2, label='CrisisNet Fusion')
+ax1.plot([0, 1], [0, 1], 'k--', alpha=0.5, label='Perfectly calibrated')
+ax1.set_xlabel('Mean predicted probability', fontsize=12)
+ax1.set_ylabel('Fraction of positives', fontsize=12)
+ax1.set_title('Calibration Curve', fontsize=13)
+ax1.legend(fontsize=11)
+ax1.grid(True, alpha=0.3)
+ax2.hist(fusion_probs[y_test == 0], bins=30, alpha=0.6, color='#2ecc71', label='Healthy', density=True)
+ax2.hist(fusion_probs[y_test == 1], bins=30, alpha=0.6, color='#e74c3c', label='Distressed', density=True)
+ax2.axvline(x=opt_threshold, color='orange', linestyle='--', label=f'Threshold={opt_threshold}')
+ax2.set_xlabel('Predicted P(distress)', fontsize=12)
+ax2.set_ylabel('Density', fontsize=12)
+ax2.set_title('Score Distribution by True Class', fontsize=13)
+ax2.legend(fontsize=11)
+plt.tight_layout()
+plt.savefig(MODULE_D / 'calibration_curve.png', dpi=300)
+plt.close()
+print(f"      Calibration plot saved → {MODULE_D / 'calibration_curve.png'}")
+
+# ── Precision-Recall curve ────────────────────────────────────────────────────
+fig_pr, ax_pr = plt.subplots(figsize=(10, 8))
+for name_pr, probs_pr, color_pr in [
+    ('CrisisNet Fusion',          fusion_probs, '#2ecc71'),
+    ('Logistic Regression',       lr_probs,     '#e74c3c'),
+]:
+    prec_arr, rec_arr, _ = precision_recall_curve(y_test, probs_pr)
+    prauc_val = average_precision_score(y_test, probs_pr)
+    ax_pr.plot(rec_arr, prec_arr, color=color_pr, linewidth=2.5,
+               label=f'{name_pr} (PR-AUC={prauc_val:.3f})')
+baseline_prev = float(y_test.mean())
+ax_pr.axhline(y=baseline_prev, color='gray', linestyle='--', alpha=0.5,
+              label=f'Random ({baseline_prev:.3f})')
+ax_pr.set_xlabel('Recall', fontsize=13)
+ax_pr.set_ylabel('Precision', fontsize=13)
+ax_pr.set_title('Precision-Recall Curve — CrisisNet vs Baseline', fontsize=14)
+ax_pr.legend(fontsize=12)
+ax_pr.set_xlim([0, 1])
+ax_pr.set_ylim([0, 1])
+plt.tight_layout()
+plt.savefig(MODULE_D / 'precision_recall_curve.png', dpi=300)
+plt.close()
+print(f"      PR curve saved → {MODULE_D / 'precision_recall_curve.png'}")
 
 # ── Summary metrics JSON ───────────────────────────────────────────────────────
 results['cv_walk_forward'] = {
@@ -255,9 +412,16 @@ with open(MODULE_D / 'metrics.json', 'w') as f:
 print(f"      metrics.json saved")
 
 print("\n=== Module D training complete ===")
-print(f"  CV mean AUC : {cv_mean_auc:.4f}")
+print(f"  CV mean AUC       : {cv_mean_auc:.4f}")
 if 'CrisisNet Fusion' in results:
-    print(f"  Test AUC    : {results['CrisisNet Fusion']['AUC']:.4f}")
-    if 'Altman Z-Score (1968)' in results:
-        lift = results['CrisisNet Fusion']['AUC'] - results['Altman Z-Score (1968)']['AUC']
-        print(f"  AUC lift vs Altman Z: +{lift:.4f}")
+    cf = results['CrisisNet Fusion']
+    print(f"  Test ROC-AUC      : {cf['ROC_AUC']:.4f}  {cf.get('ROC_AUC_CI', '')}")
+    print(f"  Test PR-AUC       : {cf['PR_AUC']:.4f}  {cf.get('PR_AUC_CI', '')}")
+    print(f"  F2-score          : {cf.get('F2_score', 'N/A')}")
+    print(f"  Recall            : {cf.get('Recall', 'N/A')}")
+    if 'Logistic Regression (balanced)' in results:
+        lr = results['Logistic Regression (balanced)']
+        lift_roc = cf['ROC_AUC'] - lr['ROC_AUC']
+        lift_pr  = cf['PR_AUC']  - lr['PR_AUC']
+        print(f"  ROC-AUC lift vs LR: {lift_roc:+.4f}")
+        print(f"  PR-AUC  lift vs LR: {lift_pr:+.4f}")

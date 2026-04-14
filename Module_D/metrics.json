@@ -1,15 +1,49 @@
 {
-  "Altman Z-Score (1968)": {
-    "AUC": 0.5,
-    "Brier": 0.5879
+  "Original Altman Z-Score": {
+    "ROC_AUC": 0.5932,
+    "PR_AUC": 0.1867,
+    "Brier": 0.5346
+  },
+  "Logistic Regression (balanced)": {
+    "ROC_AUC": 0.8402,
+    "PR_AUC": 0.6912,
+    "Brier": 0.1882
   },
   "CrisisNet Fusion": {
-    "AUC": 0.8051,
-    "Brier": 0.0925
+    "ROC_AUC": 0.8198,
+    "PR_AUC": 0.7259,
+    "Brier": 0.0766,
+    "ROC_AUC_CI": [
+      0.7724,
+      0.8614
+    ],
+    "PR_AUC_CI": [
+      0.6588,
+      0.7855
+    ],
+    "F2_score": 0.6442,
+    "Recall": 0.7,
+    "Precision": 0.4884
+  },
+  "per_period": {
+    "crisis_2019_2020": {
+      "n": 312,
+      "positives": 174,
+      "ROC_AUC": 0.7933,
+      "F2": 0.7092,
+      "Recall": 0.6897
+    },
+    "post_crisis_2021_plus": {
+      "n": 833,
+      "positives": 6,
+      "ROC_AUC": 0.9831,
+      "F2": 0.2273,
+      "Recall": 1.0
+    }
   },
   "cv_walk_forward": {
-    "mean_AUC": 0.8987,
-    "mean_Brier": 0.089,
+    "mean_AUC": 0.9166,
+    "mean_Brier": 0.0797,
     "n_folds": 5
   }
 }

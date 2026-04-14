@@ -1,0 +1,289 @@
+{
+  "false_negatives": {
+    "total": 54,
+    "with_nlp": 48,
+    "without_nlp": 6,
+    "by_ticker": {
+      "CHK": 4,
+      "PSX": 4,
+      "LNG": 3,
+      "VLO": 3,
+      "BKR": 2,
+      "EOG": 2,
+      "COP": 2,
+      "CVX": 2,
+      "DK": 2,
+      "OKE": 2,
+      "ET": 2,
+      "EPD": 2,
+      "FANG": 2,
+      "KMI": 2,
+      "MPC": 2,
+      "HAL": 2,
+      "FTI": 2,
+      "SLB": 2,
+      "NOV": 2,
+      "PBF": 2,
+      "OXY": 2,
+      "XOM": 2,
+      "WMB": 2,
+      "EQT": 1,
+      "TRGP": 1
+    }
+  },
+  "false_positives": {
+    "total": 132,
+    "by_ticker_top10": {
+      "AR": 14,
+      "OVV": 13,
+      "APA": 11,
+      "DVN": 10,
+      "RRC": 10,
+      "PBF": 9,
+      "CTRA": 9,
+      "MTDR": 8,
+      "DK": 8,
+      "EQT": 7
+    }
+  },
+  "per_ticker_recall": [
+    {
+      "ticker": "AM",
+      "positives": 6,
+      "recall": 1.0,
+      "f2": 0.909,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "APA",
+      "positives": 6,
+      "recall": 1.0,
+      "f2": 0.732,
+      "nlp_coverage_pct": 48.3
+    },
+    {
+      "ticker": "AR",
+      "positives": 6,
+      "recall": 1.0,
+      "f2": 0.682,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "BKR",
+      "positives": 4,
+      "recall": 0.5,
+      "f2": 0.526,
+      "nlp_coverage_pct": 0.0
+    },
+    {
+      "ticker": "CHK",
+      "positives": 4,
+      "recall": 0.0,
+      "f2": 0.0,
+      "nlp_coverage_pct": 0.0
+    },
+    {
+      "ticker": "CHRD",
+      "positives": 8,
+      "recall": 1.0,
+      "f2": 0.889,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "COP",
+      "positives": 4,
+      "recall": 0.5,
+      "f2": 0.556,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "CVX",
+      "positives": 3,
+      "recall": 0.333,
+      "f2": 0.385,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "DK",
+      "positives": 6,
+      "recall": 0.667,
+      "f2": 0.556,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "DVN",
+      "positives": 5,
+      "recall": 1.0,
+      "f2": 0.714,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "EOG",
+      "positives": 4,
+      "recall": 0.5,
+      "f2": 0.556,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "EPD",
+      "positives": 4,
+      "recall": 0.5,
+      "f2": 0.556,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "EQT",
+      "positives": 5,
+      "recall": 0.8,
+      "f2": 0.645,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "ET",
+      "positives": 5,
+      "recall": 0.6,
+      "f2": 0.577,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "FANG",
+      "positives": 6,
+      "recall": 0.667,
+      "f2": 0.645,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "FTI",
+      "positives": 5,
+      "recall": 0.6,
+      "f2": 0.6,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "HAL",
+      "positives": 5,
+      "recall": 0.6,
+      "f2": 0.652,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "KMI",
+      "positives": 3,
+      "recall": 0.333,
+      "f2": 0.357,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "LNG",
+      "positives": 4,
+      "recall": 0.25,
+      "f2": 0.294,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "MPC",
+      "positives": 4,
+      "recall": 0.5,
+      "f2": 0.526,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "MTDR",
+      "positives": 6,
+      "recall": 1.0,
+      "f2": 0.789,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "NOV",
+      "positives": 6,
+      "recall": 0.667,
+      "f2": 0.69,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "OKE",
+      "positives": 5,
+      "recall": 0.6,
+      "f2": 0.652,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "OVV",
+      "positives": 6,
+      "recall": 1.0,
+      "f2": 0.698,
+      "nlp_coverage_pct": 75.9
+    },
+    {
+      "ticker": "OXY",
+      "positives": 6,
+      "recall": 0.667,
+      "f2": 0.645,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "PBF",
+      "positives": 12,
+      "recall": 0.833,
+      "f2": 0.746,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "PR",
+      "positives": 8,
+      "recall": 1.0,
+      "f2": 0.851,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "PSX",
+      "positives": 6,
+      "recall": 0.333,
+      "f2": 0.385,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "RRC",
+      "positives": 6,
+      "recall": 1.0,
+      "f2": 0.75,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "SLB",
+      "positives": 5,
+      "recall": 0.6,
+      "f2": 0.652,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "TRGP",
+      "positives": 5,
+      "recall": 0.8,
+      "f2": 0.769,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "VLO",
+      "positives": 6,
+      "recall": 0.5,
+      "f2": 0.556,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "WMB",
+      "positives": 3,
+      "recall": 0.333,
+      "f2": 0.385,
+      "nlp_coverage_pct": 100.0
+    },
+    {
+      "ticker": "XOM",
+      "positives": 3,
+      "recall": 0.333,
+      "f2": 0.357,
+      "nlp_coverage_pct": 100.0
+    }
+  ]
+}

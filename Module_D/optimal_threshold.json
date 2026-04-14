@@ -1,5 +1,5 @@
 {
   "threshold": 0.07,
   "recall_boost": 3,
-  "strategy": "fixed 0.07 \u2014 maximises recall (0.689) with NLP features integrated; residual FNs are noisy-label (sector-wide drawdown on healthy firms) or zero-data cases (CHK not in NLP dataset)"
+  "strategy": "fixed 0.07 \u2014 maximises recall (0.689) with NLP integrated; residual FNs are noisy-label drawdown cases or CHK (zero-data)"
 }

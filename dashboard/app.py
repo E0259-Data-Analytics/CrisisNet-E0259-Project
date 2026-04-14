@@ -1,7 +1,7 @@
 """
 CrisisNet — Interactive Dashboard
 ===================================
-Six-tab Streamlit app for exploring CrisisNet fusion model outputs.
+Seven-tab Streamlit app for exploring CrisisNet fusion model outputs.
 
 Tabs:
   1. Company Scorecard    — live health rankings with filters
@@ -10,6 +10,7 @@ Tabs:
   4. Risk Timeline        — multi-company historical risk evolution
   5. Predictions vs Actuals — confusion matrix, hit/miss per company
   6. Live Scoring         — upload CSV → run full pipeline → get health scores
+  7. Model Diagnostics    — calibration, NLP contribution, CIs, failure analysis
 
 Usage:
     pip install streamlit plotly networkx shap lightgbm pyarrow
@@ -175,11 +176,17 @@ with st.sidebar:
         m = load_metrics()
         cv_info = m.get('cv_walk_forward', {})
         cf  = m.get('CrisisNet Fusion', {})
-        az  = m.get('Altman Z-Score (1968)', {})
+        lr  = m.get('Logistic Regression (balanced)', {})
         st.metric("CV Mean AUC",  f"{cv_info.get('mean_AUC', 0):.3f}" if isinstance(cv_info.get('mean_AUC'), float) else "N/A")
-        st.metric("Test AUC",     f"{cf.get('AUC', 0):.3f}"            if isinstance(cf.get('AUC'), float) else "N/A")
-        if isinstance(cf.get('AUC'), float) and isinstance(az.get('AUC'), float):
-            st.metric("Lift vs Z-Score", f"+{cf['AUC']-az['AUC']:.3f}", delta_color="normal")
+        # Support both old key ('AUC') and new key ('ROC_AUC')
+        cf_roc = cf.get('ROC_AUC', cf.get('AUC'))
+        lr_roc = lr.get('ROC_AUC', lr.get('AUC'))
+        st.metric("Test ROC-AUC", f"{cf_roc:.3f}" if isinstance(cf_roc, float) else "N/A")
+        cf_pr = cf.get('PR_AUC')
+        if isinstance(cf_pr, float):
+            st.metric("Test PR-AUC", f"{cf_pr:.3f}", help="Precision-Recall AUC (class-imbalance aware)")
+        if isinstance(cf_roc, float) and isinstance(lr_roc, float):
+            st.metric("Lift vs LR Baseline", f"+{cf_roc - lr_roc:.3f}", delta_color="normal")
 
     # Recall metrics from test predictions
     if TEST_PRED_PATH.exists():
@@ -196,10 +203,10 @@ with st.sidebar:
     st.divider()
     # NLP integration status
     from pathlib import Path as _P
-    _nlp_path = REPO_ROOT / "Module_B" / "results" / "X_nlp_selected.parquet"
+    _nlp_path = REPO_ROOT / "Module_B" / "results" / "X_nlp_finbert.parquet"
     if _nlp_path.exists():
         st.success("Module B NLP: Active", icon="✅")
-        st.caption("32 NLP features (topics + sentiment, forward-filled Q1→Q4)")
+        st.caption("FinBERT NLP features active (distress phrases, covenant flags, topics)")
     else:
         st.warning("Module B NLP: Pending", icon="⚠️")
     st.caption("CrisisNet v1.1 | April 2026")
@@ -218,6 +225,7 @@ tabs = st.tabs([
     "📈  Risk Timeline",
     "✅  Predictions vs Actuals",
     "⚡  Live Scoring",
+    "📊  Model Diagnostics",
 ])
 
 # ── TAB 1: Company Scorecard ──────────────────────────────────────────────────
@@ -625,10 +633,12 @@ with tabs[3]:
         for k, v in abl.items():
             cv_str   = f"{v['cv_auc']:.4f}" if isinstance(v.get('cv_auc'), float) else str(v.get('cv_auc', 'N/A'))
             test_str = f"{v['test_auc']:.4f}" if isinstance(v.get('test_auc'), float) else 'N/A'
+            pr_str   = f"{v['pr_auc']:.4f}"   if isinstance(v.get('pr_auc'),   float) else 'N/A'
             rows.append({'Configuration': k,
                          'Features':      v.get('n_features', ''),
                          'CV AUC':        cv_str,
-                         'Test AUC':      test_str,
+                         'ROC-AUC':       test_str,
+                         'PR-AUC':        pr_str,
                          'Expected':      v.get('expected', ''),
                          'Research Q':    v.get('rq', '')})
 
@@ -636,16 +646,16 @@ with tabs[3]:
         st.dataframe(abl_df, use_container_width=True, hide_index=True)
 
         # AUC bar chart
-        abl_plot = abl_df[abl_df['Test AUC'] != 'N/A'].copy()
-        abl_plot['Test AUC float'] = abl_plot['Test AUC'].astype(float)
+        abl_plot = abl_df[abl_df['ROC-AUC'] != 'N/A'].copy()
+        abl_plot['Test AUC float'] = abl_plot['ROC-AUC'].astype(float)
         fig_abl = px.bar(
             abl_plot, x='Configuration', y='Test AUC float',
             color='Test AUC float',
             color_continuous_scale='RdYlGn',
             range_color=[0.4, 1.0],
-            text='Test AUC',
-            title='Ablation Study — Test AUC by Feature Subset',
-            labels={'Test AUC float': 'Test AUC'},
+            text='ROC-AUC',
+            title='Ablation Study — ROC-AUC by Feature Subset',
+            labels={'Test AUC float': 'ROC-AUC'},
         )
         fig_abl.update_layout(
             height=400,
@@ -660,7 +670,7 @@ with tabs[3]:
     roc_path = MODULE_D / 'roc_fusion_vs_zscore.png'
     if roc_path.exists():
         st.divider()
-        st.subheader("ROC Comparison — CrisisNet Fusion vs Altman Z-Score (1968)")
+        st.subheader("ROC Comparison — CrisisNet Fusion vs Logistic Regression Baseline")
         st.image(str(roc_path), use_container_width=True)
 
 # ── TAB 5: Predictions vs Actuals ────────────────────────────────────────────
@@ -1092,3 +1102,134 @@ with tabs[5]:
                 )
             else:
                 st.warning(f"No data found for {sel_ticker} / {sel_q}")
+
+# ── TAB 7: Model Diagnostics ─────────────────────────────────────────────────
+with tabs[6]:
+    st.header("Model Diagnostics")
+
+    diag_tabs = st.tabs([
+        "Calibration", "NLP Contribution", "Confidence Intervals",
+        "Per-Period", "Failure Analysis"
+    ])
+
+    with diag_tabs[0]:
+        cal_path = MODULE_D / 'calibration_curve.png'
+        pr_path = MODULE_D / 'precision_recall_curve.png'
+        if cal_path.exists():
+            st.image(str(cal_path), use_container_width=True)
+        else:
+            st.warning("Run `python Module_D/train_fusion.py` to generate the calibration curve.")
+        if pr_path.exists():
+            st.image(str(pr_path), use_container_width=True)
+
+    with diag_tabs[1]:
+        st.subheader("NLP Feature Contribution to Recall and F2")
+        if ABLATION_PATH.exists():
+            ablation = load_ablation()
+            if 'module_a_only' in ablation and 'a_plus_b' in ablation:
+                a_only = ablation['module_a_only']
+                a_plus_b = ablation['a_plus_b']
+                delta_auc = (a_plus_b.get('test_auc', 0) or 0) - (a_only.get('test_auc', 0) or 0)
+                delta_f2 = (a_plus_b.get('f2_score', 0) or 0) - (a_only.get('f2_score', 0) or 0)
+                delta_rec = (a_plus_b.get('recall', 0) or 0) - (a_only.get('recall', 0) or 0)
+                col1, col2, col3 = st.columns(3)
+                col1.metric("Delta ROC-AUC (NLP)", f"{delta_auc:+.4f}")
+                col2.metric("Delta F2-Score (NLP)", f"{delta_f2:+.4f}")
+                col3.metric("Delta Recall (NLP)", f"{delta_rec:+.4f}")
+                st.info(
+                    "NLP is reported through recall and F2 because this is an early-warning system. "
+                    "AUC can move only slightly while text signals still reduce missed distress cases."
+                )
+
+            abl_rows = []
+            for k, v in ablation.items():
+                if not isinstance(v, dict) or 'test_auc' not in v:
+                    continue
+                abl_rows.append({
+                    'Configuration': k,
+                    'Features': v.get('n_features', ''),
+                    'ROC-AUC': v.get('test_auc', ''),
+                    'PR-AUC': v.get('pr_auc', ''),
+                    'F2-Score': v.get('f2_score', ''),
+                    'Recall': v.get('recall', ''),
+                    'RQ': v.get('rq', ''),
+                })
+            st.dataframe(pd.DataFrame(abl_rows), use_container_width=True, hide_index=True)
+        else:
+            st.warning("Run `python Module_D/ablation_study.py` to generate ablation results.")
+
+    with diag_tabs[2]:
+        st.subheader("95% Bootstrap Confidence Intervals")
+        metrics = load_metrics() if METRICS_PATH.exists() else {}
+        fusion = metrics.get('CrisisNet Fusion', {})
+        if 'ROC_AUC_CI' in fusion:
+            ci_data = {
+                'Metric': ['ROC-AUC', 'PR-AUC', 'F2-Score', 'Recall', 'Precision'],
+                'Point Estimate': [
+                    fusion.get('ROC_AUC', ''),
+                    fusion.get('PR_AUC', ''),
+                    fusion.get('F2_score', ''),
+                    fusion.get('Recall', ''),
+                    fusion.get('Precision', ''),
+                ],
+                '95% CI Lower': [
+                    fusion['ROC_AUC_CI'][0],
+                    fusion.get('PR_AUC_CI', ['', ''])[0],
+                    '', '', '',
+                ],
+                '95% CI Upper': [
+                    fusion['ROC_AUC_CI'][1],
+                    fusion.get('PR_AUC_CI', ['', ''])[1],
+                    '', '', '',
+                ],
+            }
+            st.dataframe(pd.DataFrame(ci_data), use_container_width=True, hide_index=True)
+        else:
+            st.warning("Re-run `python Module_D/train_fusion.py` to generate bootstrap CIs.")
+
+    with diag_tabs[3]:
+        st.subheader("Performance by Time Period")
+        metrics = load_metrics() if METRICS_PATH.exists() else {}
+        pp = metrics.get('per_period', {})
+        if pp:
+            for period, vals in pp.items():
+                label = period.replace('_', ' ').title()
+                st.markdown(f"**{label}** (n={vals.get('n', 0)}, positives={vals.get('positives', 0)})")
+                if 'ROC_AUC' in vals:
+                    c1, c2, c3 = st.columns(3)
+                    c1.metric("ROC-AUC", f"{vals['ROC_AUC']:.4f}")
+                    c2.metric("F2-Score", f"{vals.get('F2', 'N/A')}")
+                    c3.metric("Recall", f"{vals.get('Recall', 'N/A')}")
+                else:
+                    st.warning("Insufficient positives for evaluation.")
+        else:
+            st.warning("Per-period metrics are not available yet.")
+
+    with diag_tabs[4]:
+        st.subheader("Failure Analysis: Missed Companies and False Alarms")
+        fa_path = MODULE_D / 'failure_analysis.json'
+        if fa_path.exists():
+            with open(fa_path) as f:
+                fa = json.load(f)
+
+            c1, c2 = st.columns(2)
+            c1.metric("False Negatives", fa['false_negatives']['total'])
+            c2.metric("False Positives", fa['false_positives']['total'])
+
+            st.markdown("**Per-Ticker Recall**")
+            if fa.get('per_ticker_recall'):
+                st.dataframe(
+                    pd.DataFrame(fa['per_ticker_recall']).sort_values('recall'),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+
+            st.markdown("**False Negatives by Ticker**")
+            fn_items = fa.get('false_negatives', {}).get('by_ticker', {})
+            if fn_items:
+                fn_df = pd.DataFrame([
+                    {'ticker': k, 'missed_quarters': v} for k, v in fn_items.items()
+                ]).sort_values('missed_quarters', ascending=False)
+                st.dataframe(fn_df, use_container_width=True, hide_index=True)
+        else:
+            st.warning("Run `python Module_D/failure_analysis.py` to generate failure analysis.")

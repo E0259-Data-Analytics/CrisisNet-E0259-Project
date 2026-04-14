@@ -38,12 +38,17 @@ X_GRAPH_PATH = REPO_ROOT / "Module_C" / "results"  / "exports" / "X_graph.parque
 LABELS_PATH  = REPO_ROOT / "crisisnet-data" / "data" / "label_unified.parquet"
 COMPANY_PATH = REPO_ROOT / "crisisnet-data" / "data" / "company_list.csv"
 
-X_NLP_SELECTED_PATH = REPO_ROOT / "Module_B" / "results" / "X_nlp_selected.parquet"
-X_NLP_FINBERT_PATH  = REPO_ROOT / "Module_B" / "results" / "X_nlp_finbert.parquet"
-X_NLP_PATH = X_NLP_SELECTED_PATH if X_NLP_SELECTED_PATH.exists() else X_NLP_FINBERT_PATH
+# CHANGED: Use FinBERT features (richer — includes going_concern_flag,
+# distress_phrase_count, distress_phrase_rate, covenant_flag, topic_kl_shift,
+# readability features).  X_nlp_selected had 22 basic features; X_nlp_finbert has 44.
+X_NLP_PATH = REPO_ROOT / "Module_B" / "results" / "X_nlp_finbert.parquet"
 
 OUT_PATH     = MODULE_D / "X_fused.parquet"
 SKIP         = {'ticker', 'quarter', 'Date', 'distress_label', 'year'}
+FINANCIALS_DIRS = [
+    REPO_ROOT / "crisisnet-data" / "Module_A" / "market_data" / "financials",
+    REPO_ROOT / "crisisnet-data" / "Module_1" / "market_data" / "financials",
+]
 
 # ── Key financial ratios — forward-fill instead of zero-fill ──────────────────
 # These are balance-sheet / market-derived metrics. When a company stops
@@ -65,7 +70,91 @@ LAG_COLS = [
     'debt_to_equity', 'current_ratio', 'interest_coverage',
     # NLP temporal signals — delta4q captures YoY tone deterioration
     'nlp_tenk_score', 'nlp_tenk_score_4q_mean',
+    # FinBERT-specific distress signals
+    'nlp_distress_phrase_rate', 'nlp_topic_kl_shift', 'nlp_readability_fog_approx',
 ]
+
+
+def _load_statement(fin_dir, ticker, stmt):
+    path = fin_dir / f"{ticker}_{stmt}.csv"
+    if not path.exists():
+        return None
+    if stmt == 'info':
+        try:
+            raw = pd.read_csv(path)
+            return {
+                c: pd.to_numeric(raw[c].iloc[0], errors='coerce')
+                for c in ['marketCap'] if c in raw.columns
+            }
+        except Exception:
+            return None
+    try:
+        df = pd.read_csv(path, index_col=0).T
+        df.index = pd.to_datetime(df.index, errors='coerce')
+        df = df[df.index.notna()].sort_index()
+        for c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors='coerce')
+        return df
+    except Exception:
+        return None
+
+
+def _build_original_altman_features(X_base):
+    """Recompute Altman 1968 components from raw quarterly statements."""
+    fin_dir = next((p for p in FINANCIALS_DIRS if p.exists()), None)
+    if fin_dir is None:
+        return None
+
+    records = []
+    for ticker, g in X_base.groupby('ticker'):
+        bs = _load_statement(fin_dir, ticker, 'balance_sheet')
+        inc = _load_statement(fin_dir, ticker, 'income')
+        info = _load_statement(fin_dir, ticker, 'info') or {}
+        if not isinstance(bs, pd.DataFrame) or not isinstance(inc, pd.DataFrame):
+            continue
+
+        for _, row in g[['ticker', 'quarter', 'Date', 'close_price']].iterrows():
+            qdate = pd.to_datetime(row['Date'])
+            bs_dates = bs.index[bs.index <= qdate + pd.Timedelta(days=45)]
+            inc_dates = inc.index[inc.index <= qdate + pd.Timedelta(days=45)]
+            if len(bs_dates) == 0 or len(inc_dates) == 0:
+                continue
+
+            bs_row = bs.loc[bs_dates[-1]]
+            inc_row = inc.loc[inc_dates[-1]]
+            ta = bs_row.get('Total Assets', np.nan)
+            tl = bs_row.get('Total Liabilities Net Minority Interest',
+                            bs_row.get('Total Liabilities', np.nan))
+            ca = bs_row.get('Current Assets', np.nan)
+            cl = bs_row.get('Current Liabilities', np.nan)
+            wc = bs_row.get('Working Capital', np.nan)
+            if pd.isna(wc) and not pd.isna(ca) and not pd.isna(cl):
+                wc = ca - cl
+            re_val = bs_row.get('Retained Earnings', np.nan)
+            rev = inc_row.get('Total Revenue', np.nan)
+            ebit = inc_row.get('EBIT', np.nan)
+
+            mcap = info.get('marketCap', np.nan)
+            shares = bs_row.get('Ordinary Shares Number', np.nan)
+            if not pd.isna(shares) and not pd.isna(row.get('close_price', np.nan)):
+                mcap = row['close_price'] * shares
+
+            X1 = wc / ta if not pd.isna(ta) and ta != 0 and not pd.isna(wc) else np.nan
+            X2 = re_val / ta if not pd.isna(ta) and ta != 0 and not pd.isna(re_val) else np.nan
+            X3 = ebit / ta if not pd.isna(ta) and ta != 0 and not pd.isna(ebit) else np.nan
+            X4 = mcap / tl if not pd.isna(tl) and tl != 0 and not pd.isna(mcap) else np.nan
+            X5 = rev / ta if not pd.isna(ta) and ta != 0 and not pd.isna(rev) else np.nan
+            z = 1.2*X1 + 1.4*X2 + 3.3*X3 + 0.6*X4 + 1.0*X5 \
+                if all(not pd.isna(x) for x in [X1, X2, X3, X4, X5]) else np.nan
+            records.append({
+                'ticker': ticker, 'quarter': row['quarter'],
+                'altman_z': z, 'X1_wc_ta': X1, 'X2_re_ta': X2,
+                'X3_ebit_ta': X3, 'X4_mcap_tl': X4, 'X5_rev_ta': X5,
+            })
+
+    if not records:
+        return None
+    return pd.DataFrame(records).drop_duplicates(['ticker', 'quarter'], keep='last')
 
 # ── 1. Load X_ts ──────────────────────────────────────────────────────────────
 print("[1/6] Loading X_ts (Module A)…")
@@ -123,6 +212,28 @@ X_fused  = X_fused.merge(labels, on=['ticker', 'quarter'], how='left')
 X_fused['distress_label'] = X_fused['distress_label'].fillna(0).astype(int)
 X_fused['year'] = pd.to_datetime(X_fused['Date']).dt.year
 
+# Restore original Altman 1968 score/components if Module A exported zeroed
+# financial ratios because the renamed data path was unavailable.
+altman_cols = ['altman_z', 'X1_wc_ta', 'X2_re_ta', 'X3_ebit_ta', 'X4_mcap_tl', 'X5_rev_ta']
+if all(c in X_fused.columns for c in altman_cols):
+    altman_nonzero = int((X_fused['altman_z'].fillna(0) != 0).sum())
+    if altman_nonzero == 0:
+        print("      Altman Z is zeroed in X_ts; recomputing original score from raw financials…")
+        altman_df = _build_original_altman_features(X_fused)
+        if altman_df is not None:
+            X_fused = X_fused.merge(
+                altman_df, on=['ticker', 'quarter'], how='left', suffixes=('', '_orig')
+            )
+            for c in altman_cols:
+                orig = f'{c}_orig'
+                if orig in X_fused.columns:
+                    X_fused[c] = X_fused[orig].combine_first(X_fused[c])
+            X_fused = X_fused.drop(columns=[f'{c}_orig' for c in altman_cols], errors='ignore')
+            restored = int((X_fused['altman_z'].fillna(0) != 0).sum())
+            print(f"      Original Altman Z restored for {restored} rows")
+        else:
+            print("      WARNING: raw financials not found; Altman Z remains zeroed")
+
 # ── 6. Feature engineering for recall ─────────────────────────────────────────
 print("[5/6] Engineering recall-boosting features…")
 
@@ -141,6 +252,20 @@ if X_nlp is not None:
         still_zero = (X_fused[nlp_feat_cols] == 0).all(axis=1).sum()
         print(f"      NLP forward-fill: {len(nlp_feat_cols)} cols "
               f"({still_zero} rows still zero — pre-first-filing quarters)")
+
+    # F0b. NLP × Market interaction features
+    # Distress language combined with high market volatility = stronger signal
+    if 'nlp_distress_phrase_rate' in X_fused.columns and 'volatility_30d' in X_fused.columns:
+        X_fused['nlp_distress_x_vol'] = (
+            X_fused['nlp_distress_phrase_rate'] * X_fused['volatility_30d']
+        )
+        print("      NLP × volatility interaction feature added")
+    # Negative sentiment + wide credit spreads = compounding distress signal
+    if 'nlp_tenk_score' in X_fused.columns and 'hy_oas' in X_fused.columns:
+        X_fused['nlp_neg_x_hy_oas'] = (
+            (1 - X_fused['nlp_tenk_score'].clip(0, 1)) * X_fused['hy_oas']
+        )
+        print("      NLP × HY OAS interaction feature added")
 
 # F1. Forward-fill financial ratios within ticker (don't zero-fill missing data)
 for col in FFILL_COLS:
@@ -238,6 +363,10 @@ print(f"      Quarters:         {X_fused['quarter'].nunique()}")
 print(f"      Distress events:  {X_fused['distress_label'].sum()}")
 print(f"      Total features:   {len(numeric_feats)}")
 if X_nlp is not None:
-    print(f"      NLP features:    {sum(1 for c in numeric_feats if c.startswith('nlp_'))}")
+    nlp_feature_names = [c for c in X_fused.columns if c.startswith('nlp_') or c in ('nlp_distress_x_vol', 'nlp_neg_x_hy_oas')]
+    print(f"      NLP features (FinBERT): {len(nlp_feature_names)} columns")
+    print(f"        Base: {sum(1 for c in nlp_feature_names if not any(x in c for x in ['lag','delta','trend','vs_sector','momentum']))}")
+    print(f"        Lag/delta: {sum(1 for c in nlp_feature_names if any(x in c for x in ['lag','delta','trend']))}")
+    print(f"        Interaction: {sum(1 for c in nlp_feature_names if 'nlp_distress_x_vol' in c or 'nlp_neg_x_hy_oas' in c)}")
 else:
     print("      NLP features:     NOT included (Module B pending)")

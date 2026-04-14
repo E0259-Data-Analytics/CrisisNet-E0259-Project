@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.egg-info/
+dist/
+build/
+.env
+crisisnet-data/
+Module_B/finbert_model/
+*.npy
+*.joblib
+*.pkl
+*.pt
+*.parquet
+!Module_D/X_fused.parquet
+!Module_D/health_scores.parquet
+!Module_D/test_predictions.parquet
