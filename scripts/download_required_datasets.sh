@@ -19,11 +19,18 @@ if [ ! -e "crisisnet-data/Module_A" ] && [ -d "crisisnet-data/Module_1" ]; then
   echo "Linked crisisnet-data/Module_A -> Module_1"
 fi
 
-if [ ! -d "crisisnet-data/Module_A/sec_xbrl/company_facts" ]; then
+EXPECTED_FACTS=$(tail -n +2 crisisnet-data/data/company_list.csv | wc -l)
+HAVE_FACTS=0
+if [ -d "crisisnet-data/Module_A/sec_xbrl/company_facts" ]; then
+  HAVE_FACTS=$(find crisisnet-data/Module_A/sec_xbrl/company_facts -name '*_facts.json' | wc -l)
+fi
+
+if [ "$HAVE_FACTS" -lt "$EXPECTED_FACTS" ]; then
   echo "SEC XBRL company facts missing; downloading from EDGAR..."
-  crisis/bin/python crisisnet-data/scripts/03_download_sec_xbrl.py
+  echo "Have $HAVE_FACTS/$EXPECTED_FACTS companyfacts files."
+  crisis/bin/python scripts/download_sec_xbrl.py
 else
-  echo "SEC XBRL company facts present"
+  echo "SEC XBRL company facts present ($HAVE_FACTS/$EXPECTED_FACTS)"
 fi
 
 if [ ! -f "Module_B/results/X_nlp_finbert.parquet" ]; then

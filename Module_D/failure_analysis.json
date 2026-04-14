@@ -1,16 +1,16 @@
 {
   "false_negatives": {
-    "total": 54,
-    "with_nlp": 48,
+    "total": 55,
+    "with_nlp": 49,
     "without_nlp": 6,
     "by_ticker": {
       "CHK": 4,
       "PSX": 4,
-      "LNG": 3,
+      "COP": 3,
+      "NOV": 3,
       "VLO": 3,
-      "BKR": 2,
       "EOG": 2,
-      "COP": 2,
+      "BKR": 2,
       "CVX": 2,
       "DK": 2,
       "OKE": 2,
@@ -18,11 +18,11 @@
       "EPD": 2,
       "FANG": 2,
       "KMI": 2,
-      "MPC": 2,
+      "LNG": 2,
       "HAL": 2,
       "FTI": 2,
       "SLB": 2,
-      "NOV": 2,
+      "MPC": 2,
       "PBF": 2,
       "OXY": 2,
       "XOM": 2,
@@ -32,18 +32,18 @@
     }
   },
   "false_positives": {
-    "total": 132,
+    "total": 126,
     "by_ticker_top10": {
-      "AR": 14,
-      "OVV": 13,
+      "AR": 13,
       "APA": 11,
-      "DVN": 10,
-      "RRC": 10,
-      "PBF": 9,
+      "DVN": 11,
+      "OVV": 11,
+      "PR": 11,
+      "RRC": 9,
       "CTRA": 9,
       "MTDR": 8,
-      "DK": 8,
-      "EQT": 7
+      "EQT": 7,
+      "DK": 7
     }
   },
   "per_ticker_recall": [
@@ -51,7 +51,7 @@
       "ticker": "AM",
       "positives": 6,
       "recall": 1.0,
-      "f2": 0.909,
+      "f2": 0.882,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -65,7 +65,7 @@
       "ticker": "AR",
       "positives": 6,
       "recall": 1.0,
-      "f2": 0.682,
+      "f2": 0.698,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -86,14 +86,14 @@
       "ticker": "CHRD",
       "positives": 8,
       "recall": 1.0,
-      "f2": 0.889,
+      "f2": 0.952,
       "nlp_coverage_pct": 100.0
     },
     {
       "ticker": "COP",
       "positives": 4,
-      "recall": 0.5,
-      "f2": 0.556,
+      "recall": 0.25,
+      "f2": 0.294,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -107,14 +107,14 @@
       "ticker": "DK",
       "positives": 6,
       "recall": 0.667,
-      "f2": 0.556,
+      "f2": 0.571,
       "nlp_coverage_pct": 100.0
     },
     {
       "ticker": "DVN",
       "positives": 5,
       "recall": 1.0,
-      "f2": 0.714,
+      "f2": 0.694,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -142,14 +142,14 @@
       "ticker": "ET",
       "positives": 5,
       "recall": 0.6,
-      "f2": 0.577,
+      "f2": 0.6,
       "nlp_coverage_pct": 100.0
     },
     {
       "ticker": "FANG",
       "positives": 6,
       "recall": 0.667,
-      "f2": 0.645,
+      "f2": 0.625,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -176,8 +176,8 @@
     {
       "ticker": "LNG",
       "positives": 4,
-      "recall": 0.25,
-      "f2": 0.294,
+      "recall": 0.5,
+      "f2": 0.556,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -197,8 +197,8 @@
     {
       "ticker": "NOV",
       "positives": 6,
-      "recall": 0.667,
-      "f2": 0.69,
+      "recall": 0.5,
+      "f2": 0.536,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -212,7 +212,7 @@
       "ticker": "OVV",
       "positives": 6,
       "recall": 1.0,
-      "f2": 0.698,
+      "f2": 0.732,
       "nlp_coverage_pct": 75.9
     },
     {
@@ -226,14 +226,14 @@
       "ticker": "PBF",
       "positives": 12,
       "recall": 0.833,
-      "f2": 0.746,
+      "f2": 0.794,
       "nlp_coverage_pct": 100.0
     },
     {
       "ticker": "PR",
       "positives": 8,
       "recall": 1.0,
-      "f2": 0.851,
+      "f2": 0.784,
       "nlp_coverage_pct": 100.0
     },
     {
@@ -247,7 +247,7 @@
       "ticker": "RRC",
       "positives": 6,
       "recall": 1.0,
-      "f2": 0.75,
+      "f2": 0.769,
       "nlp_coverage_pct": 100.0
     },
     {

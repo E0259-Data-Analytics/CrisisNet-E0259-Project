@@ -26,6 +26,7 @@ Usage:
 """
 
 from pathlib import Path
+import json
 import pandas as pd
 import numpy as np
 
@@ -48,6 +49,10 @@ SKIP         = {'ticker', 'quarter', 'Date', 'distress_label', 'year'}
 FINANCIALS_DIRS = [
     REPO_ROOT / "crisisnet-data" / "Module_A" / "market_data" / "financials",
     REPO_ROOT / "crisisnet-data" / "Module_1" / "market_data" / "financials",
+]
+SEC_FACTS_DIRS = [
+    REPO_ROOT / "crisisnet-data" / "Module_A" / "sec_xbrl" / "company_facts",
+    REPO_ROOT / "crisisnet-data" / "Module_1" / "sec_xbrl" / "company_facts",
 ]
 
 # ── Key financial ratios — forward-fill instead of zero-fill ──────────────────
@@ -99,8 +104,179 @@ def _load_statement(fin_dir, ticker, stmt):
         return None
 
 
+def _quarter_key(date_like):
+    d = pd.to_datetime(date_like, errors='coerce')
+    if pd.isna(d):
+        return None
+    return f"{d.year}Q{((d.month - 1) // 3) + 1}"
+
+
+def _pick_latest_by_quarter(rows):
+    if not rows:
+        return {}
+    df = pd.DataFrame(rows)
+    df['filed'] = pd.to_datetime(df['filed'], errors='coerce')
+    df = df.sort_values(['quarter', 'score', 'filed'])
+    return df.groupby('quarter')['val'].last().to_dict()
+
+
+def _sec_instant_series(us_gaap, tag_candidates, unit='USD'):
+    rows = []
+    for tag in tag_candidates:
+        for e in us_gaap.get(tag, {}).get('units', {}).get(unit, []):
+            if 'val' not in e or 'end' not in e:
+                continue
+            q = _quarter_key(e.get('end'))
+            if q is None:
+                continue
+            frame = str(e.get('frame') or '')
+            frame_match = frame == f"CY{q[:4]}Q{q[-1]}I"
+            rows.append({
+                'quarter': q,
+                'val': pd.to_numeric(e.get('val'), errors='coerce'),
+                'filed': e.get('filed'),
+                'score': 2 if frame_match else 1,
+            })
+        if rows:
+            break
+    return _pick_latest_by_quarter(rows)
+
+
+def _sec_duration_series(us_gaap, tag_candidates, unit='USD'):
+    direct_rows = []
+    annual_rows = []
+    for tag in tag_candidates:
+        for e in us_gaap.get(tag, {}).get('units', {}).get(unit, []):
+            if 'val' not in e or not e.get('start') or not e.get('end'):
+                continue
+            start = pd.to_datetime(e.get('start'), errors='coerce')
+            end = pd.to_datetime(e.get('end'), errors='coerce')
+            if pd.isna(start) or pd.isna(end):
+                continue
+            q = _quarter_key(end)
+            if q is None:
+                continue
+            days = (end - start).days + 1
+            frame = str(e.get('frame') or '')
+            val = pd.to_numeric(e.get('val'), errors='coerce')
+            if pd.isna(val):
+                continue
+            if 60 <= days <= 120 and not frame.endswith('I'):
+                direct_rows.append({
+                    'quarter': q, 'val': val, 'filed': e.get('filed'),
+                    'score': 2 if frame == f"CY{q[:4]}Q{q[-1]}" else 1,
+                })
+            elif 300 <= days <= 380 and end.month == 12:
+                annual_rows.append({
+                    'quarter': q, 'year': end.year, 'val': val,
+                    'filed': e.get('filed'), 'score': 2 if frame == f"CY{end.year}" else 1,
+                })
+        if direct_rows or annual_rows:
+            break
+
+    out = _pick_latest_by_quarter(direct_rows)
+    annual = _pick_latest_by_quarter(annual_rows)
+    for q4, annual_val in annual.items():
+        if not q4.endswith('Q4') or q4 in out:
+            continue
+        year = q4[:4]
+        prior = [out.get(f"{year}Q{i}") for i in [1, 2, 3]]
+        if all(v is not None and not pd.isna(v) for v in prior):
+            out[q4] = annual_val - sum(prior)
+    return out
+
+
+def _build_altman_from_sec(X_base):
+    """Compute original Altman 1968 components from SEC companyfacts XBRL."""
+    facts_dir = next((p for p in SEC_FACTS_DIRS if p.exists()), None)
+    if facts_dir is None:
+        return None
+
+    tags = {
+        'assets': ['Assets'],
+        'current_assets': ['AssetsCurrent'],
+        'current_liabilities': ['LiabilitiesCurrent'],
+        'liabilities': ['Liabilities'],
+        'equity': [
+            'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
+            'StockholdersEquity',
+            'PartnersCapital',
+        ],
+        'retained_earnings': ['RetainedEarningsAccumulatedDeficit'],
+        'shares': ['CommonStockSharesOutstanding', 'EntityCommonStockSharesOutstanding'],
+        'revenue': [
+            'Revenues',
+            'RevenueFromContractWithCustomerExcludingAssessedTax',
+            'SalesRevenueNet',
+        ],
+        'ebit': [
+            'OperatingIncomeLoss',
+            'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest',
+            'IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments',
+        ],
+    }
+
+    records = []
+    for ticker, g in X_base.groupby('ticker'):
+        facts_path = facts_dir / f"{ticker}_facts.json"
+        if not facts_path.exists():
+            continue
+        try:
+            us_gaap = json.load(open(facts_path)).get('facts', {}).get('us-gaap', {})
+        except Exception:
+            continue
+        series = {
+            'assets': _sec_instant_series(us_gaap, tags['assets']),
+            'current_assets': _sec_instant_series(us_gaap, tags['current_assets']),
+            'current_liabilities': _sec_instant_series(us_gaap, tags['current_liabilities']),
+            'liabilities': _sec_instant_series(us_gaap, tags['liabilities']),
+            'equity': _sec_instant_series(us_gaap, tags['equity']),
+            'retained_earnings': _sec_instant_series(us_gaap, tags['retained_earnings']),
+            'shares': _sec_instant_series(us_gaap, tags['shares'], unit='shares'),
+            'revenue': _sec_duration_series(us_gaap, tags['revenue']),
+            'ebit': _sec_duration_series(us_gaap, tags['ebit']),
+        }
+
+        for _, row in g[['ticker', 'quarter', 'close_price']].iterrows():
+            q = row['quarter']
+            ta = series['assets'].get(q, np.nan)
+            ca = series['current_assets'].get(q, np.nan)
+            cl = series['current_liabilities'].get(q, np.nan)
+            tl = series['liabilities'].get(q, np.nan)
+            eq = series['equity'].get(q, np.nan)
+            if pd.isna(tl) and not pd.isna(ta) and not pd.isna(eq):
+                tl = ta - eq
+            wc = ca - cl if not pd.isna(ca) and not pd.isna(cl) else np.nan
+            re_val = series['retained_earnings'].get(q, np.nan)
+            rev = series['revenue'].get(q, np.nan)
+            ebit = series['ebit'].get(q, np.nan)
+            shares = series['shares'].get(q, np.nan)
+            mcap = row['close_price'] * shares if not pd.isna(row['close_price']) and not pd.isna(shares) else np.nan
+
+            X1 = wc / ta if not pd.isna(ta) and ta != 0 and not pd.isna(wc) else np.nan
+            X2 = re_val / ta if not pd.isna(ta) and ta != 0 and not pd.isna(re_val) else np.nan
+            X3 = ebit / ta if not pd.isna(ta) and ta != 0 and not pd.isna(ebit) else np.nan
+            X4 = mcap / tl if not pd.isna(tl) and tl != 0 and not pd.isna(mcap) else np.nan
+            X5 = rev / ta if not pd.isna(ta) and ta != 0 and not pd.isna(rev) else np.nan
+            z = 1.2*X1 + 1.4*X2 + 3.3*X3 + 0.6*X4 + 1.0*X5 \
+                if all(not pd.isna(x) for x in [X1, X2, X3, X4, X5]) else np.nan
+            records.append({
+                'ticker': ticker, 'quarter': q,
+                'altman_z': z, 'X1_wc_ta': X1, 'X2_re_ta': X2,
+                'X3_ebit_ta': X3, 'X4_mcap_tl': X4, 'X5_rev_ta': X5,
+            })
+
+    if not records:
+        return None
+    return pd.DataFrame(records).drop_duplicates(['ticker', 'quarter'], keep='last')
+
+
 def _build_original_altman_features(X_base):
-    """Recompute Altman 1968 components from raw quarterly statements."""
+    """Recompute Altman 1968 components from SEC XBRL or raw statements."""
+    sec_df = _build_altman_from_sec(X_base)
+    if sec_df is not None and sec_df['altman_z'].notna().sum() > 0:
+        return sec_df
+
     fin_dir = next((p for p in FINANCIALS_DIRS if p.exists()), None)
     if fin_dir is None:
         return None
