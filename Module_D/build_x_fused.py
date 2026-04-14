@@ -68,12 +68,18 @@ FFILL_COLS = [
     'merton_dd', 'merton_pd', 'asset_volatility', 'leverage_ratio',
     'debt_to_equity', 'interest_coverage', 'current_ratio', 'debt_to_assets',
     'free_cashflow', 'fcf_to_debt',
+    # Post-Altman formula baselines — forward-fill within ticker (same logic as Altman)
+    'ohlson_score', 'ohlson_pd',       # Ohlson O-Score (1980)
+    'zmijewski_score', 'zmijewski_pd', # Zmijewski Score (1984)
+    'ni_ta', 'tl_ta', 'ohlson_size', 'ohlson_oeneg',
+    'ohlson_cfo_tl', 'ohlson_intwo', 'ohlson_chin',
 ]
 
 # ── Features to engineer lags / deltas for (top SHAP + financial ratios) ──────
 LAG_COLS = [
     'max_drawdown_6m', 'volatility_30d', 'vol_60d_last', 'vol_60d_mean',
     'altman_z', 'merton_dd', 'close_price', 'momentum_60d',
+    'ohlson_pd', 'zmijewski_pd', 'merton_pd',   # post-Altman formula models
     'hy_oas', 'bbb_spread', 'ted_spread', 'oil_wti',
     'return_zscore_30d_mean', 'price_sma200_ratio_mean',
     'debt_to_equity', 'current_ratio', 'interest_coverage',
@@ -214,9 +220,15 @@ def _build_altman_from_sec(X_base):
             'SalesRevenueNet',
         ],
         'ebit': [
+            # Priority-ordered: try each tag and stop at the first with data.
+            # SEC filers use different line-item names across years and form types.
             'OperatingIncomeLoss',
             'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest',
             'IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments',
+            # Additional tags frequently used by U.S. Energy sector filers:
+            'IncomeLossBeforeIncomeTaxExpenseBenefit',
+            'IncomeLossFromOperationsBeforeIncomeTaxes',
+            'ProfitLoss',                              # fallback for partnerships/MLPs
         ],
     }
 
@@ -312,12 +324,28 @@ def _build_original_altman_features(X_base):
                 wc = ca - cl
             re_val = bs_row.get('Retained Earnings', np.nan)
             rev = inc_row.get('Total Revenue', np.nan)
+            # EBIT fallback chain — same as module1_pipeline.py
             ebit = inc_row.get('EBIT', np.nan)
+            if pd.isna(ebit):
+                ebit = inc_row.get('Operating Income', np.nan)
+            if pd.isna(ebit):
+                _ni = inc_row.get('Net Income', np.nan)
+                _ie = inc_row.get('Interest Expense', np.nan)
+                _tx = inc_row.get('Tax Provision',
+                                  inc_row.get('Income Tax Expense', np.nan))
+                if not any(pd.isna(v) for v in [_ni, _ie, _tx]):
+                    ebit = _ni + abs(_ie) + abs(_tx)
 
+            # Shares fallback chain — same as module1_pipeline.py
             mcap = info.get('marketCap', np.nan)
-            shares = bs_row.get('Ordinary Shares Number', np.nan)
-            if not pd.isna(shares) and not pd.isna(row.get('close_price', np.nan)):
-                mcap = row['close_price'] * shares
+            _cp  = row.get('close_price', np.nan)
+            if not pd.isna(_cp):
+                for _sf in ['Ordinary Shares Number', 'Share Issued',
+                            'Common Stock Shares Outstanding', 'Common Stock']:
+                    _sh = bs_row.get(_sf, np.nan)
+                    if not pd.isna(_sh) and _sh > 1000:
+                        mcap = _cp * _sh
+                        break
 
             X1 = wc / ta if not pd.isna(ta) and ta != 0 and not pd.isna(wc) else np.nan
             X2 = re_val / ta if not pd.isna(ta) and ta != 0 and not pd.isna(re_val) else np.nan
@@ -338,7 +366,10 @@ def _build_original_altman_features(X_base):
 
 # ── 1. Load X_ts ──────────────────────────────────────────────────────────────
 print("[1/6] Loading X_ts (Module A)…")
-X_ts = pd.read_parquet(X_TS_PATH).reset_index(drop=True)
+# X_ts.parquet is saved with (ticker, Date) as a multi-index from module1_pipeline.
+# reset_index() (NOT drop=True) is required to promote those index levels back
+# to regular columns so the downstream .apply() / merge calls can access them.
+X_ts = pd.read_parquet(X_TS_PATH).reset_index()
 X_ts['quarter'] = pd.to_datetime(X_ts['Date']).apply(
     lambda d: f"{d.year}Q{(d.month - 1) // 3 + 1}"
 )
@@ -385,6 +416,69 @@ X_fused  = X_ts[['ticker', 'quarter', 'Date'] + ts_cols].copy()
 X_fused  = X_fused.merge(X_graph, on=['ticker', 'quarter'], how='left')
 if X_nlp is not None:
     X_fused = X_fused.merge(X_nlp, on=['ticker', 'quarter'], how='left')
+
+# Generate label_unified.parquet inline if the file is absent from the repo.
+# Required by: build_x_fused.py (this file) for the merge at step 4.
+# Source files: Labels/energy_defaults_curated.csv + Labels/distress_from_drawdowns.csv
+def _generate_label_unified(out_path: Path, data_root: Path):
+    """Merge hard defaults and soft drawdown labels into a unified parquet."""
+    defaults_path  = data_root / "Labels" / "energy_defaults_curated.csv"
+    drawdowns_path = data_root / "Labels" / "distress_from_drawdowns.csv"
+    company_path   = data_root / "data"   / "company_list.csv"
+
+    if not defaults_path.exists() or not company_path.exists():
+        print("      WARNING: source label CSVs not found; label_unified will be all-zero")
+        return
+
+    companies = pd.read_csv(company_path)
+    tickers   = companies["ticker"].tolist()
+
+    quarters = [f"{y}Q{q}" for y in range(2015, 2026) for q in range(1, 5)]
+    idx   = pd.MultiIndex.from_product([tickers, quarters], names=["ticker", "quarter"])
+    df_lb = pd.DataFrame({"distress_label": 0}, index=idx).reset_index()
+
+    def _q(d):
+        d = pd.to_datetime(d, errors="coerce")
+        return None if pd.isna(d) else f"{d.year}Q{(d.month-1)//3+1}"
+
+    def _mark(ticker, event_date, lead_q=4):
+        eq = _q(event_date)
+        if eq is None:
+            return
+        y, q = int(eq[:4]), int(eq[-1])
+        for offset in range(lead_q + 1):
+            q2, y2 = q - offset, y
+            while q2 < 1:
+                q2 += 4; y2 -= 1
+            mask = (df_lb["ticker"] == ticker) & (df_lb["quarter"] == f"{y2}Q{q2}")
+            df_lb.loc[mask, "distress_label"] = 1
+
+    defaults = pd.read_csv(defaults_path)
+    for _, row in defaults.iterrows():
+        t = str(row.get("ticker", "")).strip().upper()
+        if t in tickers:
+            _mark(t, str(row.get("event_date", row.get("date", ""))), lead_q=4)
+
+    if drawdowns_path.exists():
+        ddowns = pd.read_csv(drawdowns_path)
+        tcol = next((c for c in ddowns.columns if "ticker" in c.lower()), None)
+        dcol = next((c for c in ddowns.columns if "date" in c.lower() or "start" in c.lower()), None)
+        if tcol and dcol:
+            for _, row in ddowns.iterrows():
+                t = str(row[tcol]).strip().upper()
+                if t in tickers:
+                    _mark(t, str(row[dcol]), lead_q=2)
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    df_lb.to_parquet(out_path, index=False)
+    pos = int(df_lb["distress_label"].sum())
+    print(f"      Generated label_unified.parquet: {len(df_lb)} rows, "
+          f"{pos} distress ({pos/len(df_lb):.1%} prevalence) → {out_path}")
+
+
+if not LABELS_PATH.exists():
+    print("      label_unified.parquet not found — generating inline from source CSVs…")
+    _generate_label_unified(LABELS_PATH, LABELS_PATH.parent.parent)
 
 labels   = pd.read_parquet(LABELS_PATH)[['ticker', 'quarter', 'distress_label']]
 X_fused  = X_fused.drop(columns=['distress_label'], errors='ignore')

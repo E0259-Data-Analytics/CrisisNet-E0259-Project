@@ -64,9 +64,21 @@ def bootstrap_ci(y_true, y_score, metric_fn, n_boot=2000, ci=0.95, seed=42):
 
 
 def zscore_to_prob(z):
-    """Original Altman Z-Score mapped monotonically to distress probability."""
-    z = np.nan_to_num(z, nan=2.4)
-    return 1.0 / (1.0 + np.exp(0.8 * (z - 2.0)))
+    """Convert Altman Z-Score to distress probability.
+
+    Sigmoid centered at Z = 1.81 (Altman 1968 distress / grey-zone boundary).
+    Slope k = 1.5 chosen so that:
+        P(distress | Z = 0.00) ≈ 0.93   (deeply distressed)
+        P(distress | Z = 1.81) = 0.50   (boundary, by construction)
+        P(distress | Z = 2.99) ≈ 0.15   (Altman safe-zone lower bound)
+
+    NaN imputed as Z = 2.40 (grey-zone midpoint) → P ≈ 0.29.
+
+    Previously used center Z = 2.0 (wrong), making the binary threshold
+    inconsistent with Altman's original Table 1 cutoff of Z = 1.81.
+    """
+    z = np.nan_to_num(np.asarray(z, dtype=float), nan=2.4)
+    return 1.0 / (1.0 + np.exp(1.5 * (z - 1.81)))
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 MODULE_D   = Path(__file__).resolve().parent
@@ -291,8 +303,45 @@ fusion_probs = model.predict_proba(test[feat_cols].values)[:, 1]
 fusion_preds = (fusion_probs > opt_threshold).astype(int)
 
 results = {}
+# ── Post-1968 formula baselines ──────────────────────────────────────────────
+def _formula_probs(col, df, fallback=None):
+    """Extract formula-baseline probability column; fallback on NaN/missing.
+
+    fallback defaults to y_train.mean() (training-set prevalence ≈ 0.139)
+    instead of 0.5.  Using 0.5 placed every NaN row exactly at the ROC
+    coin-flip boundary, producing cosmetically exact AUC=0.500 regardless of
+    whether the covered rows carry signal.  Prevalence fill is the neutral
+    Bayesian prior: it changes the AUC of a genuinely random predictor from
+    exactly 0.500 to a value that reflects only the real covered-row signal.
+    """
+    _fill = fallback if fallback is not None else float(y_train.mean())
+    if col not in df.columns:
+        return np.full(len(df), _fill), np.zeros(len(df), dtype=bool)
+    vals = df[col].values.astype(float)
+    mask = ~np.isnan(vals)      # rows with actual coverage
+    filled = np.where(mask, vals, _fill)
+    return filled, mask
+
+ohlson_probs,    ohlson_mask    = _formula_probs('ohlson_pd_raw',    test)
+zmijewski_probs, zmijewski_mask = _formula_probs('zmijewski_pd_raw', test)
+merton_probs,    merton_mask    = _formula_probs('merton_pd_raw',    test)
+
+print(f"      Ohlson   coverage: {int(ohlson_mask.sum())}/{len(test)} "
+      f"(positives={int(y_test[ohlson_mask].sum())})")
+print(f"      Zmijewski coverage: {int(zmijewski_mask.sum())}/{len(test)} "
+      f"(positives={int(y_test[zmijewski_mask].sum())})")
+print(f"      Merton DD coverage: {int(merton_mask.sum())}/{len(test)} "
+      f"(positives={int(y_test[merton_mask].sum())})")
+
 comparisons = [
-    ('Original Altman Z-Score',        altman_probs, altman_preds, '#3498db', altman_eval_mask),
+    ('Altman Z-Score (1968)',          altman_probs,    (altman_probs > 0.5).astype(int),
+                                        '#3498db', altman_eval_mask),
+    ('Ohlson O-Score (1980)',          ohlson_probs,    (ohlson_probs > 0.5).astype(int),
+                                        '#9b59b6', ohlson_mask),
+    ('Zmijewski Score (1984)',         zmijewski_probs, (zmijewski_probs > 0.5).astype(int),
+                                        '#e67e22', zmijewski_mask),
+    ('Merton DD (1974)',               merton_probs,    (merton_probs > 0.5).astype(int),
+                                        '#1abc9c', merton_mask),
     ('Logistic Regression (balanced)', lr_probs,     lr_preds,     '#e74c3c', np.ones(len(test), dtype=bool)),
     ('CrisisNet Fusion',               fusion_probs, fusion_preds, '#2ecc71', np.ones(len(test), dtype=bool)),
 ]
